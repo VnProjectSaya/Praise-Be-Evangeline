@@ -20,10 +20,10 @@ define clergyman = Character("Clergyman")
 define clergywoman = Character("Clergywoman")
 define crowd = Character("Crowd")
 
-define e = Character("Evangeline")
-define t = Character("Therion")
-define de = Character("Desmond")
-define announcer = Character("Announcer")
+define e = Character("Evangeline", kind=bubble, image="MISSING_EVA", who_color="#3d9e68")
+define t = Character("Therion", kind=bubble, image="MISSING_THERI", who_color="#4952ab")
+define de = Character("Desmond", kind=bubble, image="")
+define announcer = Character("Announcer", kind=bubble, image="")
 
 # The game starts here.
 
