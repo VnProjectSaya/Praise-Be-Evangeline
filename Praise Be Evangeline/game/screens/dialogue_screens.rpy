@@ -72,6 +72,7 @@ style say_label:
 ##
 ## The quick menu is displayed in-game to provide easy access to the out-of-game
 ## menus.
+default persistent.expend_quick_menu = True
 
 screen quick_menu():
 
@@ -79,17 +80,52 @@ screen quick_menu():
     zorder 100
 
     if quick_menu:
+        frame:
+            background Frame("gui/frame_round_brown.webp", 20, 0, 20, 0)
+            padding (40, 20, 123, 0) ysize 82
+            anchor (1.0, 1.0) pos (1.0, 1.0) yoffset -32
+            if persistent.expend_quick_menu:
+                at transform:
+                    ease 0.5 xoffset 56
+            else:
+                at transform:
+                    ease 0.5 xoffset 450
+            hbox:
+                style_prefix "quick"
+                align (0.0, 0.5) ysize 35 spacing 0
 
-        hbox:
-            style_prefix "quick"
+                use qm_button("back", _("Back"), Rollback())
+                null width 2
+                use qm_button("auto", _("Auto Forward"), Preference("auto-forward", "toggle"))
+                null width 5
+                use qm_button("skip", _("Skip"), Skip(), Skip(fast=True, confirm=True))
+                null width 2
+                use qm_button("log", _("History"), ShowMenu('history'))
+                null width 12
+                use qm_button("settings", _("Settings"), ShowMenu('preferences'))
+                null width 20
+                use qm_button("save", _("Save"), ShowMenu('save'))
+                null width 20
+                use qm_button("load", _("Load"), ShowMenu('load'))
+                null width 18
+                use qm_button("home", _("Main Menu"), MainMenu())
+        fixed:
+            xysize (35, 35) anchor (1.0,  1.0) pos (1.0, 1.0) offset (-2, -55)
+            at transform:
+                xzoom (-1.0 if persistent.expend_quick_menu else 1.0)
+            use qm_button("arrow", _("Expand Quick Menu"), ToggleVariable("persistent.expend_quick_menu"))
 
-            textbutton _("Back") action Rollback()
-            textbutton _("History") action ShowMenu('history')
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Save") action ShowMenu('save')
-            textbutton _("Prefs") action ShowMenu('preferences')
-
+screen qm_button(image_name, alt_text, action, alt_action=None):
+    button:
+        xysize (35, 35)
+        background "gui/qm/{0}_idle_icon.webp".format(image_name)
+        hover_background "gui/qm/{0}_hover_icon.webp".format(image_name)
+        insensitive_background "gui/qm/{0}_insensitive_icon.webp".format(image_name)
+        alt alt_text
+        action action
+        alternate alt_action
+        at transform:
+            ease 0.5 alpha (1.0 if persistent.expend_quick_menu or image_name == 'arrow' else -1.0)
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
 ## the player has not explicitly hidden the interface.
@@ -219,30 +255,46 @@ init python:
 
 define bubble.properties_callback = character_bubble_callback
 
+image bubble_ctc:
+    "gui/bubbles/ctc.webp"
+    alpha 0.0 anchor (0.5, 0.0) pos (0.5, 1.0)
+    parallel:
+        ease 0.6 alpha 1.0
+
+    parallel:
+        ease 0.5 yoffset 3
+        ease 0.5 yoffset 0
+        repeat
+
 screen bubble(who, what):
     style_prefix "bubble"
+    default ctc = None
 
     window:
         id "window"
-        has vbox
-        spacing 10
+        at transform:
+            alpha 1.0
+        vbox:
+            spacing 0
 
-        if who is not None:
+            if who is not None:
 
-            window:
-                id "namebox"
-                style "bubble_namebox"
+                window:
+                    id "namebox"
+                    style "bubble_namebox"
 
-                text who.upper():
-                    id "who"
+                    text who.upper():
+                        id "who"
 
-        text what:
-            id "what"
+            text what:
+                id "what"
+        showif ctc:
+            add "bubble_ctc"
 
 style bubble_window:
     is empty
     xpadding 30
-    padding (50, 60, 50, 60)
+    padding (50, 60, 50, 70)
 
 style bubble_namebox:
     is empty
@@ -255,7 +307,7 @@ style bubble_who:
     textalign 0.0
     color "#644628"
     outlines [(1, "#ddb654", 0, 0)]
-    size 32
+    size 30
 
 style bubble_what:
     is default
@@ -263,7 +315,8 @@ style bubble_what:
     text_align 0.0
     #layout "subtitle"
     color "#6d4d3f"
-    size 26
+    line_spacing -2
+    size 16
 
 define bubble.frame = Frame("gui/bubble.png", 55, 55, 55, 95)
 define bubble.thoughtframe = Frame("gui/thoughtbubble.png", 55, 55, 55, 55)
@@ -273,83 +326,91 @@ define bubble.properties = {
         "window_background" : Frame("gui/Bubble_Text/basic_bottom_left.webp", 150, 60, 150, 50),
         "window_xpadding" : 80,
         "window_bottom_padding" : 50,
-        "window_top_padding" : 80,
+        "window_top_padding" : 40,
     },
 
     "bottom_right" : {
         "window_background" : Frame("gui/Bubble_Text/basic_bottom_right.webp", 150, 60, 150, 50),
         "window_xpadding" : 80,
         "window_bottom_padding" : 50,
-        "window_top_padding" : 80,
+        "window_top_padding" : 40,
     },
 
     "top_left" : {
         "window_background" : Frame("gui/Bubble_Text/basic_top_left.webp", 150, 50, 150, 60),
         "window_xpadding" : 80,
         "window_bottom_padding" : 80,
-        "window_top_padding" : 50,
+        "window_top_padding" : 20,
     },
 
     "top_right" : {
         "window_background" : Frame("gui/Bubble_Text/basic_top_right.webp", 150, 50, 150, 60),
         "window_xpadding" : 80,
         "window_bottom_padding" : 80,
-        "window_top_padding" : 50,
+        "window_top_padding" : 20,
     },
 
     "thought" : {
         "window_background" : Frame("gui/Bubble_Text/Textbox/basic_textbox.webp", 257, 113, 257, 118),
-        "window_padding" : (80, 50),
+        "window_xpadding" : 80,
+        "window_bottom_padding" : 40,
+        "window_top_padding" : 20,
     },
 
     "eva_bottom_left" : {
         "window_background" : Frame("gui/Bubble_Text/eva_bottom_left.webp", 80, 150, 80, 100),
-        "window_bottom_padding" : 27,
+        "window_bottom_padding" : 40,
+        "window_top_padding" : 40,
     },
 
     "eva_bottom_right" : {
         "window_background" : Frame("gui/Bubble_Text/eva_bottom_right.webp", 80, 150, 80, 100),
-        "window_bottom_padding" : 27,
+        "window_bottom_padding" : 40,
+        "window_top_padding" : 40,
     },
 
     "eva_top_left" : {
         "window_background" : Frame("gui/Bubble_Text/eva_top_left.webp", 80, 100, 80, 150),
-        "window_top_padding" : 27,
+        "window_top_padding" : 20,
     },
 
     "eva_top_right" : {
         "window_background" : Frame("gui/Bubble_Text/eva_top_right.webp", 80, 100, 80, 150),
-        "window_top_padding" : 27,
+        "window_top_padding" : 20,
     },
 
     "eva_thought" : {
         "window_background" : Frame("gui/Bubble_Text/Textbox/eva_textbox.webp", 80, 100, 80, 100),
-        "window_top_padding" : 27,
+        "window_top_padding" : 20,
+        "window_bottom_padding" : 50,
     },
 
     "theri_bottom_left" : {
         "window_background" : Frame("gui/Bubble_Text/therion_bottom_left.webp", 80, 150, 80, 100),
-        "window_bottom_padding" : 27,
+        "window_bottom_padding" : 50,
+        "window_top_padding" : 40,
     },
 
     "theri_bottom_right" : {
         "window_background" : Frame("gui/Bubble_Text/therion_bottom_right.webp", 80, 150, 80, 100),
-        "window_bottom_padding" : 27,
+        "window_bottom_padding" : 50,
+        "window_top_padding" : 40,
     },
 
     "theri_top_left" : {
         "window_background" : Frame("gui/Bubble_Text/therion_top_left.webp", 80, 100, 80, 150),
-        "window_top_padding" : 27,
+        "window_top_padding" : 20,
     },
 
     "theri_top_right" : {
         "window_background" : Frame("gui/Bubble_Text/therion_top_right.webp", 80, 100, 80, 150),
-        "window_top_padding" : 27,
+        "window_top_padding" : 20,
     },
 
     "theri_thought" : {
         "window_background" : Frame("gui/Bubble_Text/Textbox/therion_textbox.webp", 80, 100, 80, 100),
-        "window_top_padding" : 27,
+        "window_top_padding" : 20,
+        "window_bottom_padding" : 50,
     }
 }
 
