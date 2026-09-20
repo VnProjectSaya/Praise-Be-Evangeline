@@ -258,7 +258,7 @@ image bg temple_night_dark = "BG/Temple_Night_Dark.png"
 image bg village_night = "BG/Village_night.png"
 image bg village_night_loop = "BG/Village_Night_Loop.png"
 
-image dream_frame = "Frame/Dream Frame/dream_frame.PNG"
+image dream_frame = "Frame/Dream Frame/dream_frame.webp"
 
 ##Storm note: please show this on start instead as seen in the script file
 screen storybook_frame():
