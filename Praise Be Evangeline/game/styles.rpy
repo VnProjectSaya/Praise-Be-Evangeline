@@ -11,6 +11,12 @@ init python early:
 
     GRAY = "#BABABA"
 
+    ## FONTS
+    DEJAVU = "DejaVuSans.ttf"
+    ATKINSON = "gui/font/Atkinson-Hyperlegible-Regular-102.otf"
+    OPENDYS = "_OpenDyslexic3-Regular.ttf"
+    NOTOSERIF = "gui/font/NotoSerif-Regular.ttf"
+
 
 ################################################################################
 ## Initialization
