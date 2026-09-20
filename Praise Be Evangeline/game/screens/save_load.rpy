@@ -9,15 +9,14 @@
 
 
 ## The width and height of thumbnails used by the save slots.
-define config.thumbnail_width = 384
-define config.thumbnail_height = 216
+define config.thumbnail_width = 264
+define config.thumbnail_height = 148
 
+define config.autosave_slots = 1
 
 screen save():
 
     tag menu
-
-    add HBox(Transform("#292835", xsize=350), "#21212db2") # The background; can be whatever
 
     use file_slots(_("Save"))
 
@@ -26,133 +25,91 @@ screen load():
 
     tag menu
 
-    add HBox(Transform("#292835", xsize=350), "#21212db2") # The background; can be whatever
-
     use file_slots(_("Load"))
 
 
 screen file_slots(title):
+    add "gui/menu_background1.webp"
 
-    default page_name_value = FilePageNameInputValue(
-        pattern=_("Page {}"), auto=_("Automatic saves"),
-        quick=_("Quick saves"))
+    viewport id "slvp":
+        draggable True mousewheel True pagekeys True
+        scrollbars None
 
-    use game_menu(title)
+        xysize (900, 615)
+        align (0.5, 0.5)
 
-    fixed:
-        xsize 1500 xalign 1.0
-        ## This ensures the input will get the enter event before any of the
-        ## buttons do.
-        order_reverse True
+        has vbox:
+            spacing 15
 
-        ## The page name, which can be edited by clicking on it.
-        ## This can be pretty easily removed if you want.
-        ## Don't forget to also remove the `default` at the top if so.
-        button:
-            style "page_label"
-            key_events True
-            action page_name_value.Toggle()
+        # OTDO: ADd autosave if time
+        for i in range(20):
+            $ slot = i + 1
 
-            input:
-                style "page_label_text"
-                value page_name_value
+            button:
+                style_prefix "slot"
+                action FileAction(slot, page=1)
 
-        ## The grid of file slots.
-        grid 3 2:
-            style_prefix "slot"
+                hbox:
+                    spacing 25
+                    if FileLoadable(slot):
+                        add AlphaMask(FileScreenshot(slot), mask="gui/button/slot_mask.webp")
+                    else:
+                        add "gui/button/slot_mask.webp"
 
-            for i in range(3*2):
-                $ slot = i + 1
+                    vbox:
+                        spacing 3
 
-                button:
-                    action FileAction(slot)
-                    has vbox
-
-                    add FileScreenshot(slot) xalign 0.5
-
-                    ## https://www.fabriziomusacchio.com/blog/2021-08-15-strftime_Cheat_Sheet/
-                    text FileTime(slot,
-                            format=_("{#file_time}%A, %B %d %Y, %H:%M"),
-                            empty=_("empty slot")):
-                        style "slot_time_text"
-
-                    text FileSaveName(slot) style "slot_name_text"
-
-                    # This means the player can hover this save
-                    # slot and hit delete to delete it
-                    key "save_delete" action FileDelete(slot)
-
-        ## Buttons to access other pages.
-        vbox:
-            style_prefix "page"
-            hbox:
-                textbutton _("<") action FilePagePrevious()
-
-                if config.has_autosave:
-                    textbutton _("{#auto_page}A") action FilePage("auto")
-
-                if config.has_quicksave:
-                    textbutton _("{#quick_page}Q") action FilePage("quick")
-
-                ## range(1, 10) gives the numbers from 1 to 9.
-                for page in range(1, 10):
-                    textbutton "[page]" action FilePage(page)
-
-                textbutton _(">") action FilePageNext()
-
-            if config.has_sync:
-                if CurrentScreenName() == "save":
-                    textbutton _("Upload Sync"):
-                        action UploadSync()
-                else:
-                    textbutton _("Download Sync"):
-                        action DownloadSync()
+                        label "{:02}.".format(slot) + FileSaveName(slot).upper()
+                        if FileLoadable(slot):
+                            text FileTime(format="{#file_time}TIME: %r")
+                            text FileTime(format="{#file_time}DATE: %x")
+                        else:
+                            text _("TIME: --:--:--")
+                            text _("DATE: --/--/--")
 
 
-style page_label:
-    xpadding 75
-    ypadding 5
-    xalign 0.5
 
-style page_label_text:
-    textalign 0.5
-    layout "subtitle"
-    hover_color '#ff8335'
+    ## SCROLLBAR ##
+    vbar value YScrollValue("slvp"):
+        ysize 1080
+        xpos 1613
 
-style slot_grid:
-    xalign 0.5
-    yalign 0.5
-    spacing 15
+    ## REUTRN BUTTON ##
+    button:
+        xysize (522, 82)
+        xoffset -115
+        ypos 25
+        padding (150, 20, 25, 15)
+        background "gui/frame_round_brown.webp"
+        foreground Transform("gui/qm/arrow_[prefix_]icon.webp", yalign=0.5, xpos=180)
+        text _("RETURN"):
+            xpos 100
+            idle_color GOLD
+            hover_color BLUE
+            
+        action Return()
 
-style slot_time_text:
-    size 25
-    xalign 0.5
 
-style slot_vbox:
-    spacing 12
 
+############################################################
+### STYLES ###
+############################################################
 style slot_button:
-    xysize (414, 309)
-    padding (15, 15, 15, 15)
-    background "gui/button/slot_[prefix_]background.png"
+    xysize (880, 206)
+    background "gui/button/slot_[prefix_]background.webp"
+    padding (30, 27)
 
-style slot_button_text:
-    size 21
-    xalign 0.5
-    idle_color '#aaaaaa'
-    hover_color '#ff8335'
-    selected_idle_color '#ffffff'
+style slot_label_text:
+    insensitive_color GRAY
+    color BROWN
+    insensitive_outlines [(3, "#00000000", 0, 0)]
+    outlines [(3, GOLD, 0, 0)]
+    hover_outlines [(3, BLUE, 0, 0)]
+    size 35
 
-style page_hbox:
-    xalign 0.5
-    spacing 5
+style slot_text:
+    insensitive_color GRAY
+    color BROWN
+    size 25
 
-style page_vbox:
-    xalign 0.5
-    yalign 1.0
-    spacing 5
-
-style page_button:
-    padding (15, 6, 15, 6)
-    xalign 0.5
 

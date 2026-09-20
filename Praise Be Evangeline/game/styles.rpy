@@ -2,11 +2,14 @@
 ## EARLY VARS
 ################################################################################
 init python early:
+    WHITE = "#FEF8EA"
     GOLD = "#FDD359"
 
     BROWN = "#5E4127"
 
     BLUE = "#61C7F4"
+
+    GRAY = "#BABABA"
 
 
 ################################################################################
@@ -121,10 +124,13 @@ style scrollbar:
     unscrollable 'hide'
 
 style vscrollbar:
-    xsize 18
-    base_bar Frame("gui/scrollbar/vertical_[prefix_]bar.png", 6, 6, 6, 6, tile=False)
-    thumb Frame("gui/scrollbar/vertical_[prefix_]thumb.png", 6, 6, 6, 6, tile=False)
+    xsize 62
+    base_bar Frame("gui/scrollbar/vertical_[prefix_]bar.webp", 6, 6, 6, 6, tile=False)
+    thumb "gui/scrollbar/vertical_[prefix_]thumb.webp"
     unscrollable 'hide'
+    top_gutter 180
+    bottom_gutter 180
+    thumb_offset -7
 
 style slider:
     ysize 38
