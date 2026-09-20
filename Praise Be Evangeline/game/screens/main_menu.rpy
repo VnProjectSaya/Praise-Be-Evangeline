@@ -25,6 +25,7 @@ screen main_menu():
 
         textbutton _("Start") action Start()
 
+        textbutton _("Gallery") action ShowMenu("gallery")
         textbutton _("Load") action ShowMenu("load")
 
         textbutton _("Preferences") action ShowMenu("preferences")
