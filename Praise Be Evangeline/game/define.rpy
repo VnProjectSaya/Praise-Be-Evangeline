@@ -260,13 +260,18 @@ image bg village_night_loop = "BG/Village_Night_Loop.png"
 
 image dream_frame = "Frame/Dream Frame/dream_frame.PNG"
 
+##Storm note: please show this on start instead as seen in the script file
+screen storybook_frame():
+    layer 'story_frame'
+
+    if True:
+        use dream_frame_overlay()
+    else:
+        use dream_frame_overlay() ##Replace with twisted one
 screen dream_frame_overlay():
-    zorder 200
+    layer 'story_frame'
     if "menu" not in renpy.get_showing_tags(layer="screens"):
         add "dream_frame"
-
-init python:
-    config.overlay_screens.append("dream_frame_overlay")
 
 # FIREFLY ANIM
 

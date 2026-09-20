@@ -137,21 +137,24 @@ screen notify(message):
 
 transform notify_appear:
     on show:
-        alpha 0
-        linear .25 alpha 1.0
+        yoffset 0
+        linear .25 yoffset 165
     on hide:
-        linear .5 alpha 0.0
+        linear .5 yoffset 0
 
 
 style notify_frame:
     is empty
-    ypos 68
-
-    background Frame("gui/notify.png", 24, 8, 60, 8, tile=False)
-    padding (24, 8, 60, 8)
+    xminimum 465
+    anchor (0.5, 1.0) pos (0.5, 0.0)
+    background Frame("gui/notify.webp", 60, 138, 60, 40, tile=False)
+    padding (60, 110, 60, 30)
 
 style notify_text:
-    size 24
+    color "#6d4d3f"
+    text_align 0.5 xalign 0.5
+    line_spacing -2
+    size 16
 
 
 
