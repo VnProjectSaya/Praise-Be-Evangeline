@@ -14,7 +14,7 @@ image main_menu_background = HBox(
 screen main_menu():
 
     ## This ensures that any other menu screen is replaced.
-    tag menu
+    tag storybook_frame
 
     add "main_menu_background"
 

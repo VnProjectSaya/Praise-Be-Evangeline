@@ -67,7 +67,7 @@ style cpicker_bar:
 ############################################################
 
 screen preferences():
-    tag menu
+    tag storybook_frame
 
     # TODO: Make to change w var
     add "gui/menu_background1.webp"

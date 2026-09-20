@@ -16,14 +16,14 @@ define config.autosave_slots = 1
 
 screen save():
 
-    tag menu
+    tag storybook_frame
 
     use file_slots(_("Save"))
 
 
 screen load():
 
-    tag menu
+    tag storybook_frame
 
     use file_slots(_("Load"))
 
@@ -35,7 +35,7 @@ screen file_slots(title):
         draggable True mousewheel True pagekeys True
         scrollbars None
 
-        xysize (900, 615)
+        xysize (900, 800)
         align (0.5, 0.5)
 
         has vbox:
@@ -74,6 +74,10 @@ screen file_slots(title):
         ysize 1080
         xpos 1613
 
+
+    ## STORYBOOK
+    use storybook_frame()
+
     ## REUTRN BUTTON ##
     button:
         xysize (522, 82)
@@ -86,7 +90,8 @@ screen file_slots(title):
             xpos 100
             idle_color GOLD
             hover_color BLUE
-            
+        
+        
         action Return()
 
 

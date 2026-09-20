@@ -121,7 +121,7 @@ image cg_creepytherion = Transform("cgs/creepy_therion_placeholder.webp", fit="c
 screen gallery():
     default page = 0
     
-    tag menu
+    tag storybook_frame
 
     style_prefix "gallery"
 
@@ -153,10 +153,26 @@ screen gallery():
             xalign 0.5 yalign 1.0 yoffset -50
             spacing 50
             for i in range(1, 3):
-                textbutton "{}".format(i) action NullAction()
+                textbutton "{}".format(i) action SetScreenVariable("page", i)
 
 
-    ### RETURN BTN ###
+    ## STORY FRAME ##
+    use storybook_frame()
+
+    ## REUTRN BUTTON ##
+    button:
+        xysize (522, 82)
+        xoffset -115
+        ypos 25
+        padding (150, 20, 25, 15)
+        background "gui/frame_round_brown.webp"
+        foreground Transform("gui/qm/arrow_[prefix_]icon.webp", yalign=0.5, xpos=180)
+        text _("RETURN"):
+            xpos 100
+            idle_color GOLD
+            hover_color BLUE
+            
+        action Return()
     
 
 
@@ -171,9 +187,12 @@ style gallery_label:
 style gallery_label_text:
     outlines [(3, GOLD, 0, 0)]
     color BROWN
+    font NOTOSERIF
 
 style gallery_button_text:
     size 35
     color BROWN
     hover_color BLUE
+    selected_color BLUE
+    font NOTOSERIF
 
