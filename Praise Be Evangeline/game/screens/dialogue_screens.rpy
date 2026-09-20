@@ -12,11 +12,14 @@
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#say
 
+default persistent.dialogue_alpha = 1.0
+
 screen say(who, what):
     style_prefix "say"
 
     window:
         id "window"
+        background Transform(Image("gui/textbox.png", xalign=0.5, yalign=1.0), alpha=persistent.dialogue_alpha)
 
         if who is not None:
 
@@ -25,7 +28,7 @@ screen say(who, what):
                 style "namebox"
                 text who id "who"
 
-        text what id "what"
+        text what id "what" font persistent.dialogue_typeface color persistent.dialogue_color
 
     ## If there's a side image, display it in front of the text.
     add SideImage() xalign 0.0 yalign 1.0
@@ -41,7 +44,7 @@ style window:
     yalign 1.0
     xysize (1231, 277)
     padding (40, 10, 40, 40)
-    background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
+    
 
 # Style for the dialogue
 style say_dialogue:
@@ -288,6 +291,8 @@ screen bubble(who, what):
 
             text what:
                 id "what"
+                font persistent.dialogue_typeface
+                color persistent.dialogue_color
         showif ctc:
             add "bubble_ctc"
 

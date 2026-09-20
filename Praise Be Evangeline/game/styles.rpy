@@ -44,6 +44,8 @@ define config.check_conflicting_properties = True
 
 # The text font for dialogue and choice menus
 define gui.text_font = gui.preference("font", "gui/font/NotoSerif-Regular.ttf")
+default persistent.dialogue_typeface = NOTOSERIF
+default persistent.dialogue_color = BROWN
 # The text font for buttons
 define gui.interface_text_font = gui.preference("interface_font", "gui/font/NotoSerif-Regular.ttf")
 # The default size of in-game text
@@ -114,9 +116,9 @@ style label_text:
 
 
 style bar:
-    ysize 38
-    left_bar Frame("gui/bar/left.png", 6, 6, 6, 6, tile=False)
-    right_bar Frame("gui/bar/right.png", 6, 6, 6, 6, tile=False)
+    ysize 39
+    left_bar Frame("gui/bar/left.webp", 15, 15)
+    right_bar Frame("gui/bar/right.webp", 15, 15)
 
 style vbar:
     xsize 38
