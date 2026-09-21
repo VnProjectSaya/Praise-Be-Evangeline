@@ -93,12 +93,15 @@ screen history():
 
             elif h.who is None:
                 $ what = renpy.filter_text_tags(h.what, allow=gui.history_allow_tags)
-                text what:
-                    substitute False
-                    color persistent.dialogue_color
-                    font persistent.dialogue_typeface
-                    xsize 400
+                hbox:
+                    # xsize 800
                     xalign 0.5
+                    text what:
+                        substitute False
+                        color persistent.dialogue_color
+                        font persistent.dialogue_typeface
+                        
+                        xalign 0.5
 
         if not _history_list:
             label _("The dialogue history is empty.")

@@ -61,8 +61,8 @@ screen file_slots(title):
 
                         label "{:02}.".format(slot) + FileSaveName(slot).upper()
                         if FileLoadable(slot):
-                            text FileTime(format="{#file_time}TIME: %r")
-                            text FileTime(format="{#file_time}DATE: %x")
+                            text FileTime(slot, format="{#file_time}TIME: %r")
+                            text FileTime(slot, format="{#file_time}DATE: %x")
                         else:
                             text _("TIME: --:--:--")
                             text _("DATE: --/--/--")
