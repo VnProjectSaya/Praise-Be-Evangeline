@@ -248,7 +248,8 @@ init python:
     def character_bubble_callback(image_tag):
         eva_image_tag = getattr(store, "e").image_tag
         theri_image_tag = getattr(store, "t").image_tag
-        eva_nar_image_tag = getattr(store, "narrator").image_tag
+        nar_image_tag = getattr(store, "narrator").image_tag
+        eva_nar_image_tag = getattr(store, "en").image_tag
         theri_nar_image_tag = getattr(store, "tn").image_tag
 
         if image_tag == eva_image_tag:
@@ -259,6 +260,8 @@ init python:
             return ["eva_thought"]
         elif image_tag == theri_nar_image_tag:
             return ["theri_thought"]
+        elif image_tag == nar_image_tag:
+            return ["thought"]
         else:
             return ["bottom_left", "bottom_right", "top_left", "top_right", "thought"]
 
@@ -287,13 +290,15 @@ screen bubble(who, what):
             spacing 0
 
             if who is not None:
-
+                align (0.0, 0.0)
                 window:
                     id "namebox"
                     style "bubble_namebox"
 
                     text who.upper():
                         id "who"
+            else:
+                align (0.5, 0.0)
 
             text what:
                 id "what"
