@@ -5,8 +5,8 @@
 
 define en = Character(None) # Eva's chara
 
-define tn = Character(None) # Therion's internal narration (glory/ruins)
-define narrator = Character(None) # neutral narration voice (glory/ruins)
+define tn = Character(None, kind=bubble, image="NAR_THERI", who_color="#4952ab", ctc_position="screen-variable", ctc="bubble_ctc") # Therion's internal narration (glory/ruins)
+define narrator = Character(None, kind=bubble, image="NAR_EVA", who_color="#3d9e68", ctc_position="screen-variable", ctc="bubble_ctc") # neutral narration voice (glory/ruins)
 
 define vidius = Character("Bishop Vidius")
 define caelor = Character("Caelor")

@@ -248,11 +248,17 @@ init python:
     def character_bubble_callback(image_tag):
         eva_image_tag = getattr(store, "e").image_tag
         theri_image_tag = getattr(store, "t").image_tag
+        eva_nar_image_tag = getattr(store, "narrator").image_tag
+        theri_nar_image_tag = getattr(store, "tn").image_tag
 
         if image_tag == eva_image_tag:
             return ["eva_bottom_left", "eva_bottom_right", "eva_top_left", "eva_top_right", "eva_thought"]
         elif image_tag == theri_image_tag:
             return ["theri_bottom_left", "theri_bottom_right", "theri_top_left", "theri_top_right", "theri_thought"]
+        elif image_tag == eva_nar_image_tag:
+            return ["eva_thought"]
+        elif image_tag == theri_nar_image_tag:
+            return ["theri_thought"]
         else:
             return ["bottom_left", "bottom_right", "top_left", "top_right", "thought"]
 
@@ -321,7 +327,7 @@ style bubble_what:
     #layout "subtitle"
     color "#6d4d3f"
     line_spacing -2
-    size 16
+    size 25
 
 define bubble.frame = Frame("gui/bubble.png", 55, 55, 55, 95)
 define bubble.thoughtframe = Frame("gui/thoughtbubble.png", 55, 55, 55, 55)
