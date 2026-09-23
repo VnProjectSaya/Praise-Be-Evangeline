@@ -298,7 +298,7 @@ screen bubble(who, what):
                     text who.upper():
                         id "who"
             else:
-                align (0.5, 0.0)
+                align (0.5, 0.5)
 
             text what:
                 id "what"
@@ -332,7 +332,7 @@ style bubble_what:
     #layout "subtitle"
     color "#6d4d3f"
     line_spacing -2
-    size 25
+    size 28
 
 define bubble.frame = Frame("gui/bubble.png", 55, 55, 55, 95)
 define bubble.thoughtframe = Frame("gui/thoughtbubble.png", 55, 55, 55, 55)

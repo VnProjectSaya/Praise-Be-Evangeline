@@ -145,6 +145,9 @@ default preferences.afm_time = 15
 
 define config.save_directory = "PraiseBeEvangeline-1785065843"
 
+default preferences.volume.music = 0.55  # Sets music to 70% volume
+default preferences.volume.voice = 1.0  # Sets voice acting to 100% volume
+default preferences.volume.sfx = 0.8    # Sets sound effects to 80% volume
 
 ## Icon ########################################################################
 ##
