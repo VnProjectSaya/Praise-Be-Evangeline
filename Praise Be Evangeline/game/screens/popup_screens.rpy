@@ -10,6 +10,11 @@
         
 
 screen confirm(message, yes_action, no_action=None):
+    on "show":
+        action SetVariable("quick_menu", False)
+    on "hide":
+        action SetVariable("quick_menu", True)
+    tag storybook_frame
 
     ## Ensure other screens do not get input while this screen is displayed.
     modal True
@@ -37,17 +42,19 @@ screen confirm(message, yes_action, no_action=None):
                 xalign 0.5 xoffset -50 yalign 1.0 yoffset -25
                 spacing 35
                 textbutton _("CONFIRM"):
-                    action yes_action
+                    action yes_action, SetVariable("quick_menu", True)
                 # Modified so you can just have a confirmation prompt
                 if no_action is not None:
                     textbutton _("CANCEL"):
-                        action no_action
+                        action no_action, SetVariable("quick_menu", True)
 
     ## Right-click and escape answer "no".
     if no_action is not None:
         key "game_menu" action no_action
     else:
         key "game_menu" action yes_action
+
+    use storybook_frame()
 
 style confirm_frame:
     xsize 774
