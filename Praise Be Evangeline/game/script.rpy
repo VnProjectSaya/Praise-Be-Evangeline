@@ -45,4 +45,6 @@ screen dream_frame_overlay():
 image GUI_Ref1 = "images/GUI_Ref1.png"
 label start:
     $ renpy.show_screen("storybook_frame")
+
+    "just something"
     jump opening_scene

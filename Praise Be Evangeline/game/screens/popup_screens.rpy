@@ -6,6 +6,9 @@
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#confirm
 
+
+        
+
 screen confirm(message, yes_action, no_action=None):
 
     ## Ensure other screens do not get input while this screen is displayed.
@@ -15,19 +18,30 @@ screen confirm(message, yes_action, no_action=None):
 
     style_prefix "confirm"
 
-    add "#0008" # You can replace this with your own overlay image
+    add "#310e0084"
 
-    frame:
-        has vbox
+    vbox:
+        spacing 25
+        align (0.5, 0.5)
 
-        label _(message) style "confirm_prompt"
+        frame:
 
-        hbox:
+            label _("ATTENTION"):
+                xalign 0.5
+                
+                style "pref_label"
 
-            textbutton _("Confirm") action yes_action
-            # Modified so you can just have a confirmation prompt
-            if no_action is not None:
-                textbutton _("Cancel") action no_action
+            text _(message) style "confirm_prompt"
+
+            hbox:
+                xalign 0.5 xoffset -50 yalign 1.0 yoffset -25
+                spacing 35
+                textbutton _("CONFIRM"):
+                    action yes_action
+                # Modified so you can just have a confirmation prompt
+                if no_action is not None:
+                    textbutton _("CANCEL"):
+                        action no_action
 
     ## Right-click and escape answer "no".
     if no_action is not None:
@@ -36,8 +50,10 @@ screen confirm(message, yes_action, no_action=None):
         key "game_menu" action yes_action
 
 style confirm_frame:
-    background Frame("gui/frame.png", 60, 60, 60, 60, tile=False)
-    padding (60, 60, 60, 60)
+    xsize 774
+    ysize 325
+    background Frame("gui/popup_frame.webp", 5, 100)
+    padding (40, 35, 40, 35)
     xalign 0.5
     yalign 0.5
 
@@ -45,23 +61,28 @@ style confirm_vbox:
     align (0.5, 0.5)
     spacing 45
 
-style confirm_prompt:
-    xalign 0.5
 
-style confirm_prompt_text:
+style confirm_prompt:
     textalign 0.5
     align (0.5, 0.5)
-    layout "subtitle"
+    size 25
+    color BROWN
+    font NOTOSERIF
 
-style confirm_hbox:
-    xalign 0.5
-    spacing 150
+
 
 style confirm_button:
-    xalign 0.5
+    # xalign 0.5
+    left_padding 65
+    hover_foreground "gui/button/confirm_hover_foreground.webp"
 
 style confirm_button_text:
     textalign 0.5
+    font NOTOSERIF
+    hover_italic True
+    color BROWN
+    hover_color BLUE
+    
 
 
 ## Skip indicator screen #######################################################
