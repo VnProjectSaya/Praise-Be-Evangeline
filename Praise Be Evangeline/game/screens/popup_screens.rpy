@@ -14,7 +14,7 @@ screen confirm(message, yes_action, no_action=None):
         action SetVariable("quick_menu", False)
     on "hide":
         action SetVariable("quick_menu", True)
-    tag storybook_frame
+    # tag storybook_frame
 
     ## Ensure other screens do not get input while this screen is displayed.
     modal True
