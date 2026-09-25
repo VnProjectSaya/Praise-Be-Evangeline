@@ -36,37 +36,48 @@ screen main_menu():
 
     vbox:
         xalign 0.5
-        ypos 435
-        spacing 0
+        ypos 700
+        spacing 2
 
         at ts_mm_enter()
 
+
         if page == 2:
-            textbutton _("Gallery") action ShowMenu("gallery") at ts_mm_btns()
-            textbutton _("Credits") action ShowMenu("credits") at ts_mm_btns()
-            if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+            hbox:
+                xalign 0.5
+                spacing 0
+                    
+                textbutton _("Gallery") action ShowMenu("gallery") at ts_mm_btns()
+                textbutton _("Credits") action ShowMenu("credits") at ts_mm_btns()
+                if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
-                ## Help isn't necessary or relevant to mobile devices.
-                textbutton _("Help") action ShowMenu("help") at ts_mm_btns()
+                    ## Help isn't necessary or relevant to mobile devices.
+                    textbutton _("Help") action ShowMenu("help") at ts_mm_btns()
 
-            textbutton _("Back") action SetScreenVariable("page", 1) at ts_mm_btns()
+            textbutton _("Back") action SetScreenVariable("page", 1) at ts_mm_btns() xalign 0.5
             
         else:
+            hbox:
+                xalign 0.5
+                spacing 0
+                textbutton _("Begin Story") action Start() at ts_mm_btns()
 
-            textbutton _("Begin Story") action Start() at ts_mm_btns()
+                textbutton _("Continue") action ShowMenu("load") at ts_mm_btns()
+                textbutton _("Settings") action ShowMenu("preferences") at ts_mm_btns()
+                
+            hbox:
+                xalign 0.5
+                spacing 0
+                textbutton _("Extras") action SetScreenVariable("page", 2) at ts_mm_btns()
 
-            textbutton _("Continue") action ShowMenu("load") at ts_mm_btns()
-            textbutton _("Settings") action ShowMenu("preferences") at ts_mm_btns()
-            textbutton _("Extras") action SetScreenVariable("page", 2) at ts_mm_btns()
 
 
 
+                if renpy.variant("pc"):
 
-            if renpy.variant("pc"):
-
-                ## The quit button is banned on iOS and unnecessary on Android and
-                ## Web.
-                textbutton _("Exit Story") action Quit(confirm=not main_menu) at ts_mm_btns()
+                    ## The quit button is banned on iOS and unnecessary on Android and
+                    ## Web.
+                    textbutton _("Exit Story") action Quit(confirm=not main_menu) at ts_mm_btns()
 
 style mm_button:
     xysize (520, 125)
