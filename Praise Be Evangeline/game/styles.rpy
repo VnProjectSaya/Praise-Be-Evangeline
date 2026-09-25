@@ -3,6 +3,7 @@
 ################################################################################
 init python early:
     WHITE = "#FEF8EA"
+    BLACK = "#000000"
 
     LGOLD = "#FCFB97"
     GOLD = "#FDD359"
@@ -11,6 +12,7 @@ init python early:
     BROWN = "#5E4127"
 
     BLUE = "#61C7F4"
+    DBLUE = "#292A60"
 
     GRAY = "#BABABA"
 

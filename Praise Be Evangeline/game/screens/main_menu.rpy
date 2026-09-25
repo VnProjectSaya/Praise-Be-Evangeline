@@ -6,40 +6,83 @@
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
 ## Replace this with your background image, if you like
-image main_menu_background = HBox(
-    Solid("#292835", xsize=350),
-    Solid("#21212d")
+default persistent.main_menu = 1 # TODO: Change this to the correct one as needed and update conditions below.
+
+image main_menu_background = ConditionSwitch(
+    "persistent.main_menu == 1", "gui/MM1.PNG",
+    "persistent.main_menu == 2", "gui/MM2.PNG",
+    "persistent.main_menu == 3", "gui/MM3.PNG"
 )
 
+transform ts_mm_btns():
+    on idle:
+        glow_outline(1, color="#43424200", mesh_pad=True, power=0.0)
+    on hover:
+        glow_outline(20, color="#FFFFFF",  mesh_pad=True, power=0.3)
+
+transform ts_mm_enter():
+    yoffset 200 alpha 0.0
+    ease 1.0 yoffset 0 alpha 1.0
+
 screen main_menu():
+    default page = 1
 
     ## This ensures that any other menu screen is replaced.
     tag storybook_frame
 
     add "main_menu_background"
 
+    style_prefix "mm"
+
     vbox:
-        xpos 60
-        yalign 0.5
-        spacing 6
+        xalign 0.5
+        ypos 435
+        spacing 0
 
-        textbutton _("Start") action Start()
+        at ts_mm_enter()
 
-        textbutton _("Gallery") action ShowMenu("gallery")
-        textbutton _("Load") action ShowMenu("load")
+        if page == 2:
+            textbutton _("Gallery") action ShowMenu("gallery") at ts_mm_btns()
+            textbutton _("Credits") action ShowMenu("credits") at ts_mm_btns()
+            if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
-        textbutton _("Preferences") action ShowMenu("preferences")
+                ## Help isn't necessary or relevant to mobile devices.
+                textbutton _("Help") action ShowMenu("help") at ts_mm_btns()
 
-        textbutton _("About") action ShowMenu("about")
+            textbutton _("Back") action SetScreenVariable("page", 1) at ts_mm_btns()
+            
+        else:
 
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+            textbutton _("Begin Story") action Start() at ts_mm_btns()
 
-            ## Help isn't necessary or relevant to mobile devices.
-            textbutton _("Help") action ShowMenu("help")
+            textbutton _("Continue") action ShowMenu("load") at ts_mm_btns()
+            textbutton _("Settings") action ShowMenu("preferences") at ts_mm_btns()
+            textbutton _("Extras") action SetScreenVariable("page", 2) at ts_mm_btns()
 
-        if renpy.variant("pc"):
 
-            ## The quit button is banned on iOS and unnecessary on Android and
-            ## Web.
-            textbutton _("Quit") action Quit(confirm=not main_menu)
+
+
+            if renpy.variant("pc"):
+
+                ## The quit button is banned on iOS and unnecessary on Android and
+                ## Web.
+                textbutton _("Exit Story") action Quit(confirm=not main_menu) at ts_mm_btns()
+
+style mm_button:
+    xysize (520, 125)
+    padding (35, 10, 15, 10)
+    hover_background "gui/mm_hover_background.webp"
+
+style mm_button_text:
+    align (0.5, 0.5)
+    size 50
+    font NOTOSERIF
+    axis { "weight" : 700}
+    color WHITE
+    hover_color GOLD
+
+    outlines [(2, DBLUE, 0, 0)]
+    hover_outlines [(2, DGOLD, 0, 0)]
+    
+    hover_italic True
 
