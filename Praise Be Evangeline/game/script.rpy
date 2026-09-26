@@ -10,11 +10,9 @@ define narrator = Character(None, kind=bubble, image="NAR_GEN", what_align=(0.5,
 
 define vidius = Character("Vidius", kind=bubble, image="", ctc_position="screen-variable", ctc="bubble_ctc", show_layer='bubbles')
 define caelor = Character("Caelor", kind=bubble, image="", ctc_position="screen-variable", ctc="bubble_ctc", show_layer='bubbles')
-define petra = Character("Petra")
-define ansel = Character("Ansel")
+define petra = Character("Petra", kind=bubble, image="", ctc_position="screen-variable", ctc="bubble_ctc", show_layer='bubbles')
+define ansel = Character("Ansel", kind=bubble, image="", ctc_position="screen-variable", ctc="bubble_ctc", show_layer='bubbles')
 
-define guard = Character("Guard")
-define guard2 = Character("Guard")
 define clergyman = Character("Clergyman")
 define clergywoman = Character("Clergywoman")
 define man = Character("man", kind=bubble, image="", ctc_position="screen-variable", ctc="bubble_ctc", show_layer='bubbles')
@@ -25,6 +23,7 @@ define e = Character("Evangeline", kind=bubble, image="MISSING_EVA", who_color="
 define t = Character("Therion", kind=bubble, image="MISSING_THERI", who_color="#4952ab", ctc_position="screen-variable", ctc="bubble_ctc", show_layer='bubbles')
 define de = Character("Desmond", kind=bubble, image="", ctc_position="screen-variable", ctc="bubble_ctc", show_layer='bubbles')
 define announcer = Character("Announcer", kind=bubble, image="")
+define guard = Character("Guard", kind=bubble, image="", ctc_position="screen-variable", ctc="bubble_ctc", show_layer='bubbles')
 
 image dream_frame = "Frame/Dream Frame/dream_frame.webp"
 
@@ -40,11 +39,11 @@ screen dream_frame_overlay():
     layer 'story_frame'
     if "menu" not in renpy.get_showing_tags(layer="screens"):
         add "dream_frame"
-
+# bg_layer renders at the very back.
+# story_frame renders above master and transient, but below the UI screens.
+define config.layers = [ 'bg_layer', 'master', 'transient', 'story_frame', 'screens', 'overlay' ]
 # The game starts here.
 image GUI_Ref1 = "images/GUI_Ref1.png"
 label start:
     $ renpy.show_screen("storybook_frame")
-
-    "just something"
     jump opening_scene
