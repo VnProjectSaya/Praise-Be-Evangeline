@@ -17,12 +17,12 @@ init python:
 
         "CyborgNekoSica" : ["UI Artist", "https://cyborgnekosica.itch.io/"],
         "Otoke Neko" : ["UI Artist, UI Programmer", "https://otojang.itch.io/"],
-        "Naiomh 'Storm' Murchan" : ["UI Programmer", "https://linktr.ee/stormstrom"],
+        "Naiomh 'Storm' Murchan" : ["UI Programmer", "https://naoimh-murchan.itch.io/"],
 
         "Rebecca Mondry" : ["Voice of Evangeline", "https://rebeccamondry.carrd.co/"],
         "Jason Daryl-Hall" : ["Voice of Therion", "https://www.imdb.com/name/nm14320438/"],
         "Jakob Bottoms" : ["Voice of Archbishop Desmond", "https://jakobbottoms.carrd.co/"],
-        "Tora" : ["Voice of Bishop Vidius", "https://www.instagram.com/threadtheocracy/"],
+        "Taylor Ota" : ["Voice of Bishop Vidius", "https://www.instagram.com/threadtheocracy/"],
         "Jefferey Neris" : ["Voice of Knight", "https://jeffereyneris.carrd.co/"],
         "mistershins" : ["Voice of Caelor", "https://www.twitch.tv/mistershins"],
         "Sophie Nyx" : ["Voice of Nuns", "https://sophienyx.carrd.co/"],
