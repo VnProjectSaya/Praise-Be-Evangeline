@@ -90,8 +90,8 @@ screen file_slots(title):
             xpos 100
             idle_color GOLD
             hover_color BLUE
-        
-        
+
+        keysym "game_menu"
         action Return()
 
 

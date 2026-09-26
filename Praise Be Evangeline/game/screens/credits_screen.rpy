@@ -10,7 +10,7 @@ init python:
         "azureXtwilight" : ["Project Lead, Writer", "https://azurextwilight.itch.io/"],
         "owl_ideas" : ["Main Menu Artist", "https://www.instagram.com/owl_ideas?igshid=YTQwZjQ0NmI0OA%3D%3D"],
         "SBHUnter" : ["Proofreader/Editor", "https://sbhunter.itch.io/"],
-        
+
         "JayJay" : ["Background Artist", "https://thisjayisred.itch.io/"],
         "ratifuu" : ["Horror CG Artist", "https://vgen.co/ratifuu_/"],
         "Puyoo" : ["CG Render Artist", "https://puyoo.itch.io/"],
@@ -26,7 +26,7 @@ init python:
         "Jefferey Neris" : ["Voice of Knight", "https://jeffereyneris.carrd.co/"],
         "mistershins" : ["Voice of Caelor", "https://www.twitch.tv/mistershins"],
         "Sophie Nyx" : ["Voice of Nuns", "https://sophienyx.carrd.co/"],
-        
+
     }
 
 
@@ -35,7 +35,7 @@ init python:
 ############################################################
 screen credits():
     default page = 1
-    
+
     tag storybook_frame
 
     style_prefix "cred"
@@ -53,7 +53,7 @@ screen credits():
         $ end = start + 9
 
         ## PAGE 2
-        if page == 2:    
+        if page == 2:
             grid 3 3:
                 style_prefix "credcred"
                 for name, desc in list(CREDITS.items())[start:end]:
@@ -64,7 +64,7 @@ screen credits():
                         textbutton name action OpenURL(link)
                         text role
 
-        elif page == 3:    
+        elif page == 3:
             grid 3 3:
                 style_prefix "credcred"
                 for name, desc in list(CREDITS.items())[start:end]:
@@ -83,9 +83,9 @@ screen credits():
                 text "[gui.about!t]\n" xalign 0.5
 
                 text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]") xalign 0.5 xsize 800
-       
-        
-        
+
+
+
         ## PAGES ##
         hbox:
             xalign 0.5 yalign 1.0 yoffset -50
@@ -109,8 +109,8 @@ screen credits():
             xpos 100
             idle_color GOLD
             hover_color BLUE
-            
-        action Return()
+        keysym "game_menu"
+        action (ShowMenu("main_menu_extras") if main_menu else Return())
 
 
 ############################################################

@@ -41,7 +41,6 @@ screen dream_frame_overlay():
         add "dream_frame"
 # bg_layer renders at the very back.
 # story_frame renders above master and transient, but below the UI screens.
-define config.layers = [ 'bg_layer', 'master', 'transient', 'story_frame', 'screens', 'overlay' ]
 # The game starts here.
 image GUI_Ref1 = "images/GUI_Ref1.png"
 label start:

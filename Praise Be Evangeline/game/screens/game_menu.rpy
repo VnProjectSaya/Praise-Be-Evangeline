@@ -54,7 +54,7 @@ screen game_menu(title):
 
     textbutton _("Return"):
         style "return_button"
-        action Return()
+        action (ShowMenu("main_menu_extras") if main_menu else Return())
 
     ## Remove this line if you don't want to show the screen
     ## title text as a label (for example, if it's baked into

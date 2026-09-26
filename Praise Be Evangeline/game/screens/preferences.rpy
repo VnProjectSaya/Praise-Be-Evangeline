@@ -77,8 +77,8 @@ screen preferences():
     hbox:
         xsize 1550
         align (0.5, 0.5)
-        
-        
+
+
 
         # GENERAL #
         frame:
@@ -118,13 +118,13 @@ screen preferences():
                 vbox:
                     spacing 5
 
-                    $ bgmvol = int(preferences.get_mixer("music") * 100) 
+                    $ bgmvol = int(preferences.get_mixer("music") * 100)
                     text _("BGM : {}%".format(bgmvol))
                     bar value Preference("music volume") style "pref_bar"
 
                     null height 15
 
-                    $sfxvol = int(preferences.get_mixer("sfx") * 100) 
+                    $sfxvol = int(preferences.get_mixer("sfx") * 100)
                     text _("SFX : {}%".format(sfxvol))
                     bar value Preference("sound volume") style "pref_bar"
 
@@ -144,7 +144,7 @@ screen preferences():
                         xsize 400
                         xfill True
 
-                        text _("TYPEFACE") 
+                        text _("TYPEFACE")
                         hbox:
                             imagebutton auto "gui/button/left_%s_arrow.webp" action CycleField(persistent, "dialogue_typeface", list(DEFAULT_FONT.keys()), reverse=True), Function(text_preview.update_text) align (0.0, 0.5)
 
@@ -172,7 +172,7 @@ screen preferences():
                                 text_size 20
                         add text_colorwheel
                         bar value FieldValue(text_colorwheel, "hue_rotation", 1.0):
-                            style "cpicker_bar" 
+                            style "cpicker_bar"
                             xalign 0.5
                             released Function(text_preview.update_text)
 
@@ -181,7 +181,7 @@ screen preferences():
                     hbox:
                         xalign 0.0
                         xsize 400
-                        text _("TEXT SPEED") 
+                        text _("TEXT SPEED")
                         hbox:
                             xalign 1.0
                             imagebutton auto "gui/button/left_%s_arrow.webp" action CycleField(preferences, "text_cps", list(DEFAULT_TEXT_SPEED.keys()), reverse=True), Function(text_preview.update_text) align (0.0, 0.5)
@@ -204,9 +204,9 @@ screen preferences():
 
 
 
-                    
-            
-        
+
+
+
 
 
     ## STORY FRAME ##
@@ -224,7 +224,7 @@ screen preferences():
             xpos 100
             idle_color GOLD
             hover_color BLUE
-            
+        keysym "game_menu"
         action Return()
 
 
@@ -270,4 +270,4 @@ style pref_hbox:
 style pref_bar:
     is bar
     xsize 400
-    
+

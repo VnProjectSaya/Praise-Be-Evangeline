@@ -120,7 +120,7 @@ image cg_creepytherion = Transform("cgs/creepy_therion_placeholder.webp", fit="c
 
 screen gallery():
     default page = 0
-    
+
     tag storybook_frame
 
     style_prefix "gallery"
@@ -138,7 +138,7 @@ screen gallery():
         ## images
         $ start = page * 6
         $ end = start + 6
-        
+
         grid 3 2:
             align (0.5, 0.5)
             for btn in GAL_BTNS[start:end]:
@@ -171,9 +171,9 @@ screen gallery():
             xpos 100
             idle_color GOLD
             hover_color BLUE
-            
-        action Return()
-    
+        keysym "game_menu"
+        action (ShowMenu("main_menu_extras") if main_menu else Return())
+
 
 
 ############################################################

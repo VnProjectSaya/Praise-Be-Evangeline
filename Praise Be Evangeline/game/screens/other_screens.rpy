@@ -54,14 +54,14 @@ screen help():
     # TODO: Make to change w var
     add "gui/menu_background1.webp"
 
-    
+
     style_prefix "pref"
 
     hbox:
         xsize 1550
         align (0.5, 0.5)
-        
-        
+
+
 
         # KEYBOARD #
         frame:
@@ -69,61 +69,61 @@ screen help():
                 label _("KEYBOARD")
 
                 null height 35
-                
+
                 viewport id "kbvp":
                     draggable True mousewheel True pagekeys True
-                    scrollbars None 
+                    scrollbars None
 
                     ysize 500
-                        
+
 
                     grid 2 12:
                         style_prefix "help"
-                        
+
                         label _("Enter")
                         text _("Advances dialogue and activates the interface.")
 
-                    
+
                         label _("Space")
                         text _("Advances dialogue without selecting choices.")
 
-                    
+
                         label _("Arrow Keys")
                         text _("Navigate the interface.")
 
-                    
+
                         label _("Escape")
                         text _("Accesses the game menu.")
 
-                    
+
                         label _("Ctrl")
                         text _("Skips dialogue while held down.")
 
-                    
+
                         label _("Tab")
                         text _("Toggles dialogue skipping.")
 
-                    
+
                         label _("Page Up")
                         text _("Rolls back to earlier dialogue.")
 
-                    
+
                         label _("Page Down")
                         text _("Rolls forward to later dialogue.")
 
-                    
+
                         label "H"
                         text _("Hides the user interface.")
 
-                    
+
                         label "S"
                         text _("Takes a screenshot.")
 
-                    
+
                         label "V"
                         text _("Toggles assistive {a=https://www.renpy.org/l/voicing}self-voicing{/a}.")
 
-                    
+
                         label "Shift+A"
                         text _("Opens the accessibility menu.")
 
@@ -145,7 +145,7 @@ screen help():
 
                 viewport id "mousevp":
                     draggable True mousewheel True pagekeys True
-                    scrollbars None 
+                    scrollbars None
 
                     ysize 500
 
@@ -186,7 +186,7 @@ screen help():
 
                     viewport id "gpvp":
                         draggable True mousewheel True pagekeys True
-                        scrollbars None 
+                        scrollbars None
 
                         ysize 500
 
@@ -212,8 +212,8 @@ screen help():
                             label _("Y/Top Button")
                             text _("Hides the user interface.")
 
-                        
-                    
+
+
                     textbutton _("Calibrate") action GamepadCalibrate() style "help_button"
 
                 ## SCROLLBAR ##
@@ -223,7 +223,7 @@ screen help():
                     xalign 1.0 xoffset 25
                     top_gutter 0
                     bottom_gutter 0
-                    
+
     ## STORY FRAME ##
     use storybook_frame()
 
@@ -239,11 +239,11 @@ screen help():
             xpos 100
             idle_color GOLD
             hover_color BLUE
-            
-        action Return()
+        keysym "game_menu"
+        action (ShowMenu("main_menu_extras") if main_menu else Return())
 
 
-      
+
 
 
 # style help_button:
@@ -261,7 +261,7 @@ style help_grid:
     xfill True
     xsize 400
     ysize 500
-    
+
     xspacing -25
     yspacing 25
 
