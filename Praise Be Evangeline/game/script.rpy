@@ -25,24 +25,51 @@ define de = Character("Desmond", kind=bubble, image="", ctc_position="screen-var
 define announcer = Character("Announcer", kind=bubble, image="")
 define guard = Character("Guard", kind=bubble, image="", ctc_position="screen-variable", ctc="bubble_ctc", show_layer='bubbles')
 
-image dream_frame = "Frame/Dream Frame/dream_frame.webp"
+image dream_frame:
+    anchor (0.5, 0.5) pos (0.5, 0.5)
+    "Frame/Dream Frame/dream_frame.webp"
+image twisted_frame:
+    anchor (0.5, 0.5) pos (0.5, 0.5)
+    "Frame/Twisted Frame/twisted_frame.png"
 
+default current_frame = "dream"
+default last_known_frame = None
 ##Storm note: please show this on start instead as seen in the script file
 screen storybook_frame():
     layer 'story_frame'
+    if current_frame != last_known_frame:
+        timer 0.6 action SetVariable("last_known_frame", current_frame)
 
-    if True:
-        use dream_frame_overlay()
-    else:
+    if current_frame == "twisted" or last_known_frame == "twisted":
+        use twisted_frame_overlay()
+    if current_frame == "dream" or last_known_frame == "dream":
         use dream_frame_overlay() ##Replace with twisted one
 screen dream_frame_overlay():
     layer 'story_frame'
     if "menu" not in renpy.get_showing_tags(layer="screens"):
-        add "dream_frame"
+        add "dream_frame":
+            if current_frame != last_known_frame:
+                at (frame_appear() if current_frame == "dream" else frame_hide())
+
+screen twisted_frame_overlay():
+    if "menu" not in renpy.get_showing_tags(layer="screens"):
+        add "twisted_frame":
+            if current_frame != last_known_frame:
+                at (frame_appear() if current_frame == "twisted" else frame_hide())
+
+transform frame_appear():
+    zoom 1.5 alpha 0.0
+    ease 0.6 zoom 1.0 alpha 1.0
+
+transform frame_hide():
+    ease 0.6 zoom 1.5 alpha 0.0
+
 # bg_layer renders at the very back.
 # story_frame renders above master and transient, but below the UI screens.
 # The game starts here.
-image GUI_Ref1 = "images/GUI_Ref1.png"
+
 label start:
     $ renpy.show_screen("storybook_frame")
+    # Storm: To change the frame, just put the below without the comment
+    # $ current_frame = "twisted"
     jump opening_scene
