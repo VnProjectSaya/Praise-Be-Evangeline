@@ -30,7 +30,10 @@ image dream_frame:
     "Frame/Dream Frame/dream_frame.webp"
 image twisted_frame:
     anchor (0.5, 0.5) pos (0.5, 0.5)
-    "Frame/Twisted Frame/twisted_frame.png"
+    "Frame/Twisted Frame/twisted_frame.webp"
+image horror_frame:
+    anchor (0.5, 0.5) pos (0.5, 0.5)
+    "Frame/Horror Frame/horror_frame.webp"
 
 default current_frame = "dream"
 default last_known_frame = None
@@ -43,7 +46,10 @@ screen storybook_frame():
     if current_frame == "twisted" or last_known_frame == "twisted":
         use twisted_frame_overlay()
     if current_frame == "dream" or last_known_frame == "dream":
-        use dream_frame_overlay() ##Replace with twisted one
+        use dream_frame_overlay()
+    if current_frame == "horror" or last_known_frame == "horror":
+        use horror_frame_overlay()
+
 screen dream_frame_overlay():
     layer 'story_frame'
     if "menu" not in renpy.get_showing_tags(layer="screens"):
@@ -56,6 +62,12 @@ screen twisted_frame_overlay():
         add "twisted_frame":
             if current_frame != last_known_frame:
                 at (frame_appear() if current_frame == "twisted" else frame_hide())
+
+screen horror_frame_overlay():
+    if "menu" not in renpy.get_showing_tags(layer="screens"):
+        add "horror_frame":
+            if current_frame != last_known_frame:
+                at (frame_appear() if current_frame == "horror" else frame_hide())
 
 transform frame_appear():
     zoom 1.5 alpha 0.0
@@ -72,4 +84,6 @@ label start:
     $ renpy.show_screen("storybook_frame")
     # Storm: To change the frame, just put the below without the comment
     # $ current_frame = "twisted"
+    # $ current_frame = "horror"
+
     jump opening_scene
