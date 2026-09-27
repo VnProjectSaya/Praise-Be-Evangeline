@@ -1,0 +1,147 @@
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\Arena_Day.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\Arena_Day_Lit.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\Arena_Day_Lit_Crowd.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\birb.psd
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\bird.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\bird2.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\blahd.psd
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\blood.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\BURST
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\cellar.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CREEPYTHERION
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\Evahand.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\Evahand.psd
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\EvaHorror.jpg
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\Eva_Bedroom_Day.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\Eva_Bedroom_Day_Flowers.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\Eva_Bedroom_Night_Dark.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\Eva_Bedroom_Night_Flowers_Dark.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\Eva_Bedroom_Night_Flowers_Lit.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\Eva_Bedroom_Night_Lit.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\Flashback.jpg
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\FLOWERS
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\GLORY
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\hand.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\hand2.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\leg.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\list.txt
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\LOOPBG.jpg
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\MOUTH THERION
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\PAST CG
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\PURIFICATIONMINIGAME
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\RED.jpg
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\SCREAM
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\Study_Night_Dark.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\Study_Night_Lit.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\Temple_Corridor_Day.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\Temple_Corridor_Night.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\Temple_Hall_Day.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\Temple_Hall_Night_Cool.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\Temple_Hall_Night_Dark.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\Temple_Hall_Night_Lit.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\Temple_Hall_Night_Lit_Cool.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\Temple_Hall_Night_Lit_Warm.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\Temple_Hall_Night_Warm.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\Temple_Night_Dark.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\therionbattle.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\therionbattle1.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\therionbattle2.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\therionhandwipe.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\Village_Night.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\Village_Night_Dark.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\Village_Night_Loop.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\BURST\background.jpg
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\BURST\bloodburst.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\BURST\pupils.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\BURST\[HORROR CG] therionexplodemerged.psd
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\BROWNORMAL.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\BROWSAD.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\carriage.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\CG1 NORMAL.psd
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\EVAEYECLOSED.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\EVAEYEHALF.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\EVAEYEOPEN.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\EVAHAIR1.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\EVAHAIR2.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\EVAMOUTHOH.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\EVAMOUTHSMILE.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\EVAWING1.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\EVAWING2.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\EYABODY.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\filelist.txt
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\THERIONBODY.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\THERIONBROWANGRY.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\THERIONBROWFURROW.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\THERIONBROWNORMAL.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\THERIONEYECLOSED.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\THERIONEYEHALF.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\THERIONEYEHALFYAN.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\THERIONEYEOPEN.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\THERIONEYEOPENYAN.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\THERIONMOUTHFROWN.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\THERIONMOUTHGRIN.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\THERIONMOUTHOH.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\THERIONMOUTHSMILE.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CARRIAGE CG\THERIONMOUTHYAN.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CREEPYTHERION\BASE.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CREEPYTHERION\CLOSEDEYE.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CREEPYTHERION\eye.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CREEPYTHERION\filelist.txt
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CREEPYTHERION\FULLEYE.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CREEPYTHERION\HALFEYE.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CREEPYTHERION\MOUTH1.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CREEPYTHERION\MOUTH2.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CREEPYTHERION\MOUTH3.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CREEPYTHERION\QUARTEREYE.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\FLOWERS\eva1.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\FLOWERS\eva2.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\FLOWERS\therion.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\GLORY\bang1behindbase_frame1.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\GLORY\bang1behindbase_frame2.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\GLORY\bang2frontofbase_frame1.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\GLORY\bang2frontofbase_frame2.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\GLORY\basenormal.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\GLORY\basesmile.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\GLORY\baseyandere.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\GLORY\BG.jpg
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\GLORY\GLORY.psd
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\GLORY\wingframe1.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\GLORY\wingframe2.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\MOUTH THERION\BASE.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\MOUTH THERION\EYECLOSED.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\MOUTH THERION\EYEHALF1.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\MOUTH THERION\EYEHALF2.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\MOUTH THERION\EYEOPEN.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\MOUTH THERION\LEFTHANDNOR.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\MOUTH THERION\LEFTHANDPULL.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\MOUTH THERION\MOUTHNORMAL.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\MOUTH THERION\MOUTHPULL1.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\MOUTH THERION\MOUTHPULL2.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\MOUTH THERION\RIGHTHANDNOR.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\MOUTH THERION\RIGHTHANDPULL.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\MOUTH THERION\[HORROR CG]therionmouthmerged1.psd
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\PAST CG\BG.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\PAST CG\CG4 flashback 1.psd
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\PAST CG\eva.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\PAST CG\eva1.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\PAST CG\therion1.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\PAST CG\therion2.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\PAST CG\therion3.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\PURIFICATIONMINIGAME\BGHOLY.jpg
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\PURIFICATIONMINIGAME\BGRED.jpg
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\PURIFICATIONMINIGAME\EVAHAND.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\PURIFICATIONMINIGAME\ladyholy.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\PURIFICATIONMINIGAME\ladyred.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\PURIFICATIONMINIGAME\manholy.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\PURIFICATIONMINIGAME\manred.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\PURIFICATIONMINIGAME\womanholy.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\PURIFICATIONMINIGAME\womanred.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\PURIFICATIONMINIGAME\[HORROR] townspeoplemerged.psd
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\SCREAM\ARMS.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\SCREAM\BG.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\SCREAM\BODY.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\SCREAM\PUPILS.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\SCREAM\SMOKE1.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\SCREAM\SMOKE2.png
+D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\SCREAM\[HORROR CG] womanscreammerged.psd
