@@ -81,7 +81,25 @@ init 999 python:
 # bg_layer renders at the very back.
 # story_frame renders above master and transient, but below the UI screens.
 # The game starts here.
+label splashscreen:
+    scene black
+    with Pause(1.0)
+    
+    show expression Text("{b}Content Warning{/b}\n\nThis game contains gore, violence, death,\nobsessive relationships, psychological abuse and jumpscares.\n\nPlayer discretion is advised.", size=36, text_align=0.5, color="#fef8ea") as warn at truecenter
+    with dissolve
+    $ renpy.pause(5.0)
+    hide warn
+    with dissolve
 
+    show expression Text("{b}Photosensitivity Warning{/b}\n\nThis game contains flashing lights and screen shake\nthat may affect players with photosensitive epilepsy.", size=36, text_align=0.5, color="#fef8ea") as warn at truecenter
+    with dissolve
+    $ renpy.pause(4.0)
+    hide warn
+    with dissolve
+    with Pause(1.0)
+    
+    
+    return
 label start:
     $ renpy.show_screen("storybook_frame")
     # Storm: To change the frame, just put the below without the comment
