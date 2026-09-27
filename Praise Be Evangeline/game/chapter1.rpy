@@ -1694,7 +1694,7 @@ label opening_scene:
     en "Some are openly weeping as I speak... Oh, the poor dears, to have waited so long in such misery."
 
     # GAMEPLAY: purification minigame
-    call purification_minigame
+    call purification_minigame from _call_purification_minigame
 
 
     voice "VA/RAKUMAROO/Eva40.mp3"

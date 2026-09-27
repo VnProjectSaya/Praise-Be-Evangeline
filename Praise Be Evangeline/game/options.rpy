@@ -183,19 +183,35 @@ init python:
     ## **.ogg" matches ogg files in the game directory or any of its
     ## subdirectories, and "**.psd" matches psd files anywhere in the project.
 
-    ## Classify files as None to exclude them from the built distributions.
+    # This is for dev purposes only
+    #demo=True
 
+    ## Classify files as None to exclude them from the built distributions.
     build.classify('**~', None)
     build.classify('**.bak', None)
     build.classify('**/.**', None)
     build.classify('**/#**', None)
     build.classify('**/thumbs.db', None)
+    build.classify('game/image_tools', None)
+    build.classify('game/**.psd', None)
+
+    #if demo:
+        #build.classify('ch2fluffy.rpy', None)
+        #build.classify('ch2spicy.rpy', None)
+        #build.classify('ch3.rpy', None)
+        #build.classify('ch4.rpy', None)
 
     ## To archive files, classify them as 'archive'.
 
-    # build.classify('game/**.png', 'archive')
-    # build.classify('game/**.jpg', 'archive')
+    build.classify('game/**.png', 'archive')
+    build.classify('game/**.jpg', 'archive')
+    build.classify('game/**.webp', 'archive')
+    build.classify('game/**.svg', 'archive')
+    build.classify('game/**.mp3', 'archive')
+    build.classify('game/**.ogg', 'archive')
 
+    build.classify('game/**.rpy', 'archive')
+    build.classify('game/**.rpyc', 'archive')
     ## Files matching documentation patterns are duplicated in a mac app build,
     ## so they appear in both the app and the zip file.
 

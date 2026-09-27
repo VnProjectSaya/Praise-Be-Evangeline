@@ -106,4 +106,13 @@ label start:
     # $ current_frame = "twisted"
     # $ current_frame = "horror"
 
+    #jump testanim
+
     jump opening_scene
+
+label testanim:
+    scene cg therion_eva with dissolve
+
+    $ renpy.pause()
+
+    en "Beh"

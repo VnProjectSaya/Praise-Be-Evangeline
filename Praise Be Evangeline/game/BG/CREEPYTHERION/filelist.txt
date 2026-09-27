@@ -1,9 +1,0 @@
-D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CREEPYTHERION\BASE.png
-D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CREEPYTHERION\CLOSEDEYE.png
-D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CREEPYTHERION\filelist.txt
-D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CREEPYTHERION\FULLEYE.png
-D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CREEPYTHERION\HALFEYE.png
-D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CREEPYTHERION\MOUTH1.png
-D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CREEPYTHERION\MOUTH2.png
-D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CREEPYTHERION\MOUTH3.png
-D:\RENPY\renpy-8.5.2-sdk\Praise Be Evangeline\game\BG\CREEPYTHERION\QUARTEREYE.png

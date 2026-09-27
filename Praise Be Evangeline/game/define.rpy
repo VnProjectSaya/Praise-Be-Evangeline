@@ -381,8 +381,8 @@ image bg_corridor_loop_night:
         linear 32.0 xpos -1920
         repeat
 image bg temple_hall_day = "BG/Temple_Hall_Day.png"
-image bg temple_hall_night_cool = "BG/Temple_Hall_Night_Cool.png"
-image bg temple_hall_night_warm = "BG/Temple_Hall_Night_Warm.png"
+image bg temple_hall_night_cool = "BG/Temple_Hall_Night_Dark.png"
+image bg temple_hall_night_warm = "BG/Temple_Hall_Night_Lit.png"
 
 image bg temple_night_dark = "BG/Temple_Night_Dark.png"
 
