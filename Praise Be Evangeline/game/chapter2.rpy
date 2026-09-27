@@ -890,12 +890,6 @@ label morning_intrusion:
 
     $ renpy.pause(1.0, hard=True)
 
-    # ============================================================
-    # MOTION: KNIGHT LEAVES LEFT / EVA WALKS LEFT TO CAELOR
-    # ============================================================
-
-    $ quick_menu = False
-
     # Knight turns left and exits to the left wing
     show faceless_knight:
         xzoom 1                        # Turn around to face left
