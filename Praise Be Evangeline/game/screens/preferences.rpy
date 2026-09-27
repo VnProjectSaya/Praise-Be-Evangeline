@@ -49,6 +49,17 @@ init python:
         store.persistent.dialogue_color = BROWN
         renpy.restart_interaction()
 
+
+    def normalize_volume(voice_tag):
+        vol = persistent._character_volume.get(voice_tag, 1.0)
+        if vol == 0:
+            return 0
+
+        vol = 20 * math.log10(vol)
+        vol = (vol + renpy.config.volume_db_range) / renpy.config.volume_db_range
+
+        return int(vol * 100)
+
 default text_colorwheel = ColorPicker(400, 115,
     start_color = persistent.dialogue_color,
     mouseup_callback=set_new_dialogue_color
@@ -68,6 +79,8 @@ style cpicker_bar:
 
 screen preferences():
     tag storybook_frame
+
+    default page = 1
 
     # TODO: Make to change w var
     add "gui/menu_background1.webp"
@@ -109,6 +122,7 @@ screen preferences():
                         imagebutton auto "gui/button/right_%s_arrow.webp" action CycleField(preferences, "afm_time", list(DEFAULT_AUTO_TIME.keys())) align (1.0, 0.5)
 
         # AUDIO #
+        
         frame:
             vbox:
                 label _("AUDIO")
@@ -116,17 +130,77 @@ screen preferences():
                 null height 35
 
                 vbox:
-                    spacing 5
+                    spacing 20
 
-                    $ bgmvol = int(preferences.get_mixer("music") * 100)
-                    text _("BGM : {}%".format(bgmvol))
-                    bar value Preference("music volume") style "pref_bar"
+                    if page == 2:
+                        $ evavol = normalize_volume("evangeline")
+                        text _("Evangeline : {}%".format(evavol))
+                        bar value SetCharacterVolume("evangeline") style "pref_bar"
 
-                    null height 15
+                        $ therionvol = normalize_volume("therion")
+                        text _("Therion : {}%".format(therionvol))
+                        bar value SetCharacterVolume("therion") style "pref_bar"
 
-                    $sfxvol = int(preferences.get_mixer("sfx") * 100)
-                    text _("SFX : {}%".format(sfxvol))
-                    bar value Preference("sound volume") style "pref_bar"
+                        $ desmondvol = normalize_volume("desmond")
+                        text _("Desmond : {}%".format(desmondvol))
+                        bar value SetCharacterVolume("desmond") style "pref_bar"
+
+                        $ vidiusvol = normalize_volume("vidius")
+                        text _("Vidius : {}%".format(vidiusvol))
+                        bar value SetCharacterVolume("vidius") style "pref_bar"
+
+                        
+                    elif page == 3:
+                        $ caelorvol = normalize_volume("caelor")
+                        text _("Caleor : {}%".format(caelorvol))
+                        bar value SetCharacterVolume("caelor") style "pref_bar"
+
+                        $ petravol = normalize_volume("petra")
+                        text _("Petra : {}%".format(petravol))
+                        bar value SetCharacterVolume("petra") style "pref_bar"
+
+                        $ anselvol = normalize_volume("ansel")
+                        text _("Ansel : {}%".format(anselvol))
+                        bar value SetCharacterVolume("ansel") style "pref_bar"
+
+                        $ miscvol = normalize_volume("misc")
+                        text _("Misc : {}%".format(miscvol))
+                        bar value SetCharacterVolume("misc") style "pref_bar"
+
+
+                        
+                    else:
+
+                        $ mainvol = int(preferences.get_mixer("main") * 100)
+                        text _("BGM : {}%".format(mainvol))
+                        bar value Preference("main volume") style "pref_bar"
+                        
+                        
+
+                        $ bgmvol = int(preferences.get_mixer("music") * 100)
+                        text _("BGM : {}%".format(bgmvol))
+                        bar value Preference("music volume") style "pref_bar"
+
+                        
+
+                        $ sfxvol = int(preferences.get_mixer("sfx") * 100)
+                        text _("SFX : {}%".format(sfxvol))
+                        bar value Preference("sound volume") style "pref_bar"
+
+                    
+            hbox:
+                align (0.5, 1.0) yoffset -15
+                spacing 3
+                
+                for i in range(1, 4):
+                    textbutton "{}".format(i):
+                        action SetScreenVariable("page", i)
+                        text_size 35
+                        text_color BROWN
+                        text_hover_color BLUE
+                        text_selected_color BLUE
+                        text_font NOTOSERIF
+
 
 
 
