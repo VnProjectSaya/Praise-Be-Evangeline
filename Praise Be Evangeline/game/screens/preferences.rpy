@@ -42,6 +42,7 @@ init python:
 
     def set_new_dialogue_color(picker):
         store.persistent.dialogue_color = picker.color.hexcode
+        store.text_preview.update_text()
         renpy.restart_interaction()
 
     def reset_dialogue_color(picker):
@@ -172,7 +173,7 @@ screen preferences():
                     else:
 
                         $ mainvol = int(preferences.get_mixer("main") * 100)
-                        text _("BGM : {}%".format(mainvol))
+                        text _("MAIN : {}%".format(mainvol))
                         bar value Preference("main volume") style "pref_bar"
                         
                         
@@ -264,13 +265,13 @@ screen preferences():
 
                             imagebutton auto "gui/button/right_%s_arrow.webp" action CycleField(preferences, "text_cps", list(DEFAULT_TEXT_SPEED.keys())), Function(text_preview.update_text) align (1.0, 0.5)
 
-                    null height 10
+                    null height 25
 
-                    $ tbalpha = int(persistent.dialogue_alpha * 100)
-                    text _("TEXTBOX OPACITY : {}%".format(tbalpha))
-                    bar value FieldValue(persistent, "dialogue_alpha", range=1.0) style "pref_bar"
+                    # $ tbalpha = int(persistent.dialogue_alpha * 100)
+                    # text _("TEXTBOX OPACITY : {}%".format(tbalpha))
+                    # bar value FieldValue(persistent, "dialogue_alpha", range=1.0) style "pref_bar"
 
-                    null height 10
+                    # null height 10
 
                     add text_preview:
                         xsize 400

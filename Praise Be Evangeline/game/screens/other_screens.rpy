@@ -66,6 +66,7 @@ screen help():
         # KEYBOARD #
         frame:
             vbox:
+                xsize 400
                 label _("KEYBOARD")
 
                 null height 35
@@ -139,6 +140,7 @@ screen help():
         # MOUSE #
         frame:
             vbox:
+                xsize 400
                 label _("MOUSE")
 
                 null height 35
@@ -180,6 +182,7 @@ screen help():
         if GamepadExists():
             frame:
                 vbox:
+                    xsize 400
                     label _("GAMEPAD")
 
                     null height 35

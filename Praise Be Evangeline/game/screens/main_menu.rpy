@@ -40,6 +40,9 @@ screen main_menu():
 
     style_prefix "mm"
 
+    if config.developer:
+        textbutton _("image tools") action ShowMenu("image_tools")
+
     vbox:
         xalign 0.5
         ypos 700
@@ -106,20 +109,24 @@ screen main_menu_extras():
 
 
 style mm_button:
-    xysize (520, 125)
-    padding (35, 10, 15, 10)
-    hover_background "gui/mm_hover_background.webp"
+    xsize 450
+    # xysize (520, 125)
+    # padding (35, 10, 15, 10)
+    # hover_background "gui/mm_hover_background.webp"
+    is choice_button
 
 style mm_button_text:
-    align (0.5, 0.5)
-    size 50
-    font NOTOSERIF
-    axis { "weight" : 700}
-    color WHITE
-    hover_color GOLD
+    is choice_button_text
+    size 35
+    # align (0.5, 0.5)
+    # size 50
+    # font NOTOSERIF
+    # axis { "weight" : 700}
+    # color WHITE
+    # hover_color GOLD
 
-    outlines [(2, DBLUE, 0, 0)]
-    hover_outlines [(2, DGOLD, 0, 0)]
+    # outlines [(2, DBLUE, 0, 0)]
+    # hover_outlines [(2, DGOLD, 0, 0)]
 
-    hover_italic True
+    # hover_italic True
 

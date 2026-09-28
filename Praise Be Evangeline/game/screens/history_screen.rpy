@@ -33,7 +33,7 @@ screen history():
         scrollbars None yinitial 1.0
 
         has vbox:
-            spacing 35
+            spacing 50
 
         style_prefix "history"
 

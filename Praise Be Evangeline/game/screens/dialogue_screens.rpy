@@ -124,6 +124,7 @@ screen qm_button(image_name, alt_text, action, alt_action=None):
         background "gui/qm/{0}_idle_icon.webp".format(image_name)
         hover_background "gui/qm/{0}_hover_icon.webp".format(image_name)
         insensitive_background "gui/qm/{0}_insensitive_icon.webp".format(image_name)
+        selected_background "gui/qm/{0}_hover_icon.webp".format(image_name)
         alt alt_text
         action action
         alternate alt_action
