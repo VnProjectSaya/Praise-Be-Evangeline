@@ -1,19 +1,6 @@
-# ══════════════════════════════════════════════
-# ARENA — AFTER THE THIRD CONVICT (spin → pull-out → turn)
-# Camera : master layer -8°, zoom 1.24
-#          visible window in sprite coords = x 186..1734, y 104..976
-# Pivot  : Eva's face (720, 430)
-# Eva    : face anchor (930, 530) on 1920x3000 -> (0.484, 0.177)
-# Therion: face anchor (1590, 530) on 3000x3500 -> (0.530, 0.151)
-# Knight : helmet top (620, 91) on 1577x3495
-#          -> (0.393, 0.026), flipped -> (0.607, 0.026)
-# bg assumed 1920x1080
-# ══════════════════════════════════════════════
 
 define SPIN_PIVOT = (720, 430)
 
-# ── WORLD ──
-# spins back and forth round Eva's face, slow breathing zoom, blurred
 transform arena_world_spin:
     subpixel True
     transform_anchor True
@@ -28,21 +15,18 @@ transform arena_world_spin:
         ease 1.5 zoom 1.5
         repeat
 
-# spin stops, camera backs off
 transform arena_world_settle:
     subpixel True
     transform_anchor True
     anchor (720 / 1920.0, 430 / 1080.0) pos SPIN_PIVOT
     ease 0.8 rotate 0 zoom 1.3 blur 3
 
-# after the fade
 transform arena_world_still:
     subpixel True
     transform_anchor True
     anchor (720 / 1920.0, 430 / 1080.0) pos SPIN_PIVOT
     rotate 0 zoom 1.3 blur 0
 
-# ── EVA ── the only sharp thing on screen
 transform eva_spin_focus:
     subpixel True
     xzoom 1.0 blur 0
@@ -73,7 +57,6 @@ transform eva_dragged:
     subpixel True
     ease 0.5 pos (820, 500) zoom 0.35
 
-# after the fade: she has turned round toward the doors
 transform eva_turned:
     subpixel True
     xzoom -1.0 blur 0
@@ -84,8 +67,6 @@ transform eva_turned:
         ease 1.8 yoffset 350
         repeat
 
-# ── THERION ──
-# foreground, right of Eva, blurred, scythe passes over her hair
 transform therion_guard_front:
     subpixel True
     anchor (0.530, 0.151) pos (1180, 420)
@@ -103,14 +84,11 @@ transform therion_dragged:
     subpixel True
     ease 0.5 pos (1130, 470) zoom 0.47
 
-# after the fade: behind her, left, shoving her toward the doors
 transform therion_shove:
     subpixel True
     xanchor 0.5 yanchor 1.0 xpos 760 ypos 1.0
     zoom 0.37 yoffset 400 blur 0
 
-# ── FACELESS KNIGHTS ── closest to camera, biggest, blurred
-# if the left knight lands wrong, swap 0.607 -> 0.393
 transform knight_rush_l:
     subpixel True
     xzoom -1.0

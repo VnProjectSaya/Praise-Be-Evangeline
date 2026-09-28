@@ -75,14 +75,12 @@ label therion_ruins:
     voice "VA/JASON/RUINS/R1.mp3"
     t "Yeah, no problem."
 
-    # walks to the body and bends down
     show therion browneutral half smug:
         ease 1.0 xpos 0.40
         ease 0.6 rotate 9 yoffset 150
 
     tn "Easy. Pick Vidius up, drag the corpse, toss it down the stairs, smash the skull a bit more to match the drop."
 
-    # half lift, Vidius hangs limp
     show vidius browsad eyeclosed frown shadow zorder 3:
         matrixcolor ColorizeMatrix("#152238", "#f4dcb3")
         subpixel True
@@ -107,7 +105,6 @@ label therion_ruins:
 
     tn "Lift on three. One, two…"
 
-    # everything stops
     show vidius:
         ease 0.3 rotate -7
     show therion browneutral open neutral:
@@ -117,7 +114,6 @@ label therion_ruins:
 
     tn "Vidius's hand."
 
-    # the twitch
     show vidius:
         linear 0.04 xoffset 2
         linear 0.04 xoffset -1
@@ -133,7 +129,6 @@ label therion_ruins:
     voice "VA/TORA/Vidius/Ruins Ending/Vidius_Ruin_1.mp3"
     vidius "Sss... someone's... still—"
 
-    # Therion nearly drops him
     show therion browmad shook gritangry:
         easeout 0.08 xoffset -14
         easein 0.25 xoffset 0
@@ -160,7 +155,6 @@ label therion_ruins:
     voice "VA/RAKUMAROO/RUINS/E2.mp3"
     e "Oh. Oh, the bishop is— Therion, set the body down! Gently!"
 
-    # set down, slumped against the floor
     show vidius:
         ease 1.0 ypos 700 rotate -10 xoffset 0
         block:
@@ -179,7 +173,6 @@ label therion_ruins:
     voice "VA/JASON/RUINS/R2.mp3"
     t "You want me to just—pop, done, clean? Can make it look like the fall did it."
 
-    # Eva pushes in, Therion steps aside
     show eva agitated browsad yandere_sad what:
         easein 0.4 xpos 0.6 rotate -8 yoffset 120
     show therion browneutral shook neutral:
@@ -188,7 +181,6 @@ label therion_ruins:
     voice "VA/RAKUMAROO/RUINS/E3.mp3"
     e "No! I can fix this! I can— move, let me—"
 
-    # OPTIONAL: an unstable glow at her hands, flickering
     show expression Solid("#ffe7a0", xysize=(140, 140)) as gold_core zorder 9:
         subpixel True
         anchor (0.5, 0.5)
@@ -206,7 +198,6 @@ label therion_ruins:
             linear 0.18 alpha 0.4 zoom 1.0
             linear 0.1 alpha 0.2
             repeat
-    # shaking hands
     show eva frown:
         block:
             linear 0.05 xoffset -1.5
@@ -255,7 +246,6 @@ label therion_ruins:
     voice "VA/JASON/RUINS/R3.mp3"
     t "Therion, mate. And shut your trap, you're making her nervous."
 
-    # lunges toward Therion
     show vidius:
         easein 0.1 xoffset -18 rotate -14
         easeout 0.2 xoffset -10 rotate -11
@@ -289,7 +279,6 @@ label therion_ruins:
     voice "VA/RAKUMAROO/RUINS/E5.mp3"
     e "Stop squirming! I am trying to HELP you—!"
 
-    # ---- flares gold at first, her usual blocky light ----
     show expression Solid("#fff4cc", xysize=(160, 160)) as gold_core zorder 9:
         subpixel True
         anchor (0.5, 0.5)
@@ -311,7 +300,6 @@ label therion_ruins:
 
     tn "I know her light better than my own name. White and gold, I've worshipped every spark of it."
 
-    # the gold starts to stutter
     show gold_core:
         subpixel True
         anchor (0.5, 0.5)
@@ -378,7 +366,6 @@ label therion_ruins:
         alpha 0.0
         ease 1.5 alpha 0.5
 
-    # sprites drain toward a sick red-grey
 
     show vidius:
         parallel:
@@ -421,7 +408,6 @@ label therion_ruins:
 
     play sound "audio/darkmagic.mp3"
 
-    # ---- beam hits: black flash covers the swap to the blood body ----
     show expression Solid("#000000") as void_flash zorder 20:
         alpha 0.95
         linear 0.5 alpha 0.0
@@ -435,7 +421,6 @@ label therion_ruins:
             linear 0.04 xoffset 3 rotate -9
             repeat
 
-    # front half: hands to his face
     show expression Solid("#6e0808", xysize=(191, 26)) as void_beam_rim zorder 5:
         subpixel True
         transform_anchor True
@@ -464,7 +449,6 @@ label therion_ruins:
             linear 0.09 yzoom 0.9
             repeat
 
-        # back half: behind his head, through the hole and off screen
     show expression Solid("#6e0808", xysize=(800, 26)) as void_beam_back_rim zorder 2:
         subpixel True
         transform_anchor True
@@ -495,7 +479,6 @@ label therion_ruins:
             linear 0.09 yzoom 0.9
             repeat
 
-    # black magic filling the hole from behind
     show expression VoidCircle(90, "#5a0000", pad=70) as void_hole_glow zorder 2:
         subpixel True
         anchor (0.5, 0.5)
@@ -534,7 +517,6 @@ label therion_ruins:
             repeat 6
         linear 0.1 xoffset 0 yoffset 0
 
-        # Therion throws himself out of the beam's path
     show therion browsad shook gritannoyed:
         parallel:
             pause 0.08
@@ -552,7 +534,6 @@ label therion_ruins:
     voice "VA/TORA/Vidius/Ruins Ending/Vidius_Ruin_6.mp3"
     vidius "AAAAAGHHHHHH—!"
 
-    # the beam dies on her "No!"
     show void_beam:
         linear 0.1 alpha 0.0
     show void_beam_rim:
@@ -573,7 +554,6 @@ label therion_ruins:
 
     tn "And her light... This ain't my saintess' color."
 
-    # ---- beam cuts out, he goes still ----
     show void_beam:
         linear 0.1 alpha 0.0
     show void_beam_rim:
@@ -612,7 +592,6 @@ label therion_ruins:
 
     tn "I can see the floor through HIS GODDAMN SKULL."
 
-    # ---- Eva jerks back, stumbles out toward Therion ----
     show layer master:
         subpixel True
         anchor (0.5, 0.5)
@@ -620,12 +599,10 @@ label therion_ruins:
         zoom 3.2
         ease 0.6 pos (960, 500) zoom 1.7
 
-    # she recoils and starts to go down
     show eva agitated browsad normal_sad shocked zorder 4:
         easeout 0.12 xoffset 14 rotate 4
         easein 0.4 xpos 0.64 xoffset 0 rotate 9 yoffset 170
         easein 0.25 rotate 13 yoffset 230
-        # caught, falls back against him
         easeout 0.2 rotate 10 yoffset 195
         ease 0.5 rotate 8 yoffset 190
         block:
@@ -633,7 +610,6 @@ label therion_ruins:
             linear 0.08 xoffset 1.5
             repeat
 
-    # Therion dashes in behind her from the left
     show therion browmad shook gritangry:
         xpos -0.2
         xzoom -1
@@ -662,7 +638,6 @@ label therion_ruins:
     voice "VA/RAKUMAROO/RUINS/E7.mp3"
     e "... No!"
 
-    # Vidius slides off the bottom of the frame
     show vidius:
         easein 0.5 ypos 1600 rotate -35
     show layer master:
@@ -693,7 +668,6 @@ label therion_ruins:
     hide void_flash
     hide vidius
 
-    # Therion helps her up
     show eva agitated browsad yandere_sad what:
         ease 0.9 xpos 0.62 rotate 0 yoffset 75
         block:
@@ -737,7 +711,6 @@ label therion_ruins:
 
     tn "From MY Evangeline."
 
-    # Therion unsteady on his feet, jitter underneath
     show therion:
         parallel:
             block:
@@ -757,13 +730,10 @@ label therion_ruins:
 
     tn "I'm gonna be sick."
 
-    # Eva screaming: sharp jolts, harder tremble
     show eva browsad yandere_sad shocked:
-        # one small flinch as she starts shouting
         easein 0.1 yoffset 71
         ease 0.4 yoffset 75
         parallel:
-            # ragged breathing
             block:
                 ease 0.7 yoffset 72
                 ease 0.9 yoffset 76
@@ -771,7 +741,6 @@ label therion_ruins:
                 ease 1.1 yoffset 75
                 repeat
         parallel:
-            # fine tremor with stillness in between
             block:
                 linear 0.04 xoffset -0.8
                 linear 0.05 xoffset 0.6
@@ -786,7 +755,6 @@ label therion_ruins:
     voice "VA/RAKUMAROO/RUINS/E8.mp3"
     e "I did not mean—! My light has never done that before, Therion, I swear to you, it has NEVER—"
 
-    # back to shaking
     show eva browsad yandere_sad frown:
         ease 0.3 xoffset 0 rotate 0
         block:
@@ -820,7 +788,6 @@ label therion_ruins:
     voice "VA/JASON/RUINS/R7.mp3"
     t "Man, look at her. She's so scared."
 
-    # push in on the two of them
     show layer master:
         subpixel True
         anchor (0.5, 0.5)
@@ -883,7 +850,6 @@ label therion_ruins:
 
     scene bg temple_corridor_night
 
-    # dark overcast, slow drifting flicker
     show rc_overcast zorder 30:
         blend "multiply"
         alpha 0.58
@@ -932,7 +898,6 @@ label therion_ruins:
 
     with fade
 
-    # Eva hurries in from the left
     $ rc_path("eva", (0.38, 2.2, "easeout_quad"))
 
     show eva browneutral yandere_sad neutral:
@@ -968,7 +933,6 @@ label therion_ruins:
 
     tn "I see her coming, 'cause I know the sound of her slippers better than my own name."
 
-    # ---- she shoves him, keeps her hand on his chest ----
     $ rc_path("eva", (0.46, 0.25, "easein"), (0.45, 0.3))
     $ rc_path("therion", (0.60, 0.12, "easeout"), (0.595, 0.35, "easein"), delay=0.2)
 
@@ -995,7 +959,6 @@ label therion_ruins:
 
     tn "That's what I've wanted since I was nine years old and she tied a silk ribbon around my wrist."
 
-    # skin crawling: subtle tremor from here on
     show therion browmad creepy gritangry:
         parallel:
             function rc_ther_tf
@@ -1030,7 +993,6 @@ label therion_ruins:
     voice "VA/RAKUMAROO/RUINS/E10.mp3"
     e "You are never 'just' anything."
 
-    # ---- three steps back, both darken ----
     $ rc_path("therion", (0.635, 0.25, "easein"), (0.635, 0.4), (0.675, 0.25, "easein"), (0.675, 0.4), (0.715, 0.25, "easein"))
 
     show therion browmad creepy frown:
@@ -1077,7 +1039,6 @@ label therion_ruins:
 
     tn "But my body just did it on its own."
 
-    # ---- Eva, one step forward ----
     $ rc_path("eva", (0.51, 0.6))
     show eva browneutral yandere_sad frown
 
@@ -1104,13 +1065,11 @@ label therion_ruins:
     voice "VA/RAKUMAROO/RUINS/E13.mp3"
     e "Come. Back. Here."
 
-    # ---- she closes the gap ----
     $ rc_path("eva", (0.60, 1.2))
     show eva browmad yandere_sad frown
 
     tn "She closes the gap herself. Reaches for my chest again."
 
-    # one fast step back
     $ rc_path("therion", (0.76, 0.18, "easeout"))
     show therion browmad creepy gritangry:
         parallel:
@@ -1160,7 +1119,6 @@ label therion_ruins:
     voice "VA/RAKUMAROO/RUINS/E16.mp3"
     e "Your BODY?"
 
-    # ---- Eva trembles ----
     show eva browmad yandere_sad yanderesmug:
         parallel:
             function rc_eva_tf
@@ -1195,7 +1153,6 @@ label therion_ruins:
     voice "VA/JASON/RUINS/R14.mp3"
     t "No, saintess, please! I want to, I swear I do, but something in me won't let me! My legs have their own ideas and they're all fucking terrible ones—"
 
-    # ---- trembles again, a little harder ----
     show eva browmad yandere_sad yandereevilsmile:
         parallel:
             function rc_eva_tf
@@ -1228,7 +1185,6 @@ label therion_ruins:
     voice "VA/RAKUMAROO/RUINS/E21.mp3"
     e "No, you sound like you hate me now!"
 
-    # ---- he moves back again, darker ----
     $ rc_shadow_alpha = 0.65
     $ rc_path("therion", (0.80, 0.25, "easeout"))
 
@@ -1285,7 +1241,6 @@ label therion_ruins:
     voice "VA/RAKUMAROO/RUINS/E23.mp3"
     e "What changed?! Don't you care for me anymore!?"
 
-    # ---- he shakes, the room shakes, shadows climb ----
     $ rc_shadow_alpha = 0.8
     $ rc_shadow_stretch = 1.25
 
@@ -1338,7 +1293,6 @@ label therion_ruins:
     voice "VA/JASON/RUINS/R17.mp3"
     t "Because your light is gone!"
 
-    # she goes completely still
     show eva browneutral yandere_sad shocked:
         parallel:
             function rc_eva_tf
@@ -1375,7 +1329,6 @@ label therion_ruins:
     voice "VA/JASON/RUINS/R18.mp3"
     t "It is! You laid your hands on Vidius and it came out pitch dark! Then Vidius's whole FACE was—"
 
-    # ---- she stomps ----
     show eva browmad yandere_sad angry:
         parallel:
             function rc_eva_tf
@@ -1403,7 +1356,6 @@ label therion_ruins:
     voice "VA/RAKUMAROO/RUINS/E25.mp3"
     e "STOP! I DON'T WANT TO HEAR IT ANYMORE!"
 
-    # ---- she turns and runs off to the left ----
     $ rc_eva_face = 1.0
     $ rc_path("eva", (-0.3, 1.2, "easein"), delay=0.3)
     show eva browsad yandere_sad what
@@ -1415,7 +1367,6 @@ label therion_ruins:
 
     tn "Now she's running from ME."
 
-    # creepy eyes gone: shocked, sad
     show therion browsad shook frown
 
     tn "Saintess. My Saintess. My Evangeline."
@@ -1424,7 +1375,6 @@ label therion_ruins:
 
     tn "I just made the only person who ever silenced the screaming in my head cry, and I can't even chase her because my legs refuse to move in her direction."
 
-    # his shadow climbs, the dark closes in
     $ rc_shadow_alpha = 0.9
     $ rc_shadow_stretch = 1.6
 
@@ -1468,9 +1418,6 @@ label therion_ruins:
 
     tn "Today's the exact same nightmare."
 
-    # =========================================================
-    # SAME CORRIDOR, DIM RED
-    # =========================================================
     $ rc_reset()
     $ rc_set("therion", 0.58)
     $ rc_set("eva", 0.42)
@@ -1558,7 +1505,6 @@ label therion_ruins:
 
     with fade
 
-    # ---- Eva pushes into him, he gives ground ----
     $ rc_path("eva", (0.49, 0.3, "easein"))
     $ rc_path("therion", (0.625, 0.15, "easeout"), (0.62, 0.3), delay=0.2)
 
@@ -1612,7 +1558,6 @@ label therion_ruins:
 
     tn "I recognize that ribbon. I wore a strip of it on my other arm for five years till the threads rotted through and snapped off during a contract."
 
-    # she draws in close to tie it
     $ rc_path("eva", (0.52, 0.8))
     show eva browneutral yandere_happy neutral
 
@@ -1637,7 +1582,6 @@ label therion_ruins:
     voice "VA/RAKUMAROO/RUINS/E29.mp3"
     e "I won't let you run away from me again. Not now. Not EVER."
 
-    # ---- Therion shakes ----
     show therion browsad shook gritannoyed:
         parallel:
             function rc_ther_tf
@@ -1667,9 +1611,6 @@ label therion_ruins:
 
     tn "WHY THE FUCK CAN'T I JUST BE HAPPY?!"
 
-    # =========================================================
-    # BACK TO THE BLUE CORRIDOR
-    # =========================================================
     $ rc_reset()
     $ rc_eva_face = 1.0
     $ rc_eflip = 1.0
@@ -1692,7 +1633,6 @@ label therion_ruins:
             ease 4.5 alpha 0.58
             repeat
 
-    # Eva walks in from the right, facing left
     show eva browneutral normal_sad neutral:
         matrixcolor TintMatrix(RC_NIGHT_TINT) * BrightnessMatrix(-0.15)
         subpixel True
@@ -1724,7 +1664,6 @@ label therion_ruins:
         alpha 0.0
         function rc_eshadow_tf
 
-    # Therion follows: hunched forward, heavy uneven steps
     show therion browneutral creepy frown:
         matrixcolor TintMatrix(RC_NIGHT_TINT) * BrightnessMatrix(-0.2)
         subpixel True
@@ -1745,7 +1684,6 @@ label therion_ruins:
                 ease 0.6 yoffset 55 rotate -2.2
                 repeat 2
             ease 0.6 yoffset 56 rotate -3
-            # standing, a slow unsteady sway
             block:
                 ease 2.2 rotate -3.8
                 ease 2.6 rotate -2.4
@@ -1779,24 +1717,21 @@ label therion_ruins:
 
     with fade
 
-    tn "I'm tethered to the Saintess like a goddamn hound. I sit outside her bathing chamber every single morning, 'cause whet else can I do?"
+    tn "I'm tethered to the Saintess like a goddamn hound. I sit outside her bathing chamber every single morning, 'cause what else can I do?"
 
     tn "My head should be ecstatic. She's locked me to her side. I get to sleep at her room. I'm her only guard."
 
-    # he turns away from her
     $ rc_ther_turn = 0.6
     $ rc_ther_face = -1.0
 
     tn "My flesh feels like it's stripping off muscle by muscle."
 
-    # she turns to look at him
     $ rc_eva_face = -1.0
     show eva browsad yandere_sad what
 
     voice "VA/RAKUMAROO/RUINS/E30.mp3"
     e "Therion, why are you looking away? Are you disgusted with me?"
 
-    # he forces himself back around, slowly
     $ rc_ther_turn = 1.8
     $ rc_ther_face = 1.0
 
@@ -1832,9 +1767,6 @@ label therion_ruins:
 
     tn "Word... {w}for thing. Thing... {w}in chest. {w}Gone."
 
-    # =========================================================
-    # DAY CORRIDOR, EERILY DARK
-    # =========================================================
     $ rc_reset()
     $ rc_set("eva", 0.42)
     $ rc_set("therion", 0.60)
@@ -1885,7 +1817,6 @@ label therion_ruins:
         alpha 0.0
         function rc_eshadow_tf
 
-    # Therion: hunched, slow uneven sway, face locked
     show therion browsad creepy distort:
         matrixcolor SaturationMatrix(0.7) * BrightnessMatrix(-0.15)
         subpixel True
@@ -1962,7 +1893,6 @@ label therion_ruins:
     voice "VA/RAKUMAROO/RUINS/E33.mp3"
     e "You have not touched your breakfast in three days."
 
-        # strain, a heavier lurch like a gag
     show therion:
         parallel:
             function rc_ther_tf
@@ -1991,7 +1921,6 @@ label therion_ruins:
     voice "VA/RAKUMAROO/RUINS/E34.mp3"
     e "You have not said anything to me other than a word at a time."
 
-        # strain
     show therion:
         parallel:
             function rc_ther_tf
@@ -2027,7 +1956,6 @@ label therion_ruins:
     voice "VA/RAKUMAROO/RUINS/E36.mp3"
     e "…Or perhaps you need to be purified?"
 
-    # his sway gets a faint tremor under it
     show therion:
         parallel:
             function rc_ther_tf
@@ -2059,7 +1987,6 @@ label therion_ruins:
     voice "VA/RAKUMAROO/RUINS/E37.mp3"
     e "Yes, yes, that's it! And then you'd be my Therion again."
 
-        # strain, then back to sway with the tremor
     show therion:
         parallel:
             function rc_ther_tf
@@ -2105,9 +2032,6 @@ label therion_ruins:
 
     tn "Love?"
 
-    # =========================================================
-    # SHE STEPS IN, THE BLACK LIGHT GATHERS, THE LIGHT FAILS
-    # =========================================================
     $ rc_path("eva", (0.46, 0.8))
     $ rc_shadow_alpha = 0.8
     $ rc_shadow_stretch = 1.2
@@ -2191,7 +2115,6 @@ label therion_ruins:
         alpha 0.0
         ease 2.0 alpha 0.4
 
-    # failing-lamp flicker on the overcast
     show rc_overcast:
         blend "multiply"
         block:
@@ -2208,7 +2131,6 @@ label therion_ruins:
             ease 1.8 alpha 0.66
             repeat
 
-    # split-second blackouts
     show void_flash as rc_blink zorder 40:
         alpha 0.0
         block:
@@ -2271,7 +2193,6 @@ label therion_ruins:
     voice "VA/RAKUMAROO/RUINS/E43.mp3"
     e "Therion, I'm so sorry! I'll fix this. Hold on, please!"
 
-    # A sound from the doorway. A gasp.
 
     scene evadeath_bg
     show evadeath_eva at evadeath_shake1
@@ -2350,14 +2271,12 @@ label therion_ruins:
     voice "VA/GARFUNKEL/RUINS/Des5.mp3"
     de "EVA! UGH…!"
 
-    # A heavy impact. Bone on stone.
     play sound "audio/bash1.mp3"
 
     with sshake
     pause 0.2
     play sound "VA/GARFUNKEL/RUINS/DesGurgle.mp3"
 
-    # Silence from Desmond.
 
     voice "VA/RAKUMAROO/RUINS/E56.mp3"
     e "PAPA!"

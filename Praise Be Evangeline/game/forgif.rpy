@@ -8,7 +8,6 @@ image therion_eva_base:
     pause 1.5
     repeat
 
-# Therion blink: steady rhythm, one blink every 4 second
 image therion_eva_blink:
     "BG/anim/therioneyeopen.png"
     pause 3.8

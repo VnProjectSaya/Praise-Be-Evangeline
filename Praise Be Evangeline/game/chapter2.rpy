@@ -170,8 +170,8 @@ label morning_intrusion:
         yanchor 1.0
         yalign 1.0
         xpos 0.58
-        easeout 0.4 yoffset 65   # Dips down into a bow
-        easein 0.4 yoffset 40    # Rises back up
+        easeout 0.4 yoffset 65
+        easein 0.4 yoffset 40
 
     $ renpy.pause(0.8, hard=True)
     show eva browneutral neutral with dissolve
@@ -207,30 +207,25 @@ label morning_intrusion:
 
     t "Mornin', Saintess."
 
-# 1. INITIAL STATE: Closed/Normal mouth (MOUTH1) with heavy blur
     show therion_base at therion_fit, therion_blur(90.0) as therion_pov
     show therion_mouth1 at therion_fit, therion_blur(90.0) as therion_mouth
     $ renpy.pause(0.5, hard=True)
 
-    # 2. BLINK 1 (FAST): Close eyes dark
     show therion_blink_dark as therion_pov
     show therion_blink_dark as therion_mouth
     with eye_close_wipe
     $ renpy.pause(0.04, hard=True)
 
-    # Reopen sharper — still holding normal mouth (MOUTH1)
     show therion_base at therion_fit, therion_blur(60.0) as therion_pov
     show therion_mouth1 at therion_fit, therion_blur(60.0) as therion_mouth
     with eye_open_wipe
     $ renpy.pause(0.25, hard=True)
 
-    # 3. BLINK 2 (FASTEST): Close eyes dark right before jumpscare
     show therion_blink_dark as therion_pov
     show therion_blink_dark as therion_mouth
     with eye_close_wipe
     $ renpy.pause(0.04, hard=True)
 
-    # 4. SNAP REVEAL: Crisp image + Mouth rips open from MOUTH1 -> MOUTH2 -> MOUTH3
     show therion_base at therion_fit, therion_jumpscare as therion_pov:
         blur None
 
@@ -538,7 +533,6 @@ label morning_intrusion:
         matrixcolor BrightnessMatrix(-1.0)  
     with dissolve
 
-    # Evangeline softens her look for the afflicted
     show eva browhappy smile with dissolve
 
 
@@ -556,10 +550,7 @@ label morning_intrusion:
 
     scene bg temple_hall_night_warm
 
-    # 1. Vidius flies in to far-left (xpos -0.35 -> 0.22)
     
-
-    # 2. Desmond flies in to mid-left (xpos -0.15 -> 0.38)
     show desmond browmad stern:
         subpixel True
         xzoom -1
@@ -591,7 +582,6 @@ label morning_intrusion:
             ease 2.8 yoffset 140
             repeat
 
-    # 3. Eva fixed on the right side, left of Therion (xpos 0.68)
     show eva browneutral:
         subpixel True
         zoom 0.25
@@ -604,7 +594,6 @@ label morning_intrusion:
             ease 2.0 yoffset 40
             repeat
 
-    # 4. Therion fixed on the far-right (xpos 0.82)
     show therion body0 browneutral frown open behind eva:
         subpixel True
         zoom 0.25
@@ -616,7 +605,6 @@ label morning_intrusion:
 
     pause 3.2
 
-    # Eva reacts as they arrive
     show eva normal_happy what:
         subpixel True
         zoom 0.25
@@ -773,22 +761,19 @@ label morning_intrusion:
 
     show eva browneutral normal_sad what with dissolve
 
-    # 2. Vidius turns left, tilts, and flies out first
     show vidius browneutral smile normal:
         subpixel True
-        xzoom 1                          # Turn facing left
-        ease 0.3 rotate -2              # Tilt into departure stride
-        easeout 2.5 xpos -0.40 alpha 0.0 # Fly offscreen left
+        xzoom 1
+        ease 0.3 rotate -2
+        easeout 2.5 xpos -0.40 alpha 0.0
 
-    # 3. Desmond turns left, tilts, and follows behind Vidius
     show desmond browneutral neutral normal:
         subpixel True
-        xzoom 1                          # Turn facing left
-        pause 0.1                        # Stagger behind Vidius
-        ease 0.3 rotate -2             # Tilt into flight angle
-        easeout 2.4 xpos -0.25 alpha 0.0 # Exit left behind Vidius
+        xzoom 1
+        pause 0.1
+        ease 0.3 rotate -2
+        easeout 2.4 xpos -0.25 alpha 0.0
 
-    # 4. Eva and Therion move slightly toward center (xpos 0.54 and 0.70)
     show eva browneutral normal_sad what:
         subpixel True
         zoom 0.25
@@ -806,14 +791,12 @@ label morning_intrusion:
         xanchor 0.5 yanchor 1.0
         matrixcolor TintMatrix("#a88870")
         easeout 2.5 xpos 0.70 yalign 1.0
-    # 5. Camera transitions smoothly from (xpos 920) rightward toward Eva & Therion
     show layer master:
         subpixel True
         anchor (0.5, 0.5)
         pos (960, 540)
         ease 2.5 zoom 1.38 xpos 780 ypos 540
 
-    # Wait for movement and camera pan to finish
     $ renpy.pause(2.5, hard=True)
 
     hide desmond
@@ -851,33 +834,29 @@ label morning_intrusion:
     with fade
 
    
-# 1. Base Night Scene Setup
     show bg temple_corridor_night
     en "Ooh, these cold passages are remarkably frightening without Sir Therion by my side."
 
     en "To think I already feel so helplessly vulnerable the very moment we are parted!"
     $ renpy.pause(0.5, hard=True)
 
-    # 2. Faceless Knight and Caelor facing each other on the left
-    # Knight on far-left (xzoom 1: facing right), Caelor on his right (xzoom -1: facing left)
     show faceless_knight:
         subpixel True
-        xzoom -1                          # Facing right toward Caelor
+        xzoom -1
         zoom 0.25
         xanchor 0.5 yanchor 1.0 ypos 1.0
         xpos 0.22 yoffset 40
         matrixcolor TintMatrix("#5a7099")
 
     show caelor smile:
-        subpixel True                    # Facing left toward Knight
+        subpixel True
         zoom 0.25
         xanchor 0.5 yanchor 1.0 ypos 1.0
         xpos 0.36 yoffset 40
         matrixcolor TintMatrix("#5a7099")
 
-    # 3. Eva starts on the right side (xzoom -1: facing left)
     show eva browsad neutral:
-        subpixel True                    # Facing left toward Caelor
+        subpixel True
         zoom 0.25
         xanchor 0.5 yanchor 1.0 ypos 1.0
         xpos 0.82 yoffset 40
@@ -890,12 +869,10 @@ label morning_intrusion:
 
     $ renpy.pause(1.0, hard=True)
 
-    # Knight turns left and exits to the left wing
     show faceless_knight:
-        xzoom 1                        # Turn around to face left
+        xzoom 1
         easeout 2.0 xpos -0.20 alpha 0.0
 
-    # Background parallax loop sits BEHIND ALL CHARACTERS
     show temple_corridor_night1 behind faceless_knight:
         subpixel True
         xpos 0
@@ -906,21 +883,18 @@ label morning_intrusion:
         xpos -1920
         easeout_quad 2.5 xpos -1720
 
-    # Eva walks from right to left, stopping at Caelor's right side (0.82 -> 0.48)
     show eva:
         easeout_quad 2.5 xpos 0.58
 
     $ renpy.pause(2.0, hard=True)
 
-    # Caelor turns around to face Eva as she reaches him (xzoom 1 = facing right)
     show caelor:
         ease 0.3 xzoom -1
 
     $ renpy.pause(0.5, hard=True)
 
-    # Lock characters in standing pose
     show eva browneutral neutral:
-        subpixel True                     # Facing left toward Caelor
+        subpixel True
         zoom 0.25
         xanchor 0.5 yanchor 1.0 ypos 1.0
         xpos 0.58 yoffset 40
@@ -985,7 +959,6 @@ label morning_intrusion:
         xanchor 0.5 yanchor 1.0 ypos 1.0
         xpos 0.36 yoffset 40
         matrixcolor TintMatrix("#5a7099")
-        # Rapid coughing spasm
         ease 0.03 xoffset 12 yoffset 58
         ease 0.03 xoffset -10 yoffset 24
         ease 0.03 xoffset 14 yoffset 62
@@ -994,7 +967,6 @@ label morning_intrusion:
         ease 0.03 xoffset -6 yoffset 28
         ease 0.03 xoffset 10 yoffset 56
         ease 0.03 xoffset -8 yoffset 32
-        # Settle back to normal
         ease 0.10 xoffset 0 yoffset 40
 
 
@@ -1009,7 +981,6 @@ label morning_intrusion:
         xanchor 0.5 yanchor 1.0 ypos 1.0
         xpos 0.36 yoffset 40
         matrixcolor TintMatrix("#5a7099")
-        # Shaking head left and right twice
         ease 0.08 xoffset -18
         ease 0.08 xoffset 18
         ease 0.08 xoffset -12
@@ -1108,12 +1079,9 @@ label morning_intrusion:
 
     play music "bishopshort.mp3"
 
-    # 1. SCENE LOCK: Focused close-up on flowers
    
-
     $ renpy.pause(0.5, hard=True)
 
-    # 2. CAMERA PULL BACK: Holds focus left-center (xpos 1080) so flowers are fully visible
     show layer master:
         subpixel True
         anchor (0.5, 0.5)
@@ -1127,14 +1095,13 @@ label morning_intrusion:
         xpos 1530 ypos 730
     with fade
 
-    # Eva enters from right toward the flowers on the desk
     show eva browhappy normal_happy smile:
         subpixel True
-        xzoom 1                          # Facing left toward flowers
+        xzoom 1
         zoom 0.48
         xanchor 0.5 yanchor 1.0 ypos 1.0
         xpos 0.88 yoffset 520
-        easeout_quad 2.5 xpos 0.42       # Stops safely in front of desk/flowers
+        easeout_quad 2.5 xpos 0.42
         block:
             ease 2.0 yoffset 504
             ease 2.0 yoffset 520
@@ -1146,17 +1113,16 @@ label morning_intrusion:
 
     en "To think someone left these just for me! A nameless admirer...!? It feels exactly like the thrilling romance novels Father strictly forbids me from reading."
 
-    # 3. EVA STEPS CLOSER TO FLOWERS, THERION ENTERS FROM RIGHT
     show eva:
         easeout_quad 1.2 xpos 0.34
 
     show therion body0 browmad gritangry shook behind eva:
         subpixel True
-        xzoom 1                          # Facing left toward Eva/Flowers
+        xzoom 1
         zoom 0.52
         xanchor 0.5 yanchor 1.0 ypos 1.0
         xpos 1.15 xoffset -200 yoffset 790
-        easeout_quad 1.8 xpos 0.72       # Steps in near door
+        easeout_quad 1.8 xpos 0.72
     with dissolve
 
     $ renpy.pause(1.8, hard=True)
@@ -1313,7 +1279,6 @@ label morning_intrusion:
 
         show therion browneutral frown shook :
             
-            # Heavy, reluctant backward steps (moving right to offscreen xpos 1.25)
             easein_quad 0.4 xpos 0.78 
             easeout_quad 0.4 xpos 0.84 
             easein_quad 0.4 xpos 0.96 
@@ -1423,7 +1388,6 @@ label morning_intrusion:
                 repeat
         with dissolve
 
-        # eva moves around the room
 
         show eva browhappy normal_happy smile with dissolve
 
@@ -1529,10 +1493,9 @@ label morning_intrusion:
 
         show therion browneutral frown shook :
             subpixel True
-            xzoom 1                          # Keeps facing left toward the flowers/Eva
+            xzoom 1
             zoom 0.54
             
-            # Heavy, reluctant backward steps (moving right to offscreen xpos 1.25)
             easein_quad 0.4 xpos 0.78 
             easeout_quad 0.4 xpos 0.84 
             easein_quad 0.4 xpos 0.96 
@@ -1559,21 +1522,18 @@ label morning_intrusion:
     scene black
     with fade
 
-    # 1. Base Day Scene Setup
     show bg temple_corridor_day
 
-    # 2. Caelor stationed slightly left (xpos 0.66, facing left toward Eva)
     show caelor smile:
         subpixel True
-        xzoom 1                          # Facing left toward Eva
+        xzoom 1
         zoom 0.25
         xanchor 0.5 yanchor 1.0 ypos 1.0
-        xpos 0.66 yoffset 40             # Adjusted slightly left
+        xpos 0.66 yoffset 40
 
-    # 3. Eva starts on the left side (xzoom -1: facing right toward Caelor)
     show eva browsad neutral:
         subpixel True
-        xzoom -1                         # Facing right toward Caelor
+        xzoom -1
         zoom 0.25
         xanchor 0.5 yanchor 1.0 ypos 1.0
         xpos 0.15 yoffset 40
@@ -1585,7 +1545,6 @@ label morning_intrusion:
 
     $ renpy.pause(1.0, hard=True)
 
-    # Background parallax loop sits BEHIND ALL CHARACTERS (scrolls left as Eva moves right)
     show temple_corridor_day1 behind caelor:
         subpixel True
         xpos 0
@@ -1596,16 +1555,14 @@ label morning_intrusion:
         xpos 1920
         easeout_quad 2.5 xpos 1720
 
-    # Eva walks from left to right, stopping at a comfortable distance (0.15 -> 0.44)
     show eva:
         easeout_quad 2.5 xpos 0.44
 
     $ renpy.pause(2.5, hard=True)
 
-    # Lock characters in standing pose
     show eva browneutral neutral:
         subpixel True
-        xzoom -1                         # Facing right toward Caelor
+        xzoom -1
         zoom 0.25
         xanchor 0.5 yanchor 1.0 ypos 1.0
         xpos 0.44 yoffset 40
@@ -1616,15 +1573,12 @@ label morning_intrusion:
 
     show caelor:
         subpixel True
-        xzoom 1                          # Facing left toward Eva
+        xzoom 1
         zoom 0.25
         xanchor 0.5 yanchor 1.0 ypos 1.0
         xpos 0.66 yoffset 40
     with dissolve
 
-    # ============================================================
-    # CAMERA CLOSE-UP: CENTERED FRAMING ON BOTH CHARACTERS
-    # ============================================================
 
     show layer master:
         subpixel True
@@ -1680,12 +1634,10 @@ label morning_intrusion:
         ypos 1.0
         yoffset 40
 
-        # Slight tilt toward Eva
         easein 1.0 xpos 0.63 yoffset 65
 
         pause 0.4
 
-        # Return to original position
         easeout 0.8 xpos 0.66 yoffset 40
 
 
@@ -1773,7 +1725,6 @@ label morning_intrusion:
                 ypos 1.0
                 zoom 0.22
 
-            # Dramatic but smooth pull-back
             show layer master:
                 subpixel True
                 anchor (0.5, 0.5)
@@ -1782,9 +1733,7 @@ label morning_intrusion:
                 ypos 535
                 easein 1.5 zoom 1.0 xpos 960 ypos 540
 
-            # Therion at the far right edge
             
-
             en "I leave my hand in his. Out of the corner of my eye, I catch Therion watching."
 
             show eva browneutral normal_sad neutral with dissolve
@@ -1813,7 +1762,6 @@ label morning_intrusion:
                 ypos 1.0
                 zoom 0.22
 
-            # Dramatic but smooth pull-back
             show layer master:
                 subpixel True
                 anchor (0.5, 0.5)
@@ -1826,7 +1774,6 @@ label morning_intrusion:
 
             show eva browmad normal_sad frown with dissolve
 
-            # Eva jerks her hand away
             show eva:
                 subpixel True
                 easein 0.2 xoffset -35
@@ -1840,7 +1787,6 @@ label morning_intrusion:
 
             show caelor browsad surprised with dissolve
 
-            # Caelor recoils
             show caelor:
                 subpixel True
                 easein 0.2 xoffset 25
@@ -1869,7 +1815,6 @@ label morning_intrusion:
         zoom 1.35
         ease 8.0 zoom 1.5
 
-    # Therion, foreground
     show therion body0 hair2 gritangry at center:
         zoom 0.40
         xoffset 170
@@ -1890,7 +1835,6 @@ label morning_intrusion:
             ease 0.9 xoffset 164
             repeat
 
-    # Eva
     show eva browsad frown at center:
         zoom 0.56
         xoffset -125
@@ -1911,7 +1855,6 @@ label morning_intrusion:
             repeat
 
 
-    # Caelor, farther behind them on the right
     show caelor browneutral hmm  behind therion:
         subpixel True
         xanchor 0.5
@@ -1922,7 +1865,6 @@ label morning_intrusion:
         yoffset 360
         blur 7
 
-    # Camera slowly follows Eva and Therion
     show layer master:
         subpixel True
         anchor (0.5, 0.5)
@@ -1934,7 +1876,6 @@ label morning_intrusion:
 
     pause 1.5
 
-    # Caelor gradually falls farther behind
     show caelor:
         subpixel True
         ease 5.0 xpos 0.90 zoom 0.18 yoffset 400 blur 10
@@ -1983,7 +1924,6 @@ label morning_intrusion:
 
         en "I can hear him scraping his scythe in surfaces."
 
-        # He finally disappears off to the right
         show caelor:
             ease 2.5 xpos 1.12 zoom 0.12 alpha 0.0 blur 13
 
@@ -2112,7 +2052,6 @@ label morning_intrusion:
         voice "VA/JASON/Therion108.mp3"
         t "Nothin', Saintess. Forget it."
 
-        # He finally disappears off to the right
         show caelor:
             ease 2.5 xpos 1.12 zoom 0.12 alpha 0.0 blur 13
 
@@ -2147,9 +2086,6 @@ label morning_intrusion:
     scene black
     with fade
 
-# ============================================================
-    # FIRST & SECOND IMAGE PARALLAX SETUP (Gapless Infinite Scroll)
-    # ============================================================
 
     show bg temple_corridor_red as bg1 behind eva:
         subpixel True
@@ -2167,13 +2103,10 @@ label morning_intrusion:
             linear 25.0 xpos 0
             repeat
 
-    # ============================================================
-    # EVA WALKING SETUP
-    # ============================================================
 
     show eva browsad neutral:
         subpixel True
-        xzoom 1                          # Facing left
+        xzoom 1
         zoom 0.25
         xanchor 0.5 yanchor 1.0 ypos 1.0
         xpos 0.75 yoffset 40
@@ -2185,7 +2118,7 @@ label morning_intrusion:
                 ease 0.6 yoffset 40
                 repeat
         parallel:
-            linear 500 xpos 0.20        # Creeps slowly from right to left
+            linear 500 xpos 0.20
     with fade
 
     $ renpy.pause(1.0, hard=True)
@@ -2196,7 +2129,6 @@ label morning_intrusion:
 
     en "I wish Sir Therion were here. Yet I must manage on my own tonight! He requires proper sleep, and I have been terribly worried about him exhausting himself on my account."
 
-# Panel 1: Slides on-screen from left (-1920 to 0) over 10s, then loops 0 -> 1920
     show bloodtrail as blood1 behind eva:
         subpixel True
         matrixcolor red_eerie_matrix
@@ -2207,7 +2139,6 @@ label morning_intrusion:
             linear 25.0 xpos 1920
             repeat
 
-    # Panel 2: Waits 10s off-screen, then seamlessly follows Panel 1 (-1920 -> 0)
     show bloodtrail as blood2 behind eva:
         subpixel True
         matrixcolor red_eerie_matrix
@@ -2218,7 +2149,6 @@ label morning_intrusion:
             linear 25.0 xpos 0
             repeat
 
-    # Eva halts her vertical walking bounce and stands stationary
     show eva browneutral normal_sad what:
         subpixel True
         xzoom 1
@@ -2234,7 +2164,6 @@ label morning_intrusion:
                 repeat
     with dissolve
 
-    # Dialogue advances freely while the blood glides across continuously underneath
     en "Now what on earth is that?"
 
     en "It looks as though someone spilled a pitcher of thick wine. Except wine doesn't cling to stone in such sticky clumps."
@@ -2274,14 +2203,13 @@ label morning_intrusion:
         matrixcolor red_eerie_matrix
         xpos 150 ypos 0
 
-        # Multi-stage heavy dragging motion
-        ease 0.4 xpos 80                 # Smooth first drag back
+        ease 0.4 xpos 80
         pause 0.25
-        ease 0.3 xpos 110                # Slight forward slide/slip
+        ease 0.3 xpos 110
         pause 0.3
-        ease 0.4 xpos 40                 # Second smooth drag back
+        ease 0.4 xpos 40
         pause 0.2
-        ease 0.6 xpos -1920              # Pulled completely off-screen
+        ease 0.6 xpos -1920
 
     show eva browhappy normal_happy smile with dissolve
 
@@ -2310,41 +2238,30 @@ label morning_intrusion:
 
     en "And the servants really must clean this before sunrise. Stone stains so dreadfully if neglected."
 
-    # ============================================================
-    # WING FLAP TAKEOFF + TILT & FLIGHT OFF-SCREEN
-    # ============================================================
 
-    # 1. Bob up on wing flap, step forward, and tilt forward (-5 degrees)
     show eva browhappy normal_happy smile:
         subpixel True
         parallel:
-            # Lift off, then continuously bob up and down in mid-air
             easein 0.35 yoffset -80 xoffset -250
             block:
                 ease 0.5 yoffset -50
                 ease 0.5 yoffset -80
                 repeat
         parallel:
-            # Slight forward tilt into flight direction
             easein 0.4 rotate -5.0
 
     en "I hover carefully over the deepest crimson, mindful of my hem. It would be a nightmare to track that into my bedchamber."
 
-    # ============================================================
-    # FLIGHT EXIT OFF-SCREEN
-    # ============================================================
 
     show eva browhappy normal_happy smile:
         subpixel True
         rotate -5.0
         parallel:
-            # Continues hovering bobbing cycle
             block:
                 ease 0.5 yoffset -50
                 ease 0.5 yoffset -80
                 repeat
         parallel:
-            # Glides smoothly off-screen left
             linear 4.5 xpos -0.30
 
     scene black with dissolve

@@ -63,8 +63,8 @@ define config.has_voice = True
 ## game, until it is stopped or another file is played.
 define mm_tracks = {
     1: "evangeline.mp3",
-    2: "hinokageri_orchestra.mp3",
-    3: "Mainmenu.mp3",
+    3: "hinokageri_orchestra.mp3",
+    2: "Mainmenu.mp3",
 }
 define config.main_menu_music = mm_tracks.get(persistent.main_menu, mm_tracks[1])
 

@@ -7,9 +7,8 @@ label creepy:
     with fade
 
 
-    # Eva hovering at mid-left
     show eva browsad neutral behind petra, ansel:
-        xzoom -1                         # Facing right toward clerics
+        xzoom -1
         subpixel True
         zoom 0.25
         xanchor 0.5 yanchor 1.0
@@ -20,9 +19,8 @@ label creepy:
             ease 1.8 yoffset 40
             repeat
 
-    # Petra hovering at mid-right
     show petra idle browmad shocked shockedm:
-        xzoom -1                         # Facing left
+        xzoom -1
         subpixel True
         zoom 0.25
         xanchor 0.5 yanchor 1.0
@@ -32,9 +30,8 @@ label creepy:
             ease 2.1 yoffset 40
             repeat
 
-    # Ansel hovering next to Petra
     show ansel idle browsad frown shocked:
-        xzoom 1                          # Facing left
+        xzoom 1
         subpixel True
         zoom 0.25
         xanchor 0.5 yanchor 1.0
@@ -50,9 +47,6 @@ label creepy:
     voice "VA/TORA/Petra/2B/Petra_2B_1.mp3"
     petra "—cut straight through to the bone, I’m telling you! Clean through the tendon! As if a butcher did it!"
 
-    # ============================================================
-    # CAMERA ZOOMS IN ON PETRA & ANSEL
-    # ============================================================
 
     camera:
         subpixel True
@@ -66,7 +60,6 @@ label creepy:
     voice "VA/TORA/Petra/2B/Petra_2B_2.mp3"
     petra "And his fingers, Ansel! Clipped off one by one! They said it's missing one finger, they don't know where it is!"
 
-    # Preserve Ansel's hover cycle when changing expression
     show ansel browsad shocked shockedm:
         block:
             ease 2.4 yoffset 22
@@ -80,7 +73,6 @@ label creepy:
     voice "VA/TORA/Petra/2B/Petra_2B_3.mp3"
     petra "Up in the bell tower! They're set up like a praying pair of hands!"
 
-    # Preserve Petra's hover cycle when changing expression
     show petra browmad surprised shocked:
         block:
             ease 2.1 yoffset 18
@@ -111,9 +103,6 @@ label creepy:
     voice "VA/TORA/Petra/2B/Petra_2B_5.mp3"
     petra "They also said his mouth was wired wide! Copper thread pulled through the cheeks until the skin—"
 
-    # ============================================================
-    # CAMERA ZOOMS OUT TO REVEAL EVA
-    # ============================================================
 
     camera:
         subpixel True
@@ -134,13 +123,11 @@ label creepy:
     show ansel browmad shocked shockedm:
         xzoom 1 subpixel True zoom 0.25 xanchor 0.5 yanchor 1.0 xpos 0.82 ypos 1.0
         parallel:
-            # Base wing-floating hover loop
             block:
                 ease 2.4 yoffset 22
                 ease 2.4 yoffset 40
                 repeat
         parallel:
-            # Rapid trembling shake
             block:
                 easein 0.03 xoffset -6
                 easeout 0.03 xoffset 6
@@ -150,13 +137,11 @@ label creepy:
     show petra browmad :
         xzoom 1 subpixel True zoom 0.25 xanchor 0.5 yanchor 1.0 xpos 0.70 ypos 1.0
         parallel:
-            # Base wing-floating hover loop
             block:
                 ease 2.1 yoffset 18
                 ease 2.1 yoffset 40
                 repeat
         parallel:
-            # Rapid trembling shake (slightly desynced for natural feel)
             block:
                 easein 0.025 xoffset 5
                 easeout 0.025 xoffset -5
@@ -259,12 +244,7 @@ label creepy:
     voice "VA/RAKUMAROO/CHAPTER 2B/E5.mp3"
     e "Carry on, then. Pray do not let me interrupt."
 
-        # ============================================================
-    # INFINITE SCROLLING & EVA GLIDES PAST THE CLERICS
-    # ============================================================
 
-    # Remove the static bg from line 5 so it stops covering the scroll.
-    # bg1 starts at xpos 0, same spot, so this swap is invisible.
     hide bg
 
     show temple_corridor_day1 as bg1 onlayer bg_layer:
@@ -283,7 +263,6 @@ label creepy:
             linear 25.0 xpos 0
             repeat
 
-    # Eva glides forward while keeping her floating hover cycle
     show eva browneutral normal_happy smile:
         xzoom -1
         subpixel True
@@ -298,7 +277,6 @@ label creepy:
         parallel:
             linear 8.0 xpos 0.50
 
-    # Petra & Ansel hover as they drift off-screen left
     show petra:
         subpixel True
         linear 6.0 xpos -0.30
@@ -321,25 +299,15 @@ label creepy:
 
     en "Perhaps I ought to return it. The kitchens do seem terribly frantic today."
 
-    # ============================================================
-    # 1. EVA KEEPS WALKING, BG KEEPS SCROLLING
-    # (both already running from the cleric scene, nothing to restart)
-    # ============================================================
 
     $ renpy.pause(2.0, hard=True)
 
-    # ============================================================
-    # 2. EVA STOPS WALKING (bg keeps scrolling)
-    # ============================================================
 
     show eva:
         block:
             ease 1.8 yoffset 20
             ease 1.8 yoffset 40
             repeat
-    # ============================================================
-    # 3. KNIGHT ENTERS WHILE BG SMOOTHLY DECELERATES TO A STOP
-    # ============================================================
 
     hide petra
     hide ansel
@@ -363,9 +331,6 @@ label creepy:
 
     $ renpy.pause(3.0, hard=True)
 
-    # ============================================================
-    # 4. EVA REACTS, BG IS NOW FULLY STILL
-    # ============================================================
 
     show eva browneutral normal_sad what
     with dissolve
@@ -432,7 +397,6 @@ label creepy:
     scene bg study_night_lit 
 
     show desmond browneutral neutral neutral at right:
-        # Applies dark cold blue to shadows and warm candle yellow to highlights
         matrixcolor ColorizeMatrix("#152238", "#f4dcb3")
         xzoom 1
         zoom 0.23
@@ -449,7 +413,6 @@ label creepy:
     play music "shizumiyukutsuki.mp3"
 
     show eva browneutral neutral neutral:
-        # Matches the lighting on Desmond
         matrixcolor ColorizeMatrix("#152238", "#f4dcb3")
         xzoom -1
         zoom 0.23
@@ -525,7 +488,6 @@ label creepy:
     voice "VA/GARFUNKEL/CH3A/Des5.mp3"
     de "... Very well. That will be all, Saintess."
 
-    # Eva flips left (xzoom 1) and glides just a few steps over (xpos 0.38)
     show eva browneutral normal_sad neutral:
         xzoom 1
         parallel:
@@ -536,12 +498,10 @@ label creepy:
         parallel:
             ease 1.0 xpos 0.45
 
-    # Brief pause to let her stop moving
     $ renpy.pause(1.0, hard=True)
 
     e "..."
 
-    # Eva completes her exit out of the zoomed frame
     show eva:
         parallel:
             block:
@@ -553,7 +513,6 @@ label creepy:
 
     pause 0.8
 
-    # Back in her private chambers. Therion rests against the wall.
 
     scene bg eva_bedroom_night_lit:
         subpixel True
@@ -563,9 +522,7 @@ label creepy:
         ypos 0.5
     with fade
 
-    # Eva is on the RIGHT (0.70), facing LEFT (1)
     show eva browneutral normal_happy frown:
-        # Darker blueish night tint
         matrixcolor TintMatrix("#7a93b2") * BrightnessMatrix(-0.1)
         subpixel True
         xzoom 1
@@ -581,9 +538,7 @@ label creepy:
             repeat
     with dissolve
 
-    # Therion is on the LEFT (0.30), facing RIGHT (-1)
     show therion body0 half browskeptical frown:
-        # Matches Eva's night tint
         matrixcolor TintMatrix("#7a93b2") * BrightnessMatrix(-0.1)
         subpixel True
         xzoom -1
@@ -632,17 +587,14 @@ label creepy:
     voice "VA/JASON/Therion112.mp3"
     t "Consider it handled."
 
-    # Therion leaves backwards with 3 steps to the left (off-screen)
     show therion:
         subpixel True
         parallel:
-            # 3 backward steps
             block:
                 ease 0.5 yoffset 950
                 ease 0.5 yoffset 1000
                 repeat 3
         parallel:
-            # Glides leftward off-screen while fading
             easeout 3.0 xpos -0.25 alpha 0.0
 
     pause 3.0
@@ -660,7 +612,6 @@ label creepy:
     scene bg eva_bedroom_day
     with fade
 
-    # Eva on the LEFT (0.30), facing RIGHT (-1)
     show eva browneutral normal_happy smile:
         subpixel True
         xzoom -1
@@ -678,7 +629,6 @@ label creepy:
 
     en "A few days elapse before Therion returns to tell me the gallery business has been resolved."
 
-    # Therion walks in from the RIGHT (1.25 -> 0.70), facing LEFT (1)
     show therion body0 browneutral neutral open:
         subpixel True
         xzoom 1
@@ -750,7 +700,6 @@ label creepy:
     voice "VA/RAKUMAROO/CHAPTER 2B/E18.mp3"
     e "Wait! Do not harm it, simply shoo it away."
 
-    # POV: hands rise, bird drops onto them still panicking
     show eva browneutral normal_happy smile
     show hand behind bird at hands_rise
     show bird struggle at bird_to_hands
@@ -784,7 +733,6 @@ label creepy:
 
     en "It finds the open window and flies off into the dusk."
 
-    # hands sink away, camera pulls back, everyone returns to their marks
     hide bird
     show hand at hands_lower
     show bg eva_bedroom_day at cam_pull_back
@@ -797,7 +745,6 @@ label creepy:
 
     en "But then, Therion lets out a choked breath."
 
-    # Eva glides closer to him (moving from 0.30 to 0.45) while maintaining her hover
     show eva browneutral normal_sad what:
         parallel:
             block:
@@ -811,7 +758,6 @@ label creepy:
     voice "VA/RAKUMAROO/CHAPTER 2B/E20.mp3"
     e "Is everything quite all right, Therion?"
 
-    # The scene slowly pushes in to focus closely on both of them
     show layer master:
         subpixel True
         anchor (0.5, 0.5) pos (960, 540)
@@ -819,7 +765,6 @@ label creepy:
 
     show therion creepy distort hair1:
         subpixel True
-        # Re-declare base positioning so he doesn't snap to default coordinates
         xzoom 1
         zoom 0.27
         xanchor 0.5
@@ -828,7 +773,6 @@ label creepy:
         yalign 1.0
         parallel:
             block:
-                # Fast, subtle 4-pixel shudder around his base yoffset of 90
                 linear 0.04 xoffset 4 yoffset 92
                 linear 0.04 xoffset -4 yoffset 88
                 linear 0.04 xoffset 2 yoffset 91
@@ -985,15 +929,12 @@ label creepy:
 
         show therion:
             subpixel True
-            # Step 1
             easein 0.25 xpos 0.82 yoffset 210
             easeout 0.20 yoffset 200
             pause 0.25
-            # Step 2
             easein 0.25 xpos 0.95 yoffset 210
             easeout 0.20 yoffset 200
             pause 0.25
-            # Step 3 (exits frame)
             easein 0.30 xpos 1.15 yoffset 210
             easeout 0.20 yoffset 200
 
@@ -1208,15 +1149,12 @@ label creepy:
 
         show therion:
             subpixel True
-            # Step 1
             easein 0.25 xpos 0.82 yoffset 113
             easeout 0.20 yoffset 105
             pause 0.25
-            # Step 2
             easein 0.25 xpos 0.95 yoffset 113
             easeout 0.20 yoffset 105
             pause 0.25
-            # Step 3 (exits frame)
             easein 0.30 xpos 1.15 yoffset 113
             easeout 0.20 yoffset 105
 
@@ -1322,7 +1260,6 @@ label creepy:
 
     $ current_frame = "twisted"
 
-    # camera pulls out, bars slide away
     show therion at therion_pullout
 
     voice "VA/RAKUMAROO/CHAPTER 2B/E41.mp3"
@@ -1416,7 +1353,6 @@ label creepy:
     voice "VA/RAKUMAROO/CHAPTER 2B/E45.mp3"
     e "Let us begin."
 
-    # ── BLESS: RIGHT ──
     
     show eva browhappy closed_happy smile at eva_arena_bless(-1, 30)
     play sound "audio/light.mp3"
@@ -1432,7 +1368,6 @@ label creepy:
 
     show therion smile
 
-    # ── BLESS: MIDDLE ──
     
     show eva browhappy closed_happy smile at eva_arena_bless(-1, 20)
     play sound "audio/light.mp3"
@@ -1454,7 +1389,6 @@ label creepy:
 
     show eva browneutral normal_sad neutral with dissolve
 
-    # ── FLIP TO FAR LEFT ──
     show eva at eva_arena_flip
     $ renpy.pause(0.4, hard=True)
 
@@ -1521,7 +1455,6 @@ label creepy:
 
     en "She hurls herself against the iron, clawing right for my eyes."
 
-    # Therion crosses the platform in a single motion and drives the scythe through her before her hand reaches Evangeline anim
 
     scene black
     with fade
@@ -2362,8 +2295,6 @@ label vidius_confrontation:
     voice "VA/TORA/Vidius/2B/Vidius_2B_19.mp3"
     vidius "No. The woman is right. She is a MONSTER—"
 
-    # hide peek_l
-    # hide peek_r
 
     $ no_rollback_scene = False
     $ config.rollback_enabled = True

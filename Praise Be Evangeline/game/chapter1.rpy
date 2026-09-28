@@ -226,7 +226,6 @@ label opening_scene:
 
     en "Below, two men circle one another with wooden clubs and shields."
 
-    # Combat anim
 
     show shadow_manleft at manleft_fight
     show shadow_manright at manright_fight
@@ -279,7 +278,6 @@ label opening_scene:
         pos (960, 540)
         zoom 1.0
 
-        # nzoooommmmmmmmnyommm
         ease 3.5 zoom 1.5 xpos 450 ypos 600
 
     en "He is..."
@@ -654,7 +652,6 @@ label opening_scene:
         yalign 1.0
         yoffset 0
 
-        # Idle float loop
         block:
             ease 3.0 yoffset 10
             ease 3.0 yoffset -5
@@ -1155,7 +1152,6 @@ label opening_scene:
 
     en "It seems such a pity. The carriage fits four comfortably, and I do far better with company."
 
-    # carriage + therion anim starts here
 
     voice "VA/RAKUMAROO/Eva23.mp3"
     e "Sir Therion, you will wear down the path if you ride any closer!"
@@ -1518,7 +1514,6 @@ label opening_scene:
 
     show eva browsad frown with Dissolve(0.4)
 
-    # Slower, cinematic camera zoom into the touch point
     show layer master:
         subpixel True
         anchor (0.521, 0.481)
@@ -1662,7 +1657,6 @@ label opening_scene:
     voice "VA/JASON/Therion29.mp3"
     t "Right. Yeah. Whatever you say, Saintess."
 
-    # Base layer setup
     show layer master:
         subpixel True
         anchor (0.5, 0.5) pos (960, 540) zoom 1.0
@@ -1693,7 +1687,6 @@ label opening_scene:
 
     en "Some are openly weeping as I speak... Oh, the poor dears, to have waited so long in such misery."
 
-    # GAMEPLAY: purification minigame
     call purification_minigame from _call_purification_minigame
 
 
@@ -1910,7 +1903,6 @@ label opening_scene:
 
     stop music fadeout 1.0
 
-    # END OF CHAPTER ONE
 
     jump morning_intrusion
 

@@ -149,13 +149,11 @@ init python:
             renpy.redraw(self, 0)
             return rv
 
-# ---- gold light ----
 image gold_halo = Solid("#ffd76a", xysize=(700, 700))
 image gold_core = Solid("#fff4cc", xysize=(160, 160))
 image gold_wash = Solid("#ffcf5a")
 image gold_motes = SnowBlossom(gold_mote(), count=40, border=50, xspeed=(-15, 15), yspeed=(-90, -35), fast=True)
 
-# ---- black light ----
 image void_glow = VoidCircle(90, "#5a0000", pad=80)
 image void_core = VoidCircle(46, "#000000", "#8b0f0f", 5)
 image void_bubbles = VoidBubbles(count=14, spread=50, rise=190, seed=7)
@@ -169,7 +167,6 @@ image void_hole_glow = VoidCircle(90, "#5a0000", pad=70)
 image void_hole = VoidCircle(32, "#000000", "#8b0f0f", 4)
 image void_leak = VoidBubbles(count=10, spread=16, rise=170, min_r=3, max_r=9, seed=3)
 
-# ---- corridor push scene ----
 define RC_NIGHT_TINT = "#7482b8"
 define RC_WALL_FLOOR = 0.95
 define RC_SHADOW_BLUR = 20
@@ -190,11 +187,11 @@ image rc_overcast = Solid("#0b1024")
 image rc_overcast_red = Solid("#4a1414")
 
 default rc_mv = {}
-default rc_eva_face = -1.0        # same as eva's xzoom: -1 faces right, 1 faces left
+default rc_eva_face = -1.0
 default rc_ther_face = 1.0
 default rc_eflip = -1.0
 default rc_tflip = 1.0
-default rc_ther_turn = 0.4        # seconds for Therion to turn around
+default rc_ther_turn = 0.4
 default rc_shadow_alpha = 0.55
 default rc_shadow_stretch = 1.0
 default rc_stretch_cur = 1.0
@@ -228,7 +225,6 @@ init python:
             return min(cur + step, target)
         return max(cur - step, target)
 
-    # ---- position tracks: sprite and shadow both read these ----
 
     def rc_set(tag, x):
         store.rc_mv[tag] = [(x, x, 0.0, 0.0, "linear")]
@@ -246,7 +242,6 @@ init python:
         return segs[-1][1]
 
     def rc_path(tag, *steps, **kw):
-        # each step: (x, seconds) or (x, seconds, "warper"); same x = a pause
         t = time.time() + kw.get("delay", 0.0)
         x = rc_x(tag)
         segs = [ ]
@@ -257,7 +252,6 @@ init python:
             x, t = x1, t + dur
         store.rc_mv[tag] = segs
 
-    # ---- sprites ----
 
     def rc_eva_tf(trans, st, at):
         dt, now = rc_dt("eva")
@@ -272,7 +266,6 @@ init python:
         trans.xzoom = store.rc_tflip
         return 0
 
-    # ---- shadows, same look as the minigame ----
 
     def rc_eshadow_tf(trans, st, at):
         dt, now = rc_dt("eshadow")
@@ -424,7 +417,7 @@ transform evadeath_shake3:
         repeat
 
 
-transform evadeath_hand1_move:   # left edge, reaches right
+transform evadeath_hand1_move:
     subpixel True
     xoffset -350 alpha 0.0
     easein 0.35 xoffset 0 alpha 1.0
@@ -435,7 +428,7 @@ transform evadeath_hand1_move:   # left edge, reaches right
         ease 0.4 xoffset 0 yoffset 0
         repeat
 
-transform evadeath_hand2_move:   # top right, reaches down-left
+transform evadeath_hand2_move:
     subpixel True
     xoffset 300 yoffset -200 alpha 0.0
     easein 0.35 xoffset 0 yoffset 0 alpha 1.0
@@ -446,7 +439,7 @@ transform evadeath_hand2_move:   # top right, reaches down-left
         ease 0.5 xoffset 0 yoffset 0
         repeat
 
-transform evadeath_hand3_move:   # bottom right, reaches up-left
+transform evadeath_hand3_move:
     subpixel True
     xoffset 250 yoffset 300 alpha 0.0
     easein 0.35 xoffset 0 yoffset 0 alpha 1.0
@@ -457,7 +450,7 @@ transform evadeath_hand3_move:   # bottom right, reaches up-left
         ease 0.55 xoffset 0 yoffset 0
         repeat
 
-transform evadeath_hand4_move:   # bottom center, reaches up
+transform evadeath_hand4_move:
     subpixel True
     yoffset 400 alpha 0.0
     easein 0.35 yoffset 0 alpha 1.0

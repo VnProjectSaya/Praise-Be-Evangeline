@@ -103,14 +103,12 @@ label therion_glory:
     voice "VA/RAKUMAROO/GLORY/E5.mp3"
     e "Thank you, Therion. I should like to see it done myself, if you don't mind. I shall not be in your way."
 
-    # Therion walks to the body and bends down
     show therion browneutral half neutral:
         ease 1.0 xpos 0.40
         ease 0.6 rotate 9 yoffset 150
 
     tn "Alright. Let's have a look at you, Bishop."
 
-    # the haul: two heaves up from below the screen
     show vidius browsad eyeclosed frown shadow zorder 3:
         matrixcolor ColorizeMatrix("#152238", "#f4dcb3")
         subpixel True
@@ -150,7 +148,6 @@ label therion_glory:
 
     tn "The bastard's still alive."
 
-    # lifts him higher, feet off the floor
     show therion browneutral half grin
     show vidius:
         easein 0.35 ypos 500 rotate -2
@@ -165,7 +162,6 @@ label therion_glory:
     voice "VA/TORA/Vidius/Glory Ending/Vidius_Glory_2.mp3"
     vidius "Put me... down..."
 
-    # a little swing, like winding up a toss
     show therion browneutral half smug
     show vidius:
         easeout 0.25 xoffset -30 rotate 8
@@ -194,7 +190,6 @@ label therion_glory:
     voice "VA/TORA/Vidius/Glory Ending/Vidius_Glory_3.mp3"
     vidius "NO! I said—put me DOWN—"
 
-    # the slip
     show therion browneutral shook gritannoyed
     show vidius:
         easein 0.12 ypos 610 rotate -10
@@ -206,7 +201,6 @@ label therion_glory:
 
     tn "Whoops, nearly lost my grip right there. Should've held higher, the blood's making the robes slippery as grease."
 
-    # dropped on his feet, shoves Therion back
     show vidius:
         easein 0.2 ypos 539 rotate 0 xoffset 0
         pause 0.1
@@ -251,7 +245,6 @@ label therion_glory:
     voice "VA/JASON/GLORY/G8.mp3"
     t "Tell it to who, mate? Ain't nobody in this dark hallway but you and me."
 
-    # Therion reaches, Vidius backs off shaking
     show therion:
         ease 0.5 xpos 0.41
     show vidius browmad eyeshocked shockedm:
@@ -264,7 +257,6 @@ label therion_glory:
     voice "VA/TORA/Vidius/Glory Ending/Vidius_Glory_7.mp3"
     vidius "Get your hands off me, get—"
 
-    # the scratch
     show therion browmad shook gritangry:
         easeout 0.08 xoffset -18 rotate -3
         easein 0.3 xoffset 0 rotate 0
@@ -286,7 +278,6 @@ label therion_glory:
     voice "VA/RAKUMAROO/GLORY/E6.mp3"
     e "Therion, Vidius is still—"
 
-    # Vidius flips to face her
     show vidius browmad eyeshocked angry:
         xzoom -1
         easein 0.1 xoffset 34
@@ -295,7 +286,6 @@ label therion_glory:
     voice "VA/TORA/Vidius/Glory Ending/Vidius_Glory_8.mp3"
     vidius "YOU!"
 
-    # lunge and shove
     show vidius:
         easein 0.35 xpos 0.6 xoffset 0
         easeout 0.1 xoffset 14
@@ -339,7 +329,6 @@ label therion_glory:
     voice "VA/JASON/GLORY/G9.mp3"
     t "DON'T YOU TOUCH HER!"
 
-    # slam into the left wall
     show vidius:
         xzoom -1
         easein 0.18 xpos 0.26 rotate -6
@@ -364,16 +353,13 @@ label therion_glory:
         linear 0.06 xoffset 0 yoffset 0
 
     tn "Slammed the bishop back against the stone wall. Still moving, though. Hands grabbing at the air where my Saintess is standing."
-    # Therion shaking him
     show vidius:
-        # a few hard jerks against the grip
         easein 0.08 xoffset -5 rotate -1.5
         easeout 0.12 xoffset 3 rotate 1
         easein 0.06 xoffset -4 rotate -1
         easeout 0.15 xoffset 2 rotate 0.5
         easein 0.07 xoffset -3 rotate -1
         ease 0.2 xoffset 0 rotate 0
-        # then a low, uneven tremble
         block:
             linear 0.05 xoffset -1.5
             linear 0.07 xoffset 1
@@ -392,7 +378,6 @@ label therion_glory:
 
     tn "I'll break every finger the damn bishop has got. Start with the left, work through, won't be reaching for my girl ever again."
 
-    # Eva settles
     show eva calm browevil closed_sad frown  with Dissolve(1.0)
     show eva:
         ease 1.2 xpos 0.69
@@ -403,7 +388,6 @@ label therion_glory:
     voice "VA/RAKUMAROO/GLORY/E8.mp3"
     e "I will save you from the darkness inside yourself, Vidius."
 
-    # ---- the light, centered on Eva's hands ----
     show expression Solid("#ffd76a", xysize=(700, 700)) as gold_halo zorder 8:
         subpixel True
         anchor (0.5, 0.5)
@@ -472,7 +456,6 @@ label therion_glory:
         alpha 0.0
         ease 2.0 alpha 0.12
 
-    # sprites turn gold
     show vidius:
         parallel:
             ease 1.5 matrixcolor ColorizeMatrix("#5c3d12", "#fff3cf")
@@ -505,7 +488,6 @@ label therion_glory:
 
     tn "Every bad feeling in my head just... dies. Again."
 
-    # ---- light intensifies ----
     show gold_halo:
         subpixel True
         anchor (0.5, 0.5)
@@ -560,7 +542,6 @@ label therion_glory:
 
     tn "Vidius stopped clawing at my chest. Fighting the magic now instead and the bastard is losing."
 
-    # ---- Vidius goes still ----
     show vidius calm browneutral eyeshocked smile:
         ease 0.6 xoffset 0 rotate 0
 
@@ -586,7 +567,6 @@ label therion_glory:
 
     tn "She's still got her hand out. Fingers glowing at the tips."
 
-    # ---- zoom in on Therion, eyes closed, bathed in light ----
     show therion browsad closed smile blush
     show layer master:
         subpixel True
@@ -610,7 +590,6 @@ label therion_glory:
     tn "I'll be good enough by then."
 
 
-    # ---- light goes out ----
     show gold_core:
         ease 1.2 alpha 0.0 zoom 0.2
     show gold_halo:
@@ -646,7 +625,6 @@ label therion_glory:
     hide gold_motes
     hide gold_wash
 
-    # eyes open, then back out to all three
     show therion browneutral luvhalf smile blush
     pause 0.8
 
@@ -696,7 +674,6 @@ label therion_glory:
         yoffset 0
     with fade
 
-    # Therion at mid-left, listening in
     show therion browneutral half neutral behind petra, ansel:
         xzoom -1
         subpixel True
@@ -710,7 +687,6 @@ label therion_glory:
             ease 1.8 yoffset 40
             repeat
 
-    # Petra facing Ansel, back to Therion
     show petra idle browmad shocked shockedm:
         xzoom -1
         subpixel True
@@ -722,7 +698,6 @@ label therion_glory:
             ease 2.1 yoffset 40
             repeat
 
-    # Ansel facing Petra
     show ansel idle browsad frown shocked:
         xzoom 1
         subpixel True
@@ -737,7 +712,6 @@ label therion_glory:
 
     $ renpy.pause(0.5, hard=True)
 
-    # Petra leans in with a little excited hop
     show petra panic browneutral shocked surprised:
         easeout 0.12 yoffset 10
         easein 0.15 yoffset 30
@@ -749,7 +723,6 @@ label therion_glory:
 
     petra "Did you hear? Bishop Vidius, reaching for the Saintess's own gift to take it for the bishop! The light doesn't share kindly, that's what the infirmary sisters are saying."
 
-    # Ansel leans in close, keeping it quiet
     show ansel browsad normal frown:
         ease 0.5 xoffset -20
         block:
@@ -760,7 +733,6 @@ label therion_glory:
 
     ansel "Doesn't know the bishop's own name now. Small mercy 'em still breathing at all."
 
-    # push in on Therion
     show layer master:
         subpixel True
         anchor (0.5, 0.5)
@@ -810,7 +782,6 @@ label therion_glory:
             repeat
     with fade
 
-    # Therion walks in from the right
     show therion browneutral half neutral behind eva:
         subpixel True
         transform_anchor True
@@ -857,7 +828,6 @@ label therion_glory:
     voice "VA/RAKUMAROO/GLORY/E13.mp3"
     e "Wonderful. Come here. Let me look at you."
 
-    # she pulls him in, both closer to center
     show eva:
         ease 0.6 xpos 0.35
         block:
@@ -899,7 +869,6 @@ label therion_glory:
 
     play music "hinokageri.mp3"
 
-    # small lean toward him
     show eva browhappy closed_happy smile blush:
         ease 0.8 xoffset 15
         block:
@@ -996,7 +965,6 @@ label therion_glory:
             ease 2.0 yoffset 734
             ease 2.0 yoffset 750
             repeat
-    # rises facing away, twisting, then whips around to face her
     show therion browsad shook frown blush behind eva:
         subpixel True
         transform_anchor True
@@ -1042,7 +1010,6 @@ label therion_glory:
     voice "VA/JASON/GLORY/G18.mp3"
     t "So you know I'm not really from Aezalath."
 
-    # yandere from here on
     show eva browhappy yandere_happy yanderesmug noblush noshadow
 
     voice "VA/RAKUMAROO/GLORY/E23.mp3"
@@ -1078,7 +1045,6 @@ label therion_glory:
     voice "VA/JASON/GLORY/G20.mp3"
     t "How long...?"
 
-    # small lean toward him
     show eva browevil yandere_happy yandereevilsmile:
         ease 0.8 xoffset 15
         block:
@@ -1093,7 +1059,6 @@ label therion_glory:
 
     tn "So she planned this. She wants ME."
 
-    # he scoots back, giddy
     show therion browsad luv laugh blush:
         ease 0.15 yoffset 985
         ease 0.15 yoffset 1000
@@ -1289,7 +1254,6 @@ label therion_glory:
     voice "VA/JASON/GLORY/G35.mp3"
     t "I think I'm... happy."
 
-    # For the first time, his smile is real.
 
 label epilogue_deluded:
 

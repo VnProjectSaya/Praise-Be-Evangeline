@@ -2,9 +2,6 @@
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
-default persistent.ending_any = False
-default persistent.ending_ruins = False
-default persistent.ending_glory = False
 
 define en = Character(None, kind=bubble, image="NAR_EVA", what_align=(0.5, 0.0), what_text_align=0.5, ctc_position="screen-variable", ctc="bubble_ctc") # Eva's chara
 
@@ -87,7 +84,7 @@ init 999 python:
 label splashscreen:
     scene black
     with Pause(1.0)
-
+    
     show expression Text("{b}Content Warning{/b}\n\nThis game contains gore, violence, death,\nobsessive relationships, psychological abuse and jumpscares.\n\nPlayer discretion is advised.", size=36, text_align=0.5, color="#fef8ea") as warn at truecenter
     with dissolve
     $ renpy.pause(5.0)
@@ -100,11 +97,10 @@ label splashscreen:
     hide warn
     with dissolve
     with Pause(1.0)
-
-
+    
+    
     return
 label start:
-    $ last_known_frame = None # To make sure the frame animates in on transition to gameplay
     $ renpy.show_screen("storybook_frame")
     # Storm: To change the frame, just put the below without the comment
     # $ current_frame = "twisted"

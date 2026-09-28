@@ -1171,37 +1171,15 @@ transform scream_jumpscare:
     easeout 0.35 zoom 0.768
     function ScreamShake(0.47, 1.0, 30)
 
-# ══════════════════════════════════════════════
-# PAST CG — BURNING VILLAGE, FIRST MEETING
-# Path : BG/PAST CG/
-# All PNGs are 3000x1687 canvases -> zoom 0.6402 = 1920x1080
-#
-# STAGING
-#   Sprites are full canvases painted in place. Both pivot on the
-#   fingertip point (canvas 1427, 780 -> anchor 0.4757, 0.4624),
-#   parked at (960, 535), zoom 0.83. Offset 0 = fingers touching.
-#   0.83 is the floor: any smaller and the canvas cuts (Eva's wing top,
-#   her legs on the right, Therion's bottom) slip out from behind the frame.
-#   Master layer pushes 1.0 -> 1.1 from the center, so the touch point
-#   never moves while the camera does.
-#   Touch point / glow: (960, 535)
-# ══════════════════════════════════════════════
-
-
-# ══════════════════════════════════════════════
-# IMAGES
-# ══════════════════════════════════════════════
 
 image bg past_fire:
     "BG/PAST CG/BG.png"
     zoom 0.6402
 
-# Therion: frame 1 while he slides in and trembles
 image ther_past idle:
     "BG/PAST CG/therion1.png"
     zoom 0.6402
 
-# reach plays once and holds on frame 3, no repeat
 image ther_past reach:
     zoom 0.6402
     "BG/PAST CG/therion1.png"
@@ -1210,9 +1188,6 @@ image ther_past reach:
     pause 0.14
     "BG/PAST CG/therion3.png"
 
-# Eva: 2 frame flap forever + small hover bob
-# bob lives inside the image so the stage transforms can move her freely
-# (kept small: a bigger dip shows the cut at the top of her wing)
 image eva_past fly:
     zoom 0.6402
     parallel:
@@ -1227,18 +1202,12 @@ image eva_past fly:
         repeat
 
 
-# ══════════════════════════════════════════════
-# CAMERA
-# ══════════════════════════════════════════════
-
-# slow creep into the fire before anyone shows up (BG only)
 transform past_bg_push:
     subpixel True
     xanchor 0.5 yanchor 0.5 xpos 0.5 ypos 0.5
     zoom 1.0
     ease 6.0 zoom 1.05
 
-# master layer push from the center, show it AFTER scene
 transform past_cam_in:
     subpixel True
     xanchor 0.5 yanchor 0.5 xpos 0.5 ypos 0.5
@@ -1246,25 +1215,18 @@ transform past_cam_in:
     ease 2.2 zoom 1.1
 
 
-# ══════════════════════════════════════════════
-# THERION
-# ══════════════════════════════════════════════
-
-# "Momma!" : fades + slides up from bottom left, stops a bit off his mark
 transform ther_past_in:
     subpixel True
     anchor (0.4757, 0.4624) pos (960, 535) zoom 0.83
     xoffset -520 yoffset 420 alpha 0.0
     easeout 1.4 xoffset -60 yoffset 40 alpha 1.0
 
-# drifts onto his mark while the camera pushes = parallax against the BG
 transform ther_past_settle:
     subpixel True
     anchor (0.4757, 0.4624) pos (960, 535) zoom 0.83
     xoffset -60 yoffset 40 alpha 1.0
     ease 2.2 xoffset 0 yoffset 0
 
-# "can't breathe" : knees going, small trembles with a little sag between
 transform ther_past_shake:
     subpixel True
     anchor (0.4757, 0.4624) pos (960, 535) zoom 0.83
@@ -1279,37 +1241,24 @@ transform ther_past_shake:
         pause 0.4
         repeat
 
-# still, on his mark, for the reach
 transform ther_past_hold:
     subpixel True
     anchor (0.4757, 0.4624) pos (960, 535) zoom 0.83
     xoffset 0 yoffset 0
 
 
-# ══════════════════════════════════════════════
-# EVA
-# ══════════════════════════════════════════════
-
-# from up right, stops close and hovers
 transform eva_past_in:
     subpixel True
     anchor (0.4757, 0.4624) pos (960, 535) zoom 0.83
     xoffset 760 yoffset -600
     easeout 2.2 xoffset 150 yoffset -40
 
-# glides the last stretch until their fingers meet
 transform eva_past_touch:
     subpixel True
     anchor (0.4757, 0.4624) pos (960, 535) zoom 0.83
     xoffset 150 yoffset -40
     ease 1.1 xoffset 0 yoffset 0
 
-
-# ══════════════════════════════════════════════
-# TOUCH GLOW (reuses the holy_* helpers from birb.rpy)
-# fires the moment it's shown, then a white bloom swells out of the
-# fingertips and swallows the screen
-# ══════════════════════════════════════════════
 
 transform past_touch_point:
     anchor (0.5, 0.5)
@@ -1369,7 +1318,6 @@ image touch_glow = Fixed(
     holy_mid(At("holy_motes_raw", touch_motes_in)),
     xysize=(2000, 2000))
 
-# finishes the envelope, stays a little see-through so the pose ghosts behind it
 image touch_flash:
     Solid("#fff6e0")
     alpha 0.0
