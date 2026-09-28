@@ -14,18 +14,23 @@ init python:
         "JayJay" : ["Background Artist", "https://thisjayisred.itch.io/"],
         "ratifuu" : ["Horror CG Artist", "https://vgen.co/ratifuu_/"],
         "Puyoo" : ["CG Render Artist", "https://puyoo.itch.io/"],
+        "Ketantan1820" : ["Logo Artist", "https://x.com/Ketantan1820"],
 
         "CyborgNekoSica" : ["UI Artist", "https://cyborgnekosica.itch.io/"],
         "Otoke Neko" : ["UI Artist, UI Programmer", "https://otojang.itch.io/"],
-        "Naiomh 'Storm' Murchan" : ["UI Programmer", "https://naoimh-murchan.itch.io/"],
+        "Naoimh 'Storm' Murchan" : ["UI Programmer", "https://naoimh-murchan.itch.io/"],
 
         "Rebecca Mondry" : ["Voice of Evangeline", "https://rebeccamondry.carrd.co/"],
         "Jason Daryl-Hall" : ["Voice of Therion", "https://www.imdb.com/name/nm14320438/"],
         "Jakob Bottoms" : ["Voice of Archbishop Desmond", "https://jakobbottoms.carrd.co/"],
-        "Taylor Ota" : ["Voice of Bishop Vidius", "https://www.instagram.com/threadtheocracy/"],
-        "Jefferey Neris" : ["Voice of Knight", "https://jeffereyneris.carrd.co/"],
-        "mistershins" : ["Voice of Caelor", "https://www.twitch.tv/mistershins"],
-        "Sophie Nyx" : ["Voice of Nuns", "https://sophienyx.carrd.co/"],
+        "Taylor Ota" : ["Voice of Bishop Vidius and Petra", "https://www.instagram.com/threadtheocracy/"],
+        "Jefferey Neris" : ["Voice of Knight, Announcer, Villagers and Male Cleric", "https://jeffereyneris.carrd.co/"],
+        "mistershins" : ["Voice of Caelor and Clergyman", "https://www.twitch.tv/mistershins"],
+        "Sophie Nyx" : ["Voice of Nuns, Villagers, Convict and Ansel", "https://sophienyx.carrd.co/"],
+
+        "ROBEANSnovels" : ["Walking Minigame Code", "https://robeansnovels.itch.io/renp-rpg-base-code"],
+        "AMACHA MUSIC" : ["Music", "https://amachamusic.chagasi.com/"],
+        "Freesound" : ["SFX", "https://freesound.org/"],
 
     }
 
@@ -49,12 +54,12 @@ screen credits():
         align (0.5, 0.5)
 
         label _("CREDITS")
-        $ start = (page-2) * 9
-        $ end = start + 9
+        $ start = (page-2) * 6
+        $ end = start + 6
 
         ## PAGE 2
-        if page == 2:
-            grid 3 3:
+        if page > 1:
+            grid 2 3:
                 style_prefix "credcred"
                 for name, desc in list(CREDITS.items())[start:end]:
                     $ role = desc[0]
@@ -63,18 +68,6 @@ screen credits():
                     vbox:
                         textbutton name action OpenURL(link)
                         text role
-
-        elif page == 3:
-            grid 3 3:
-                style_prefix "credcred"
-                for name, desc in list(CREDITS.items())[start:end]:
-                    $ role = desc[0]
-                    $ link = desc[1]
-
-                    vbox:
-                        textbutton name action OpenURL(link)
-                        text role
-
 
         else:
             vbox:
@@ -90,7 +83,7 @@ screen credits():
         hbox:
             xalign 0.5 yalign 1.0 yoffset -50
             spacing 50
-            for i in range(1, 4):
+            for i in range(1, 6):
                 textbutton "{}".format(i) action SetScreenVariable("page", i)
 
 
@@ -149,7 +142,7 @@ style credcred_button_text:
 
 style credcred_text:
     size 25
-    xalign 0.5
+    xalign 0.5 text_align 0.5
     color BROWN
     xsize 500
 
