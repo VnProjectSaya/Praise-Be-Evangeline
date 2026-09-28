@@ -15,6 +15,7 @@ init python:
         "ratifuu" : ["Horror CG Artist", "https://vgen.co/ratifuu_/"],
         "Puyoo" : ["CG Render Artist", "https://puyoo.itch.io/"],
         "Ketantan1820" : ["Logo Artist", "https://x.com/Ketantan1820"],
+        "rufalena" : ["Character Artist", "https://www.tiktok.com/@rufalena"],
 
         "CyborgNekoSica" : ["UI Artist", "https://cyborgnekosica.itch.io/"],
         "Otoke Neko" : ["UI Artist, UI Programmer", "https://otojang.itch.io/"],
