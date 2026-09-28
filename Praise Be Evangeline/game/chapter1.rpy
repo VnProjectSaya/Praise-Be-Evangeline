@@ -202,7 +202,7 @@ label opening_scene:
         xanchor 0.5
         yanchor 1.0
         xpos 890
-        ypos 447
+        ypos 442
         xzoom -1
 
         matrixcolor ColorizeMatrix("#ba7570", "#ba7570")
@@ -216,7 +216,7 @@ label opening_scene:
         xanchor 0.5
         yanchor 1.0
         xpos 1030
-        ypos 447
+        ypos 442
         xzoom 1
 
         matrixcolor ColorizeMatrix("#ba7570", "#ba7570")
@@ -322,7 +322,7 @@ label opening_scene:
         xanchor 0.5
         yanchor 1.0
         xpos 890
-        ypos 447
+        ypos 442
         xzoom -1
 
         matrixcolor ColorizeMatrix("#ba7570", "#ba7570")
@@ -336,7 +336,7 @@ label opening_scene:
         xanchor 0.5
         yanchor 1.0
         xpos 1030
-        ypos 447
+        ypos 442
         xzoom 1
 
         matrixcolor ColorizeMatrix("#ba7570", "#ba7570")
