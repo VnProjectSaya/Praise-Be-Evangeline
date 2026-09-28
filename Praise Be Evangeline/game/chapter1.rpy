@@ -1282,27 +1282,7 @@ label opening_scene:
     en "The final stretch passes without event, though Sir Therion scans the treeline constantly."
 
 
-    show carriage_bg_a at carriage_sway:
-        matrixcolor TintMatrix("#5a7099") * BrightnessMatrix(-0.30)
-        xpos 0
-        linear 20.0 xpos 1920
-        repeat
-
-    show carriage_bg_b at carriage_sway:
-        matrixcolor TintMatrix("#5a7099") * BrightnessMatrix(-0.30)
-        xpos -1920
-        linear 20.0 xpos 0
-        repeat
-
-    show carriage_therion body brownormal normal smile as therion_cg zorder 10:
-        matrixcolor TintMatrix("#5a7099") * BrightnessMatrix(-0.20)
-
-    show carriage_frame zorder 20 at carriage_sway:
-        matrixcolor TintMatrix("#5a7099") * BrightnessMatrix(-0.35)
-
-    show carriage_eva body wings brownormal normal smile as eva_cg zorder 30:
-        matrixcolor TintMatrix("#5a7099") * BrightnessMatrix(-0.20)
-    with dissolve
+    scene black with fade
 
 
     en "Murrayfield emerges just as night falls upon the road. Fitting, really. As though the town hid until the daylight perished."

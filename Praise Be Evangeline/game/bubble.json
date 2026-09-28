@@ -2737,6 +2737,14 @@
         ],
         "properties": "theri_bottom_right"
     },
+    "opening_scene_84c266af": {
+        "area": [
+            640,
+            495,
+            720,
+            225
+        ]
+    },
     "opening_scene_8d4758a0": {
         "area": [
             640,
@@ -4240,6 +4248,14 @@
         ],
         "properties": "theri_bottom_right"
     },
+    "therion_glory_744a2483": {
+        "area": [
+            640,
+            675,
+            800,
+            270
+        ]
+    },
     "therion_glory_769ef13d": {
         "area": [
             720,
@@ -4602,6 +4618,14 @@
         "area": [
             640,
             450,
+            720,
+            225
+        ]
+    },
+    "therion_ruins_5a0f25e7": {
+        "area": [
+            640,
+            720,
             720,
             225
         ]
