@@ -2436,6 +2436,8 @@ label epilogueruins:
     narrator "..."
 
     $ persistent.main_menu = 2
+    $ persistent.ending_ruins = True
+    $ persistent.ending_any = True
     $ config.main_menu_music = mm_tracks[2]
 
     return

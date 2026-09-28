@@ -36,82 +36,79 @@ init python:
 
 
     GAL_BTNS = [
-        "cg1", "cg2", "cg3", "cg4",
+        "cg1", "cg3", "cg4",
         "cgending_death", "cgending_therionexplode",
-        "cg_horrortownspeople", "cg_womanscream", "cg_therionmouth", "cg_creepytherion"
+        "cg_horrortownspeople", "cg_womanscream", "cg_therionmouth", "cg_creepytherion",
+        "cg_glory"
     ]
     ### Add CGs ########
     # TODO: Replace to diff persistents if wanted
     ## CG1
     gal.button("cg1")
-    gal.condition("persistent.cg1_seen")
+    gal.condition("persistent.cg1_seen or persistent.ending_any")
     gal.image("cg1")
-
-    ## CG2
-    gal.button("cg2")
-    gal.condition("persistent.cg2_seen")
-    gal.image("cg2")
-
 
     ## CG3
     gal.button("cg3")
-    gal.condition("persistent.cg3_seen")
+    gal.condition("persistent.cg3_seen or persistent.ending_any")
     gal.image("cg3")
 
 
     ## CG4
     gal.button("cg4")
-    gal.condition("persistent.cg4_seen")
+    gal.condition("persistent.cg4_seen or persistent.ending_any")
     gal.image("cg4")
 
 
     ### ENDINGS
     gal.button("cgending_death")
-    gal.condition("persistent.cgending_death_seen")
+    gal.condition("persistent.cgending_death_seen or persistent.ending_ruins")
     gal.image("cgending_death")
 
 
     gal.button("cgending_therionexplode")
-    gal.condition("persistent.cgending_therionexplode_seen")
+    gal.condition("persistent.cgending_therionexplode_seen or persistent.ending_ruins")
     gal.image("cgending_therionexplode")
 
 
     ### MISC
     gal.button("cg_horrortownspeople")
-    gal.condition("persistent.cg_horrortownspeople_seen")
+    gal.condition("persistent.cg_horrortownspeople_seen or persistent.ending_any")
     gal.image("cg_horrortownspeople")
 
     gal.button("cg_womanscream")
-    gal.condition("persistent.cg_womanscream_seen")
+    gal.condition("persistent.cg_womanscream_seen or persistent.ending_any")
     gal.image("cg_womanscream")
 
     gal.button("cg_therionmouth")
-    gal.condition("persistent.cg_therionmouth_seen")
+    gal.condition("persistent.cg_therionmouth_seen or persistent.ending_any")
     gal.image("cg_therionmouth")
 
     gal.button("cg_creepytherion")
-    gal.condition("persistent.cg_creepytherion_seen")
+    gal.condition("persistent.cg_creepytherion_seen or persistent.ending_any")
     gal.image("cg_creepytherion")
 
-
-
+    gal.button("cg_glory")
+    gal.condition("persistent.ending_glory")
+    gal.image("cg_glory")
 
 
 
 ## IMAGES THAT YOU WILL BE SHOWING IN GAME
 image cg1 = Transform("cgs/cg1_placeholder.webp", fit="contain", xsize=1920)
-image cg2 = Transform("cgs/cg2_placeholder.webp", fit="contain", xsize=1920)
-image cg3 = Transform("cgs/cg3_placeholder.webp", fit="contain", xsize=1920)
-image cg4 = Transform("cgs/cg4_placeholder.webp", fit="contain", xsize=1920)
+image cg3 = Transform("cgs/cg2.webp", fit="contain", xsize=1920)
+image cg4 = Transform("cgs/battle.webp", fit="contain", xsize=1920)
 
 ## ENDINGS
-image cgending_death = Transform("cgs/ending_death_placeholder.webp", fit="contain", xsize=1920)
-image cgending_therionexplode = Transform("cgs/ending_therionexplode_placeholder.webp", fit="contain", xsize=1920)
+image cgending_death = Transform("cgs/ruins2.webp", fit="contain", xsize=1920)
+image cgending_therionexplode = Transform("cgs/ruins1.webp", fit="contain", xsize=1920)
 
-image cg_horrortownspeople = Transform("cgs/horrortownspeople_placeholder.webp", fit="contain", xsize=1920)
+image cg_horrortownspeople = Transform("cgs/HORROR_townspeoplemerged.webp", fit="contain", xsize=1920)
 image cg_womanscream = Transform("cgs/woman_scream_placeholder.webp", fit="contain", xsize=1920)
 image cg_therionmouth = Transform("cgs/therion_mouth_merged_placeholder.webp", fit="contain", xsize=1920)
 image cg_creepytherion = Transform("cgs/creepy_therion_placeholder.webp", fit="contain", xsize=1920)
+
+image cg_glory = Transform("cgs/glory.webp", fit="contain", xsize=1920)
 
 ############################################################
 ### SCREEN ###
@@ -152,8 +149,8 @@ screen gallery():
         hbox:
             xalign 0.5 yalign 1.0 yoffset -50
             spacing 50
-            for i in range(1, 3):
-                textbutton "{}".format(i) action SetScreenVariable("page", i)
+            for i in range(0, 2):
+                textbutton "{}".format(i + 1) action SetScreenVariable("page", i)
 
 
     ## STORY FRAME ##

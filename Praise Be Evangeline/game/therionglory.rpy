@@ -1335,6 +1335,8 @@ label epilogue_deluded:
     narrator "... And they lived happily ever after."
 
     $ persistent.main_menu = 3
+    $ persistent.ending_glory = True
+    $ persistent.ending_any = True
     $ config.main_menu_music = mm_tracks[3]
 
 

@@ -1967,4 +1967,5 @@ label test_animations:
     pause
     hide vidius
 
+    $ persistent.ending_any = True
     return

@@ -2,6 +2,9 @@
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
+default persistent.ending_any = False
+default persistent.ending_ruins = False
+default persistent.ending_glory = False
 
 define en = Character(None, kind=bubble, image="NAR_EVA", what_align=(0.5, 0.0), what_text_align=0.5, ctc_position="screen-variable", ctc="bubble_ctc") # Eva's chara
 
