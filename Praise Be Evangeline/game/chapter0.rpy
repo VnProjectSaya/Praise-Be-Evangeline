@@ -392,7 +392,7 @@ label prologue:
                 repeat 4
 
     en "Then he began to speak a little more." (multiple=2)
-    tn "Then two my brain started working again. Just the one thought, but it was enough." (multiple=2)
+    tn "Then my brain started working again. Just the one thought, but it was enough." (multiple=2)
 
     voice "VA/JASON/zero/T12.mp3"
     t "Bread again?"

@@ -1129,7 +1129,20 @@ label creepy:
 
         en "The shout rattles the windowpanes. His hands shake as he lowers them, tearing the skin of his face a little."
 
-        show eva browneutral normal_sad shocked with dissolve
+        show eva browneutral normal_sad shocked with dissolve:
+            subpixel True
+            xzoom -1
+            zoom 0.285
+            xanchor 0.5
+            yanchor 1.0
+            xpos 0.4
+            yalign 1.0
+            yoffset 48
+            block:
+                ease 1.8 yoffset 28
+                ease 1.8 yoffset 48
+                repeat
+        with dissolve
 
         voice "VA/RAKUMAROO/CHAPTER 2B/E35.mp3"
         e "...!"
