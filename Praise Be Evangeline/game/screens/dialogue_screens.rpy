@@ -44,7 +44,7 @@ style window:
     yalign 1.0
     xysize (1231, 277)
     padding (40, 10, 40, 40)
-    
+
 
 # Style for the dialogue
 style say_dialogue:
@@ -265,8 +265,13 @@ init python:
         else:
             return ["bottom_left", "bottom_right", "top_left", "top_right", "thought"]
 
+    def dynamic_bubble_opacity(st, at, image):
+        return At(image, bubble_opacity(getattr(persistent, "dialogue_alpha"))), None
+
 define bubble.properties_callback = character_bubble_callback
 
+transform bubble_opacity(opacity):
+    alpha opacity
 image bubble_ctc:
     "gui/bubbles/ctc.webp"
     alpha 0.0 anchor (0.5, 0.0) pos (0.5, 1.0)
@@ -339,92 +344,92 @@ define bubble.thoughtframe = Frame("gui/thoughtbubble.png", 55, 55, 55, 55)
 
 define bubble.properties = {
     "bottom_left" : {
-        "window_background" : Frame("gui/Bubble_Text/basic_bottom_left.webp", 150, 60, 150, 50),
+        "window_background" : Frame(DynamicDisplayable(dynamic_bubble_opacity, "gui/Bubble_Text/basic_bottom_left.webp"), 150, 60, 150, 50),
         "window_xpadding" : 80,
         "window_bottom_padding" : 50,
         "window_top_padding" : 40,
     },
 
     "bottom_right" : {
-        "window_background" : Frame("gui/Bubble_Text/basic_bottom_right.webp", 150, 60, 150, 50),
+        "window_background" : Frame(DynamicDisplayable(dynamic_bubble_opacity, "gui/Bubble_Text/basic_bottom_right.webp"), 150, 60, 150, 50),
         "window_xpadding" : 80,
         "window_bottom_padding" : 50,
         "window_top_padding" : 40,
     },
 
     "top_left" : {
-        "window_background" : Frame("gui/Bubble_Text/basic_top_left.webp", 150, 50, 150, 60),
+        "window_background" : Frame(DynamicDisplayable(dynamic_bubble_opacity, "gui/Bubble_Text/basic_top_left.webp"), 150, 50, 150, 60),
         "window_xpadding" : 80,
         "window_bottom_padding" : 80,
         "window_top_padding" : 20,
     },
 
     "top_right" : {
-        "window_background" : Frame("gui/Bubble_Text/basic_top_right.webp", 150, 50, 150, 60),
+        "window_background" : Frame(DynamicDisplayable(dynamic_bubble_opacity, "gui/Bubble_Text/basic_top_right.webp"), 150, 50, 150, 60),
         "window_xpadding" : 80,
         "window_bottom_padding" : 80,
         "window_top_padding" : 20,
     },
 
     "thought" : {
-        "window_background" : Frame("gui/Bubble_Text/Textbox/basic_textbox.webp", 257, 113, 257, 118),
+        "window_background" : Frame(DynamicDisplayable(dynamic_bubble_opacity, "gui/Bubble_Text/Textbox/basic_textbox.webp"), 257, 113, 257, 118),
         "window_xpadding" : 80,
         "window_bottom_padding" : 40,
         "window_top_padding" : 20,
     },
 
     "eva_bottom_left" : {
-        "window_background" : Frame("gui/Bubble_Text/eva_bottom_left.webp", 80, 150, 80, 100),
+        "window_background" : Frame(DynamicDisplayable(dynamic_bubble_opacity, "gui/Bubble_Text/eva_bottom_left.webp"), 80, 150, 80, 100),
         "window_bottom_padding" : 40,
         "window_top_padding" : 40,
     },
 
     "eva_bottom_right" : {
-        "window_background" : Frame("gui/Bubble_Text/eva_bottom_right.webp", 80, 150, 80, 100),
+        "window_background" : Frame(DynamicDisplayable(dynamic_bubble_opacity, "gui/Bubble_Text/eva_bottom_right.webp"), 80, 150, 80, 100),
         "window_bottom_padding" : 40,
         "window_top_padding" : 40,
     },
 
     "eva_top_left" : {
-        "window_background" : Frame("gui/Bubble_Text/eva_top_left.webp", 80, 100, 80, 150),
+        "window_background" : Frame(DynamicDisplayable(dynamic_bubble_opacity, "gui/Bubble_Text/eva_top_left.webp"), 80, 100, 80, 150),
         "window_top_padding" : 20,
     },
 
     "eva_top_right" : {
-        "window_background" : Frame("gui/Bubble_Text/eva_top_right.webp", 80, 100, 80, 150),
+        "window_background" : Frame(DynamicDisplayable(dynamic_bubble_opacity, "gui/Bubble_Text/eva_top_right.webp"), 80, 100, 80, 150),
         "window_top_padding" : 20,
     },
 
     "eva_thought" : {
-        "window_background" : Frame("gui/Bubble_Text/Textbox/eva_textbox.webp", 80, 100, 80, 100),
+        "window_background" : Frame(DynamicDisplayable(dynamic_bubble_opacity, "gui/Bubble_Text/Textbox/eva_textbox.webp"), 80, 100, 80, 100),
         "window_top_padding" : 20,
         "window_bottom_padding" : 50,
     },
 
     "theri_bottom_left" : {
-        "window_background" : Frame("gui/Bubble_Text/therion_bottom_left.webp", 80, 150, 80, 100),
+        "window_background" : Frame(DynamicDisplayable(dynamic_bubble_opacity, "gui/Bubble_Text/therion_bottom_left.webp"), 80, 150, 80, 100),
         "window_bottom_padding" : 50,
         "window_top_padding" : 40,
     },
 
     "theri_bottom_right" : {
-        "window_background" : Frame("gui/Bubble_Text/therion_bottom_right.webp", 80, 150, 80, 100),
+        "window_background" : Frame(DynamicDisplayable(dynamic_bubble_opacity, "gui/Bubble_Text/therion_bottom_right.webp"), 80, 150, 80, 100),
         "window_bottom_padding" : 50,
         "window_top_padding" : 40,
     },
 
     "theri_top_left" : {
-        "window_background" : Frame("gui/Bubble_Text/therion_top_left.webp", 80, 100, 80, 150),
+        "window_background" : Frame(DynamicDisplayable(dynamic_bubble_opacity, "gui/Bubble_Text/therion_top_left.webp"), 80, 100, 80, 150),
         "window_top_padding" : 20,
     },
 
     "theri_top_right" : {
-        "window_background" : Frame("gui/Bubble_Text/therion_top_right.webp", 80, 100, 80, 150),
+        "window_background" : Frame(DynamicDisplayable(dynamic_bubble_opacity, "gui/Bubble_Text/therion_top_right.webp"), 80, 100, 80, 150),
         "window_top_padding" : 20,
     },
 
     "theri_thought" : {
-        "window_background" : Frame("gui/Bubble_Text/Textbox/therion_textbox.webp", 80, 100, 80, 100),
+        "window_background" : Frame(DynamicDisplayable(dynamic_bubble_opacity, "gui/Bubble_Text/Textbox/therion_textbox.webp"), 80, 100, 80, 100),
         "window_top_padding" : 20,
         "window_bottom_padding" : 50,
     }
