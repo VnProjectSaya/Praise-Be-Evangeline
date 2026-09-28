@@ -482,7 +482,7 @@ label opening_scene:
     e "... Are you quite all right, Sir Therion?"
 
     voice "VA/JASON/Therion2.mp3"
-    t "Never better, My Lady. Never better."
+    t "Never better. Never better, My Lady."
 
     scene black
     with fade
