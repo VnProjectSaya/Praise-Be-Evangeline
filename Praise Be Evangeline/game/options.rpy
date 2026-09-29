@@ -412,8 +412,6 @@ init python:
         build.classify("game/BG/EvaHorror.jpg", None)
         build.classify("game/BG/Flashback.jpg", None)
         build.classify("game/BG/Eva_Bedroom_Night_Lit.png", None)
-        build.classify("game/BG/LOOPBG.jpg", None)
-        build.classify("game/BG/Village_Night_Loop.png", None)
     ## WEB STUFF ENDS HERE
 
 
