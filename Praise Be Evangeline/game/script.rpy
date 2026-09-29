@@ -103,7 +103,7 @@ label splashscreen:
     return
 
 # THIS IS ONLY FOR WEB DEMO
-define web_demo = True
+
 label start:
     $ renpy.show_screen("storybook_frame")
     # Storm: To change the frame, just put the below without the comment

@@ -2,6 +2,13 @@
 default monstrous_points = 0
 default deluded_points = 0
 
+# AUDIO THAT PLAYS
+# - thud
+# - bash1
+# - shing
+# - whoosh
+# - slash
+# - slashes
 label opening_scene:
 
     scene bg MM1
