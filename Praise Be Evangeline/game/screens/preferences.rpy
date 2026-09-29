@@ -77,6 +77,34 @@ style cpicker_bar:
 ############################################################
 ### SCREEN ###
 ############################################################
+image check_idle_foreground = "gui/button/check_idle_foreground.webp"
+image check_hover_foreground = ConditionSwitch(
+    "current_frame == 'twisted' or last_known_frame == 'twisted'", "gui/button/check_hover_foreground_twisted.webp",
+    "current_frame == 'dream' or last_known_frame == 'dream'", "gui/button/check_hover_foreground_dream.webp",
+    "current_frame == 'horror' or last_known_frame == 'horror'", "gui/button/check_hover_foreground_horror.webp",
+)
+
+image check_selected_foreground = ConditionSwitch(
+    "current_frame == 'twisted' or last_known_frame == 'twisted'", "gui/button/check_selected_foreground_twisted.webp",
+    "current_frame == 'dream' or last_known_frame == 'dream'", "gui/button/check_selected_foreground_dream.webp",
+    "current_frame == 'horror' or last_known_frame == 'horror'", "gui/button/check_selected_foreground_horror.webp",
+)
+
+transform ui_colorize(c):
+    RGBColorize([c]).transform
+
+image left_hover_arrow = ConditionSwitch(
+    "current_frame == 'twisted' or last_known_frame == 'twisted'", At("gui/button/left_hover_arrow.webp", ui_colorize("#6458CE")),
+    "current_frame == 'dream' or last_known_frame == 'dream'", "gui/button/left_hover_arrow.webp",
+    "current_frame == 'horror' or last_known_frame == 'horror'", At("gui/button/left_hover_arrow.webp", ui_colorize("#FD3461")),
+)
+
+image right_hover_arrow = ConditionSwitch(
+    "current_frame == 'twisted' or last_known_frame == 'twisted'", At("gui/button/right_hover_arrow.webp", ui_colorize("#6458CE")),
+    "current_frame == 'dream' or last_known_frame == 'dream'", "gui/button/right_hover_arrow.webp",
+    "current_frame == 'horror' or last_known_frame == 'horror'", At("gui/button/right_hover_arrow.webp", ui_colorize("#FD3461")),
+)
+
 
 screen preferences():
     tag storybook_frame
@@ -102,24 +130,52 @@ screen preferences():
 
                 grid 2 5:
                     text _("FULLSCREEN")
-                    imagebutton auto "gui/button/check_%s_foreground.webp" action Preference("display", "toggle") align (1.0, 0.5)
+                    imagebutton:
+                        idle "check_idle_foreground"
+                        hover "check_hover_foreground"
+                        selected_idle "check_selected_foreground"
+                        selected_hover "check_selected_foreground"
+                        action Preference("display", "toggle") align (1.0, 0.5)
 
                     text _("SHOW TRANSITIONS")
-                    imagebutton auto "gui/button/check_%s_foreground.webp" action Preference("transitions", "toggle") align (1.0, 0.5)
+                    imagebutton:
+                        idle "check_idle_foreground"
+                        hover "check_hover_foreground"
+                        selected_idle "check_selected_foreground"
+                        selected_hover "check_selected_foreground"
+                        action Preference("transitions", "toggle") align (1.0, 0.5)
 
                     text _("SKIP UNSEEN TEXT")
-                    imagebutton auto "gui/button/check_%s_foreground.webp" action Preference("skip", "toggle") align (1.0, 0.5)
+                    imagebutton:
+                        idle "check_idle_foreground"
+                        hover "check_hover_foreground"
+                        selected_idle "check_selected_foreground"
+                        selected_hover "check_selected_foreground"
+                        action Preference("skip", "toggle") align (1.0, 0.5)
 
                     text _("SKIP AFTER CHOICES")
-                    imagebutton auto "gui/button/check_%s_foreground.webp" action Preference("after choices", "toggle") align (1.0, 0.5)
+                    imagebutton:
+                        idle "check_idle_foreground"
+                        hover "check_hover_foreground"
+                        selected_idle "check_selected_foreground"
+                        selected_hover "check_selected_foreground"
+                        action Preference("after choices", "toggle") align (1.0, 0.5)
 
                     text _("AUTO-WAIT TIME") xsize 145
                     hbox:
-                        imagebutton auto "gui/button/left_%s_arrow.webp" action CycleField(preferences, "afm_time", list(DEFAULT_AUTO_TIME.keys()), reverse=True) align (0.0, 0.5)
+                        imagebutton:
+                            align (0.0, 0.5)
+                            idle "gui/button/left_idle_arrow.webp"
+                            hover "left_hover_arrow"
+                            action CycleField(preferences, "afm_time", list(DEFAULT_AUTO_TIME.keys()), reverse=True)
 
                         text DEFAULT_AUTO_TIME[preferences.afm_time] xalign 0.5
 
-                        imagebutton auto "gui/button/right_%s_arrow.webp" action CycleField(preferences, "afm_time", list(DEFAULT_AUTO_TIME.keys())) align (1.0, 0.5)
+                        imagebutton:
+                            align (1.0, 0.5)
+                            idle "gui/button/right_idle_arrow.webp"
+                            hover "right_hover_arrow"
+                            action CycleField(preferences, "afm_time", list(DEFAULT_AUTO_TIME.keys()))
 
         # AUDIO #
         
@@ -197,7 +253,16 @@ screen preferences():
                         action SetScreenVariable("page", i)
                         text_size 35
                         text_color BROWN
-                        text_hover_color BLUE
+                        if current_frame == "twisted" or last_known_frame == "twisted":
+                            text_hover_color TWISTED_COLOR
+                            text_selected_color TWISTED_COLOR
+                        elif current_frame == "dream" or last_known_frame == "dream":
+                            text_hover_color DREAM_COLOR
+                            text_selected_color DREAM_COLOR
+                        elif current_frame == "horror" or last_known_frame == "horror":
+                            text_hover_color HORROR_COLOR
+                            text_selected_color HORROR_COLOR
+                        # text_hover_color BLUE
                         text_selected_color BLUE
                         text_font NOTOSERIF
 
@@ -220,11 +285,19 @@ screen preferences():
 
                         text _("TYPEFACE")
                         hbox:
-                            imagebutton auto "gui/button/left_%s_arrow.webp" action CycleField(persistent, "dialogue_typeface", list(DEFAULT_FONT.keys()), reverse=True), Function(text_preview.update_text) align (0.0, 0.5)
+                            imagebutton:
+                                align (0.0, 0.5)
+                                idle "gui/button/left_idle_arrow.webp"
+                                hover "left_hover_arrow"
+                                action CycleField(persistent, "dialogue_typeface", list(DEFAULT_FONT.keys()), reverse=True), Function(text_preview.update_text)
 
                             text FONT_TITLE[persistent.dialogue_typeface] xalign 0.5 xsize 100 size 20
 
-                            imagebutton auto "gui/button/right_%s_arrow.webp" action CycleField(persistent, "dialogue_typeface", list(DEFAULT_FONT.keys())), Function(text_preview.update_text) align (1.0, 0.5)
+                            imagebutton:
+                                align (1.0, 0.5)
+                                idle "gui/button/right_idle_arrow.webp"
+                                hover "right_hover_arrow"
+                                action CycleField(persistent, "dialogue_typeface", list(DEFAULT_FONT.keys())), Function(text_preview.update_text)
 
                     null height 10
 
@@ -258,11 +331,19 @@ screen preferences():
                         text _("TEXT SPEED")
                         hbox:
                             xalign 1.0
-                            imagebutton auto "gui/button/left_%s_arrow.webp" action CycleField(preferences, "text_cps", list(DEFAULT_TEXT_SPEED.keys()), reverse=True), Function(text_preview.update_text) align (0.0, 0.5)
+                            imagebutton:
+                                align (0.0, 0.5)
+                                idle "gui/button/left_idle_arrow.webp"
+                                hover "left_hover_arrow"
+                                action CycleField(preferences, "text_cps", list(DEFAULT_TEXT_SPEED.keys()), reverse=True), Function(text_preview.update_text)
 
                             text DEFAULT_TEXT_SPEED[preferences.text_cps] xalign 0.5
 
-                            imagebutton auto "gui/button/right_%s_arrow.webp" action CycleField(preferences, "text_cps", list(DEFAULT_TEXT_SPEED.keys())), Function(text_preview.update_text) align (1.0, 0.5)
+                            imagebutton:
+                                align (1.0, 0.5)
+                                idle "gui/button/right_idle_arrow.webp"
+                                hover "right_hover_arrow"
+                                action CycleField(preferences, "text_cps", list(DEFAULT_TEXT_SPEED.keys())), Function(text_preview.update_text)
 
                     null height 25
 
@@ -293,11 +374,19 @@ screen preferences():
         ypos 25
         padding (150, 20, 25, 15)
         background "gui/frame_round_brown.webp"
-        foreground Transform("gui/qm/arrow_[prefix_]icon.webp", yalign=0.5, xpos=180)
+        foreground Transform("gui/qm/arrow_idle_icon.webp", yalign=0.5, xpos=180)
+        hover_foreground Transform("return_hover_arrow", yalign=0.5, xpos=180)
         text _("RETURN"):
             xpos 100
+            hover_italic True
             idle_color GOLD
-            hover_color BLUE
+            if current_frame == "twisted" or last_known_frame == "twisted":
+                hover_color TWISTED_COLOR
+            elif current_frame == "dream" or last_known_frame == "dream":
+                hover_color DREAM_COLOR
+            elif current_frame == "horror" or last_known_frame == "horror":
+                hover_color HORROR_COLOR
+
         keysym "game_menu"
         action Return()
 

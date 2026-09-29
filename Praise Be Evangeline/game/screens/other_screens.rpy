@@ -236,11 +236,21 @@ screen help():
         ypos 25
         padding (150, 20, 25, 15)
         background "gui/frame_round_brown.webp"
-        foreground Transform("gui/qm/arrow_[prefix_]icon.webp", yalign=0.5, xpos=180)
+        foreground Transform("gui/qm/arrow_idle_icon.webp", yalign=0.5, xpos=180)
+        hover_foreground Transform("return_hover_arrow", yalign=0.5, xpos=180)
         text _("RETURN"):
             xpos 100
+            hover_italic True
             idle_color GOLD
-            hover_color BLUE
+            
+            if current_frame == "twisted" or last_known_frame == "twisted":
+                hover_color TWISTED_COLOR
+                
+            elif current_frame == "dream" or last_known_frame == "dream":
+                hover_color DREAM_COLOR
+                
+            elif current_frame == "horror" or last_known_frame == "horror":
+                hover_color HORROR_COLOR
         keysym "game_menu"
         action (ShowMenu("main_menu_extras") if main_menu else Return())
 

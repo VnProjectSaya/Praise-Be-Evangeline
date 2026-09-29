@@ -20,11 +20,7 @@ image npc_cleric1 = "gui/log/npc_cleric.png"
 image npc_cleric2 = "gui/log/npc_cleric2.png"
 image npc_guard = "gui/log/npc_guard.png"
 
-# if current_frame == "twisted" or last_known_frame == "twisted":
-#         use twisted_frame_overlay()
-#     if current_frame == "dream" or last_known_frame == "dream":
-#         use dream_frame_overlay()
-#     if current_frame == "horror" or last_known_frame == "horror":
+
 image menu_background = ConditionSwitch(
     "current_frame == 'twisted' or last_known_frame == 'twisted'", "gui/menu_background_twisted.webp",
     "current_frame == 'dream' or last_known_frame == 'dream'", "gui/menu_background_dream.webp",
@@ -144,11 +140,20 @@ screen history():
         ypos 25
         padding (150, 20, 25, 15)
         background "gui/frame_round_brown.webp"
-        foreground Transform("gui/qm/arrow_[prefix_]icon.webp", yalign=0.5, xpos=180)
+        foreground Transform("gui/qm/arrow_idle_icon.webp", yalign=0.5, xpos=180)
+        hover_foreground Transform("return_hover_arrow", yalign=0.5, xpos=180)
         text _("RETURN"):
             xpos 100
+            hover_italic True
             idle_color GOLD
-            hover_color BLUE
+            if current_frame == "twisted" or last_known_frame == "twisted":
+                hover_color TWISTED_COLOR
+                
+            elif current_frame == "dream" or last_known_frame == "dream":
+                hover_color DREAM_COLOR
+                
+            elif current_frame == "horror" or last_known_frame == "horror":
+                hover_color HORROR_COLOR
             
         action Return()
 

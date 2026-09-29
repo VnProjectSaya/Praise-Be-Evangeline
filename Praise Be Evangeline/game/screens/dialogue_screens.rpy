@@ -122,9 +122,19 @@ screen qm_button(image_name, alt_text, action, alt_action=None):
     button:
         xysize (35, 35)
         background "gui/qm/{0}_idle_icon.webp".format(image_name)
-        hover_background "gui/qm/{0}_hover_icon.webp".format(image_name)
+        if current_frame == "twisted" or last_known_frame == "twisted":
+            hover_background At("gui/qm/{0}_hover_icon.webp".format(image_name), ui_colorize(TWISTED_COLOR))
+            selected_background At("gui/qm/{0}_hover_icon.webp".format(image_name), ui_colorize(TWISTED_COLOR))
+
+        elif current_frame == "dream" or last_known_frame == "dream":
+            hover_background At("gui/qm/{0}_hover_icon.webp".format(image_name), ui_colorize(DREAM_COLOR))
+            selected_background At("gui/qm/{0}_hover_icon.webp".format(image_name), ui_colorize(DREAM_COLOR))
+                
+        elif current_frame == "horror" or last_known_frame == "horror":
+            hover_background At("gui/qm/{0}_hover_icon.webp".format(image_name), ui_colorize(HORROR_COLOR))
+            selected_background At("gui/qm/{0}_hover_icon.webp".format(image_name), ui_colorize(HORROR_COLOR))
+
         insensitive_background "gui/qm/{0}_insensitive_icon.webp".format(image_name)
-        selected_background "gui/qm/{0}_hover_icon.webp".format(image_name)
         alt alt_text
         action action
         alternate alt_action

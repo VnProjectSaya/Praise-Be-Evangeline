@@ -16,13 +16,21 @@ init python early:
 
     GRAY = "#BABABA"
 
+    DREAM_COLOR = BLUE
+    HORROR_COLOR = "#FD3461"
+    TWISTED_COLOR = "#6458CE"
+
     ## FONTS
     DEJAVU = "DejaVuSans.ttf"
     ATKINSON = "gui/font/Atkinson-Hyperlegible-Regular-102.otf"
     OPENDYS = "_OpenDyslexic3-Regular.ttf"
     NOTOSERIF = "gui/font/NotoSerif-Regular.ttf"
 
-
+image return_hover_arrow = ConditionSwitch(
+    "current_frame == 'twisted' or last_known_frame == 'twisted'", At("gui/qm/arrow_hover_icon.webp", ui_colorize(TWISTED_COLOR)),
+    "current_frame == 'dream' or last_known_frame == 'dream'", "gui/qm/arrow_hover_icon.webp",
+    "current_frame == 'horror' or last_known_frame == 'horror'", At("gui/qm/arrow_hover_icon.webp", ui_colorize(HORROR_COLOR)),
+)
 ################################################################################
 ## Initialization
 ################################################################################

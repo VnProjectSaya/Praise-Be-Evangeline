@@ -21,11 +21,17 @@ style choice_vbox:
     yanchor 0.5
     spacing 33
 
+image choice_hover_background = ConditionSwitch(
+    "current_frame == 'twisted' or last_known_frame == 'twisted'", "gui/button/choice_hover_background_twisted.png",
+    "current_frame == 'dream' or last_known_frame == 'dream'", "gui/button/choice_hover_background_dream.png",
+    "current_frame == 'horror' or last_known_frame == 'horror'", "gui/button/choice_hover_background_horror.png",
+)
 style choice_button:
     is default # This means it doesn't use the usual button styling
     xminimum 600
     ysize 126
-    background Frame("gui/button/choice_[prefix_]background.png", 340, 0, 74, 0)
+    background Frame("gui/button/choice_idle_background.png", 340, 0, 74, 0)
+    hover_background Frame("choice_hover_background", 340, 0, 74, 0)
     insensitive_background Frame(Transform("gui/button/choice_idle_background.png", matrixcolor=SaturationMatrix(0.0)), 340, 0, 74, 0)
     padding (135, 35, 75, 35)
 

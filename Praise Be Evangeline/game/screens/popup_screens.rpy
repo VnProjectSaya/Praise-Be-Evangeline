@@ -42,10 +42,28 @@ screen confirm(message, yes_action, no_action=None):
                 xalign 0.5 xoffset -50 yalign 1.0 yoffset -25
                 spacing 35
                 textbutton _("CONFIRM"):
+                    if current_frame == "twisted" or last_known_frame == "twisted":
+                        text_hover_color TWISTED_COLOR
+                        text_selected_color TWISTED_COLOR
+                    elif current_frame == "dream" or last_known_frame == "dream":
+                        text_hover_color DREAM_COLOR
+                        text_selected_color DREAM_COLOR
+                    elif current_frame == "horror" or last_known_frame == "horror":
+                        text_hover_color HORROR_COLOR
+                        text_selected_color HORROR_COLOR
                     action yes_action, SetVariable("quick_menu", True)
                 # Modified so you can just have a confirmation prompt
                 if no_action is not None:
                     textbutton _("CANCEL"):
+                        if current_frame == "twisted" or last_known_frame == "twisted":
+                            text_hover_color TWISTED_COLOR
+                            text_selected_color TWISTED_COLOR
+                        elif current_frame == "dream" or last_known_frame == "dream":
+                            text_hover_color DREAM_COLOR
+                            text_selected_color DREAM_COLOR
+                        elif current_frame == "horror" or last_known_frame == "horror":
+                            text_hover_color HORROR_COLOR
+                            text_selected_color HORROR_COLOR
                         action no_action, SetVariable("quick_menu", True)
 
     ## Right-click and escape answer "no".
@@ -77,18 +95,22 @@ style confirm_prompt:
     font NOTOSERIF
 
 
-
+image confirm_hover_foreground = ConditionSwitch(
+    "current_frame == 'twisted' or last_known_frame == 'twisted'", At("gui/button/confirm_hover_foreground.webp", ui_colorize(TWISTED_COLOR)),
+    "current_frame == 'dream' or last_known_frame == 'dream'", "gui/button/confirm_hover_foreground.webp",
+    "current_frame == 'horror' or last_known_frame == 'horror'", At("gui/button/confirm_hover_foreground.webp", ui_colorize(HORROR_COLOR)),
+)
 style confirm_button:
     # xalign 0.5
     left_padding 65
-    hover_foreground "gui/button/confirm_hover_foreground.webp"
+    hover_foreground "confirm_hover_foreground"
 
 style confirm_button_text:
     textalign 0.5
     font NOTOSERIF
     hover_italic True
     color BROWN
-    hover_color BLUE
+    
     
 
 
@@ -99,19 +121,49 @@ style confirm_button_text:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#skip-indicator
 
+image skip_rose = ConditionSwitch(
+    "current_frame == 'twisted' or last_known_frame == 'twisted'", "gui/skip_twisted.png",
+    "current_frame == 'dream' or last_known_frame == 'dream'", "gui/skip_dream.png",
+    "current_frame == 'horror' or last_known_frame == 'horror'", "gui/skip_horror.png",
+)
+
+transform ts_skip_fade():
+    linear 0.8 alpha 0.25
+    linear 1.0 alpha 1.0
+    pause 0.2
+    repeat
+
 screen skip_indicator():
 
     zorder 100
-    style_prefix "skip"
+    # style_prefix "skip"
 
-    frame:
-        has hbox
+    hbox:
+        pos (15, 15)
+        at ts_skip_fade()
+        add "skip_rose"
+        text _("Turning the pages..."):
+            yalign 0.5
+            outlines [(2, WHITE)]
+            italic True
+            if current_frame == "twisted" or last_known_frame == "twisted":
+                color TWISTED_COLOR
+                
+            elif current_frame == "dream" or last_known_frame == "dream":
+                color DREAM_COLOR
+                
+            elif current_frame == "horror" or last_known_frame == "horror":
+                color HORROR_COLOR
+                
 
-        text _("Skipping")
+    # frame:
+    #     has hbox
 
-        text "▸" at delayed_blink(0.0, 1.0) style "skip_triangle"
-        text "▸" at delayed_blink(0.2, 1.0) style "skip_triangle"
-        text "▸" at delayed_blink(0.4, 1.0) style "skip_triangle"
+    #     text _("Skipping")
+
+    #     text "▸" at delayed_blink(0.0, 1.0) style "skip_triangle"
+    #     text "▸" at delayed_blink(0.2, 1.0) style "skip_triangle"
+    #     text "▸" at delayed_blink(0.4, 1.0) style "skip_triangle"
 
 
 ## This transform is used to blink the arrows one after another.

@@ -85,11 +85,19 @@ screen file_slots(title):
         ypos 25
         padding (150, 20, 25, 15)
         background "gui/frame_round_brown.webp"
-        foreground Transform("gui/qm/arrow_[prefix_]icon.webp", yalign=0.5, xpos=180)
+        foreground Transform("gui/qm/arrow_idle_icon.webp", yalign=0.5, xpos=180)
+        hover_foreground Transform("return_hover_arrow", yalign=0.5, xpos=180)
         text _("RETURN"):
             xpos 100
             idle_color GOLD
-            hover_color BLUE
+            if current_frame == "twisted" or last_known_frame == "twisted":
+                hover_color TWISTED_COLOR
+                
+            elif current_frame == "dream" or last_known_frame == "dream":
+                hover_color DREAM_COLOR
+                
+            elif current_frame == "horror" or last_known_frame == "horror":
+                hover_color HORROR_COLOR
 
         keysym "game_menu"
         action Return()
@@ -99,9 +107,16 @@ screen file_slots(title):
 ############################################################
 ### STYLES ###
 ############################################################
+image slot_hover_button = ConditionSwitch(
+    "current_frame == 'twisted' or last_known_frame == 'twisted'", "gui/button/slot_hover_background_twisted.webp",
+    "current_frame == 'dream' or last_known_frame == 'dream'", "gui/button/slot_hover_background_dream.webp",
+    "current_frame == 'horror' or last_known_frame == 'horror'", "gui/button/slot_hover_background_horror.webp",
+)
 style slot_button:
     xysize (880, 206)
-    background "gui/button/slot_[prefix_]background.webp"
+    idle_background "gui/button/slot_idle_background.webp"
+    hover_background "slot_hover_button"
+    insensitive_background "gui/button/slot_insensitive_background.webp"
     padding (30, 27)
 
 style slot_label_text:
