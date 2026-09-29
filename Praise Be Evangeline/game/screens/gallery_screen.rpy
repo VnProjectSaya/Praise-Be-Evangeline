@@ -122,8 +122,7 @@ screen gallery():
 
     style_prefix "gallery"
 
-    # TODO: Make this change later.
-    add "gui/menu_background1.webp"
+    add "menu_background"
 
     frame:
         background "gui/gallery/gallery_frame.webp"

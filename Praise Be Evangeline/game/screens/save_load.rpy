@@ -29,7 +29,7 @@ screen load():
 
 
 screen file_slots(title):
-    add "gui/menu_background1.webp"
+    add "menu_background"
 
     viewport id "slvp":
         draggable True mousewheel True pagekeys True

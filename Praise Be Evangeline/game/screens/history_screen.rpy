@@ -13,8 +13,23 @@ image eva_pfp = "gui/log/eva_portrait.webp"
 image therion_pfp = "gui/log/therion_portrait.webp"
 image desmond_pfp = "gui/log/desmond_portrait.webp"
 image vidius_pfp = "gui/log/vidius_portrait.webp"
-image npc_pfp = "gui/log/npc_portrait.webp"
+image caelor_pfp = "gui/log/npc_caelor.png"
 
+image npc_pfp = "gui/log/npc_portrait.webp"
+image npc_cleric1 = "gui/log/npc_cleric.png"
+image npc_cleric2 = "gui/log/npc_cleric2.png"
+image npc_guard = "gui/log/npc_guard.png"
+
+# if current_frame == "twisted" or last_known_frame == "twisted":
+#         use twisted_frame_overlay()
+#     if current_frame == "dream" or last_known_frame == "dream":
+#         use dream_frame_overlay()
+#     if current_frame == "horror" or last_known_frame == "horror":
+image menu_background = ConditionSwitch(
+    "current_frame == 'twisted' or last_known_frame == 'twisted'", "gui/menu_background_twisted.webp",
+    "current_frame == 'dream' or last_known_frame == 'dream'", "gui/menu_background_dream.webp",
+    "current_frame == 'horror' or last_known_frame == 'horror'", "gui/menu_background_horror.webp",
+)
 screen history():
 
     tag storybook_frame
@@ -22,7 +37,7 @@ screen history():
     ## Avoid predicting this screen, as it can be very large.
     predict False
 
-    add "gui/menu_background1.webp"
+    add "menu_background"
 
     
     viewport id "histvp":
@@ -88,6 +103,14 @@ screen history():
                         add "desmond_pfp"
                     elif h.who == "Bishop Vidius":
                         add "vidius_pfp"
+                    elif h.who == "Caelor":
+                        add "npc_caelor"
+                    elif h.who == "Guard":
+                        add "npc_guard"
+                    elif h.who == "Petra":
+                        add "npc_cleric2"
+                    elif h.who == "Ansel":
+                        add "npc_cleric1"
                     else:
                         add "npc_pfp"
 

@@ -51,8 +51,7 @@ style about_label_text:
 screen help():
     tag storybook_frame
 
-    # TODO: Make to change w var
-    add "gui/menu_background1.webp"
+    add "menu_background"
 
 
     style_prefix "pref"

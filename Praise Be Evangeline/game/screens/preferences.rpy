@@ -83,8 +83,7 @@ screen preferences():
 
     default page = 1
 
-    # TODO: Make to change w var
-    add "gui/menu_background1.webp"
+    add "menu_background"
 
     style_prefix "pref"
 
