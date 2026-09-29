@@ -110,7 +110,7 @@ define config.end_game_transition = None
 ## After the game has started, this can be changed with the "window show",
 ## "window hide", and "window auto" statements.
 
-define config.window = "auto"
+define config.window = "hide"
 
 
 ## Transitions used to show and hide the dialogue window
@@ -211,7 +211,7 @@ init python:
     build.classify('game/**.ogg', 'archive')
 
     build.classify('game/**.rpy', 'archive')
-    build.classify('game/**.rpyc', 'archive')
+    build.classify('game/**.rpyc', None)
     ## Files matching documentation patterns are duplicated in a mac app build,
     ## so they appear in both the app and the zip file.
 

@@ -70,7 +70,18 @@ style say_label:
     size gui.name_text_size
     font gui.name_text_font
 
+# For centered character only or other characters of NONE (Excluding narrator)
+screen centered_say(who, what):
+    style_prefix "say"
+    window:
+        id "window"
 
+        text what id "what":
+            font persistent.dialogue_typeface
+            
+
+    ## If there's a side image, display it in front of the text.
+    add SideImage() xalign 0.0 yalign 1.0
 ## Quick Menu screen ###########################################################
 ##
 ## The quick menu is displayed in-game to provide easy access to the out-of-game

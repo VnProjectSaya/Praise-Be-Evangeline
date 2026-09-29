@@ -25,6 +25,7 @@ define de = Character("Desmond", voice_tag="desmond", kind=bubble, image="", ctc
 define announcer = Character("Announcer", voice_tag="misc", kind=bubble, image="")
 define guard = Character("Guard", voice_tag="misc", kind=bubble, image="", ctc_position="screen-variable", ctc="bubble_ctc", show_layer='bubbles')
 
+define centered = Character(None, kind=centered, screen="centered_say")
 image dream_frame:
     anchor (0.5, 0.5) pos (0.5, 0.5)
     "Frame/Dream Frame/dream_frame.webp"
@@ -100,6 +101,9 @@ label splashscreen:
     
     
     return
+
+# THIS IS ONLY FOR WEB DEMO
+define web_demo = True
 label start:
     $ renpy.show_screen("storybook_frame")
     # Storm: To change the frame, just put the below without the comment

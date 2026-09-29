@@ -1881,6 +1881,13 @@ label opening_scene:
     
     en "... Oh dear."
 
+    if web_demo:
+        scene black with dissolve
+        centered "{color=#FFF}The web build is only a demo, please {a=https://azurextwilight.itch.io/praise-be-evangeline}download{/a} for the full game!{/color}"
+        return
+
+    
+
     stop music fadeout 1.0
 
 
